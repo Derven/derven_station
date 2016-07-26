@@ -1,0 +1,11 @@
+// BEGIN_INTERNALS
+/*
+LAST_COMPILE_TIME: 1469524565
+DIR: code code\area code\chemistry code\food code\GAS code\hydroponics code\mob code\mob\food&drinks code\obj code\obj\effects code\obj\other code\obj\structure code\objects code\objects\machine code\objects\weapon code\other code\physics_plus code\power map 
+AUTO_FILE_DIR: ON
+MAP_ICON_TYPE: 0
+LAST_COMPILE_VERSION: 510.1345
+WINDOW: code\GAS\outer.dm;code\GAS\pipe_switcher.dm;code\mob\clothes.dm;code\mob\damage.dm;code\mob\farm.dm;code\mob\human.dm;code\mob\organs.dm;code\mob\food&drinks\reagents.dm;code\obj\effects\EFFECTS.dm;code\obj\structure\windows.dm;code\objects\items.dm;base_build.dm
+FILE: base_build.dm
+*/
+// END_INTERNALS
