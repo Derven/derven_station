@@ -119,6 +119,7 @@ var/global/list/doors = list()
 			windoors_on_turf[x][y] = 0
 			close = 0
 			density = 0
+			opacity = 0
 			pass_gas = 1
 		else
 			usr << "[src] closed"
@@ -126,6 +127,7 @@ var/global/list/doors = list()
 			windoors_on_turf[x][y] = 1
 			close = 1
 			density = 1
+			opacity = 1
 			pass_gas = 0
 	else
 		usr << "No power"
