@@ -114,14 +114,14 @@ var/global/list/doors = list()
 	process()
 	if(on == 1)
 		if(close == 1)
-			usr << "Door opened"
+			usr << "[src] opened"
 			icon_state = "[mydooor]_open"
 			windoors_on_turf[x][y] = 0
 			close = 0
 			density = 0
 			pass_gas = 1
 		else
-			usr << "Door closed"
+			usr << "[src] closed"
 			icon_state = "[mydooor]_close"
 			windoors_on_turf[x][y] = 1
 			close = 1
