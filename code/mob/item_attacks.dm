@@ -22,9 +22,22 @@
 			if(I.medical_power == 1)
 				usr << "\red [I] has ended"
 
+/mob
+	proc
+		shake_me(var/client/C)
+			if(C)
+				var/count = 0
+				while(count < 5)
+					C.eye = pick(locate(x - 1, y, z), locate(x + 1, y, z), locate(x, y - 1, z), locate(x, y + 1, z))
+					sleep(1)
+					count += 1
+				C.eye = src
+
 /mob/human/proc/punch_me_doc(var/obj/item/I, var/obj/item/organs/O)
 	usr << "\red You attack [src] with [I]!"
 	src << "\red [usr] attack you with [I] "
+	message_for_mobs(5, pick('punch_1.ogg','punch_2.ogg'))
+	shake_me(client)
 	if(O.hit_points > 1 && O.burn_points < 100 && get_armor() < I.brute_damage + I.burn_damage)
 		if(I.brute_damage - get_armor() > 0)
 			O.hit_points -= I.brute_damage - get_armor()

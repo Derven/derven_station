@@ -19,10 +19,10 @@ obj
 				icon = 'icons/mob/big_screen.dmi'
 				layer = 60
 				New(client/C)
-					screen_loc="14,14"
+					screen_loc="14,13"
 					C.screen+=src
 
-				act()
+				Click()
 					usr.client.zone = "head"
 					usr.client.HH.icon_state = "head_active"
 					usr.client.HG.icon_state = "groin"
@@ -37,10 +37,10 @@ obj
 				icon = 'icons/mob/big_screen.dmi'
 				layer = 60
 				New(client/C)
-					screen_loc="14,14"
+					screen_loc="14,13"
 					C.screen+=src
 
-				act()
+				Click()
 					usr.client.zone = "chest"
 					usr.client.HH.icon_state = "head"
 					usr.client.HG.icon_state = "groin"
@@ -55,10 +55,10 @@ obj
 				icon = 'icons/mob/big_screen.dmi'
 				layer = 60
 				New(client/C)
-					screen_loc="14,14"
+					screen_loc="14,13"
 					C.screen+=src
 
-				act()
+				Click()
 					usr.client.zone = "chest"
 					usr.client.HH.icon_state = "head"
 					usr.client.HG.icon_state = "groin"
@@ -73,10 +73,10 @@ obj
 				icon = 'icons/mob/big_screen.dmi'
 				layer = 60
 				New(client/C)
-					screen_loc="14,14"
+					screen_loc="14,13"
 					C.screen+=src
 
-				act()
+				Click()
 					usr.client.zone = "l_leg"
 					usr.client.HH.icon_state = "head"
 					usr.client.HG.icon_state = "groin"
@@ -91,10 +91,10 @@ obj
 				icon = 'icons/mob/big_screen.dmi'
 				layer = 60
 				New(client/C)
-					screen_loc="14,14"
+					screen_loc="14,13"
 					C.screen+=src
 
-				act()
+				Click()
 					usr.client.zone = "l_arm"
 					usr.client.HH.icon_state = "head"
 					usr.client.HG.icon_state = "groin"
@@ -110,10 +110,10 @@ obj
 				icon = 'icons/mob/big_screen.dmi'
 				layer = 60
 				New(client/C)
-					screen_loc="14,14"
+					screen_loc="14,13"
 					C.screen+=src
 
-				act()
+				Click()
 					usr.client.zone = "r_arm"
 					usr.client.HH.icon_state = "head"
 					usr.client.HG.icon_state = "groin"
@@ -128,10 +128,10 @@ obj
 				icon = 'icons/mob/big_screen.dmi'
 				layer = 60
 				New(client/C)
-					screen_loc="14,14"
+					screen_loc="14,13"
 					C.screen+=src
 
-				act()
+				Click()
 					usr.client.zone = "groin"
 					usr.client.HH.icon_state = "head"
 					usr.client.HG.icon_state = "groin_active"
@@ -158,7 +158,7 @@ obj
 			icon_state = "shit2"
 			layer = 22
 			New(client/C)
-				screen_loc="14,0 to 14,15"
+				screen_loc="14,0 to 14,14"
 				C.screen+=src
 
 		shit3
@@ -472,7 +472,7 @@ obj
 				screen_loc="11,0"
 				C.screen+=src
 
-			act()
+			Click()
 				if(usr.client.act == "help")
 					usr.client.act = "grab"
 					usr.client.ACT.icon_state = "grab"
@@ -494,7 +494,7 @@ obj
 				screen_loc="13,0"
 				C.screen+=src
 
-			act()
+			Click()
 				if(usr.client.r_int == "walk")
 					usr.client.r_int = "run"
 					usr.client.RUN.icon_state = "run"

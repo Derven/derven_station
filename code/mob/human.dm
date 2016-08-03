@@ -236,6 +236,7 @@ client
 	icon_state = "human"
 	layer = 6
 	weight = 70
+	see_invisible = 0
 
 	var/sound/S
 	var/lying = 0
@@ -345,10 +346,9 @@ client
 
 /mob/human/process()
 	S = new()
-	S.file = 'sound/lobby.mid'
+	S.file = 'sound/beep-02.ogg'
 	usr << S
 	//var/FT = "data/chicken.epta"
-
 	//text2file("HELLO",FT)
 
 	objects += src
@@ -360,9 +360,15 @@ client
 	spawn while(1)
 		//if(src == usr)
 		sleep(1)
+
 		if(usr.client.ouch == 0)
 			S.volume = 0
 			usr << S
+			for(var/obj/roof/my_roof in loc.loc)
+				usr << my_roof.NOROOF
+				my_roof.NOROOF.override = 1
+				var/area/A = loc.loc
+				A.exited = loc.loc
 			usr.client.D.iam = src
 			if(usr.client.U.overlays.len == 0)
 				usr.client.uniform_items.Cut()
@@ -495,6 +501,7 @@ mob/human/proc/start_game()
 /mob/human/New()
 	html_me()
 	white_overlay()
+
 	if(src == usr)
 		sleep(0.1)
 		usr << "\red <h1>Hello!</h1>"
@@ -514,6 +521,8 @@ mob/human/proc/start_game()
 
 /mob/human/act()
 	if(usr.client.act == "harm")
+		message_for_mobs(5, pick('punch_1.ogg','punch_2.ogg'))
+		shake_me(client)
 		switch(usr.client.zone)
 			if("chest")
 				for(var/obj/item/organs/chest/O in src)

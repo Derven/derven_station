@@ -24,4 +24,5 @@
 			lying()
 			var/mob/ghost/G = new(src.loc)
 			G.client = client
+			usr << 'sound/death.ogg'
 			usr << "\red You are dead"

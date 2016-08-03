@@ -76,8 +76,9 @@
 			usr.client.ALERT.icon_state = "oxygen_0"
 
 	if(oxydamage > 25)
+		usr << 'sound/death.ogg'
 		usr << "You are dead."
-		icon_state = "dead"
+
 		var/mob/ghost/G = new(src.loc)
 		G.client = client
 		lying()
@@ -99,7 +100,8 @@
 		var/chance = rand(0,100)
 		if(chance < 2)
 			usr << "\red <font size = 5>Heart is stopped</font>"
-			icon_state = "dead"
+			usr << 'sound/death.ogg'
+
 			lying()
 			var/mob/ghost/G = new(src.loc)
 			G.client = client
@@ -109,7 +111,8 @@
 		var/chance = rand(0,120)
 		if(chance < 4)
 			usr << "\red <font size = 5>Heart is stopped</font>"
-			icon_state = "dead"
+			usr << 'sound/death.ogg'
+
 			lying()
 			var/mob/ghost/G = new(src.loc)
 			G.client = client
@@ -119,7 +122,8 @@
 		var/chance = rand(0,120)
 		if(chance < 6)
 			usr << "\red <font size = 5>Heart is stopped</font>"
-			icon_state = "dead"
+			usr << 'sound/death.ogg'
+
 			lying()
 			var/mob/ghost/G = new(src.loc)
 			G.client = client
@@ -129,7 +133,7 @@
 		var/obj/item/organs/brain/B = H.inner_organ
 		if(B.hit_points < 25)
 			usr << "\red <font size = 5>Brain is dead</font>"
-			icon_state = "dead"
+			usr << 'sound/death.ogg'
 			lying()
 			var/mob/ghost/G = new(src.loc)
 			G.client = client
@@ -139,7 +143,8 @@
 		var/obj/item/organs/heart/H = C.inner_organ
 		if(H.hit_points < 25)
 			usr << "\red <font size = 5>Heart is stopped</font>"
-			icon_state = "dead"
+			usr << 'sound/death.ogg'
+
 			lying()
 			var/mob/ghost/G = new(src.loc)
 			G.client = client

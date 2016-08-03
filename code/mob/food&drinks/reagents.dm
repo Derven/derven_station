@@ -11,6 +11,7 @@
 
 	act_self(src)
 		usr << "\blue You use [src]."
+		message_for_mobs(5, 'sound/chomp.ogg')
 		if(reagents.total_volume)
 			reagents.reaction(usr)
 			spawn(5)
@@ -35,6 +36,7 @@
 
 		act_self(src)
 			usr << "\blue You use [src]."
+			message_for_mobs(5, 'sound/chomp.ogg')
 			if(reagents.total_volume)
 				reagents.reaction(usr)
 				spawn(5)
@@ -73,6 +75,7 @@
 
 		act_self(src)
 			usr << "\blue You use [src]."
+			message_for_mobs(5, 'sound/chomp.ogg')
 			if(reagents.total_volume)
 				reagents.reaction(usr)
 				spawn(5)

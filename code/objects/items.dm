@@ -103,6 +103,7 @@
 */
 /atom/act_by_item(var/obj/item/I)
 	if(!istype(src, /obj/item))
+		message_for_mobs(5, pick('punch_1.ogg','punch_2.ogg'))
 		if(I.brute_damage > 30)
 			if(istype(src, /atom/movable))
 				var/atom/movable/M = src

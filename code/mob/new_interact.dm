@@ -7,6 +7,8 @@ client/show_popup_menus = 0
 /atom/proc/act()
 
 /atom/proc/hit(var/atom/movable/A, var/direction, var/force)
+
+	message_for_mobs(5, pick('punch_1.ogg','punch_2.ogg'))
 	if(istype(A, /obj/beam))
 		if(A)
 			del(A)
@@ -74,6 +76,7 @@ client/show_popup_menus = 0
 		if(src in range(1, usr))
 			if(usr.client.my_hand_active == "right")
 				if(usr.client.rhand_items.len == 0)
+					message_for_mobs(5, 'sound/item.ogg')
 					act()
 
 				if(usr.client.rhand_items.len != 0)
@@ -83,6 +86,7 @@ client/show_popup_menus = 0
 
 			if(usr.client.my_hand_active == "left")
 				if(usr.client.lhand_items.len == 0)
+					message_for_mobs(5, 'sound/item.ogg')
 					act()
 
 				if(usr.client.lhand_items.len != 0)

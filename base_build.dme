@@ -91,6 +91,7 @@
 #include "code\physics_plus\main.dm"
 #include "code\physics_plus\materials.dm"
 #include "code\power\old_power.dm"
+#include "code\turfs\area.dm"
 #include "code\turfs\main.dm"
 #include "code\turfs\simulated.dm"
 #include "code\waves\main.dm"

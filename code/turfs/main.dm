@@ -1,3 +1,6 @@
+/image
+	override = 1
+
 /turf
 	name = "space"
 	icon = 'icons/turf/turfs.dmi'
@@ -49,10 +52,25 @@
 	icon_state = "belck"
 //	oxygen = 500 //500 газоединиц
 //	nitrogen = 35
+/obj/roof
+	icon = 'icons/obj/roof.dmi'
+	layer = 18
+	mouse_opacity = 0
+	var/image/ROOF
+	var/image/NOROOF
+
+	New()
+		NOROOF = image(null, src)
+
 
 /turf/simulated/floor
 	name = "floor"
 	icon_state = "floor"
+	var/obj/roof/my_roof
+
+	New()
+		my_roof = new(src)
+		..()
 
 /turf/simulated/floor/upbitch
 	name = "floor"

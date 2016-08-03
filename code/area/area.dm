@@ -1,7 +1,15 @@
+var/global/image/roof = image('icons/obj/roof.dmi')
+
+/mob
+	var/image/IMAGE
+
 /area
 	icon = 'icons/turf/areas.dmi'
 	icon_state = "area"
 	mouse_opacity = 0
+	var/list/here = list()
+	var/area/exited
+	var/list/obj/roof/area_roof
 	var/turf/simulated/floor/F
 	var/list/power_machines = list()
 	var/obj/machinery/PIZDA/power_device
@@ -13,9 +21,24 @@
 		luminosity = 0
 		layer = 0
 
+	Entered(var/mob/O)
+		if(O && istype(O, /mob))
+			if(O == usr)
+				for(var/obj/roof/my_roof in O.loc.loc)
+					usr << my_roof.NOROOF
+					my_roof.NOROOF.override = 1
+					exited = O.loc.loc
+
+	Exited(var/mob/O)
+		if(O && istype(O, /mob))
+			if(O == usr)
+				for(var/obj/roof/my_roof in exited)
+					my_roof.NOROOF.override = 0
+
 	arrival
 		icon_state = "arrival"
 		layer = 12
+
 
 	AI
 		icon_state = "AI"

@@ -68,6 +68,7 @@
 								Move(zad)
 
 /proc/BOOM(var/turf/center_of_explode, var/force_v)
+	center_of_explode.message_for_mobs(5, 'sound/explosion.ogg')
 	var/list/directions = list(SOUTH, WEST, NORTH, EAST)
 	pressure[center_of_explode.x][center_of_explode.y] += force_v * 12
 	for(var/my_direction in directions)

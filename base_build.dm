@@ -8,7 +8,6 @@ world
 
 	view = 6		// show up to 6 tiles outward from center (13x13 view)
 
-
 // Make objects move 8 pixels per tick when walking
 
 mob
@@ -44,6 +43,7 @@ world
 	turf = /turf/space
 
 	New()
+
 		init()
 		move_gas()
 
@@ -57,3 +57,11 @@ world
 		new /datum/innerouter_controller() //6
 		CABLES()
 		name = "DERVENLAND 47"
+
+
+#define DMM_IGNORE_AREAS 1
+#define DMM_IGNORE_TURFS 2
+#define DMM_IGNORE_OBJS 4
+#define DMM_IGNORE_NPCS 8
+#define DMM_IGNORE_PLAYERS 16
+#define DMM_IGNORE_MOBS 24

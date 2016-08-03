@@ -17,6 +17,7 @@
 		if(reagents.get_reagent_amount("blood") < 50)
 			lying()
 			signal = 1
+			usr << 'sound/death.ogg'
 			src << "<b>Goodbye...</b>"
 	Del()
 		var/mob/ghost/G = new(src.loc)
