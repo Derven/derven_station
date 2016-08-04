@@ -161,25 +161,25 @@
 			if(usr.client.zone == "r_leg")
 				for(var/obj/item/organs/r_leg/O in src)
 					if(r_leg_broken == 1)
-						src << "\blue <font size = 5>Right leg is fixed!</font>"
+						src << "\blue <font size = 5>Right leg fixed!</font>"
 						r_leg_broken = 0
 
 			if(usr.client.zone == "l_leg")
 				for(var/obj/item/organs/l_leg/O in src)
 					if(l_leg_broken == 1)
-						src << "\blue <font size = 5>Left leg is fixed!</font>"
+						src << "\blue <font size = 5>Left leg fixed!</font>"
 						l_leg_broken = 0
 
 			if(usr.client.zone == "l_arm")
 				for(var/obj/item/organs/l_arm/O in src)
 					if(l_arm_broken == 1)
-						src << "\blue <font size = 5>Left arm is fixed!</font>"
+						src << "\blue <font size = 5>Left arm fixed!</font>"
 						l_arm_broken = 0
 
 			if(usr.client.zone == "r_arm")
 				for(var/obj/item/organs/r_arm/O in src)
 					if(r_arm_broken == 1)
-						src << "\blue <font size = 5>Right arm is fixed!</font>"
+						src << "\blue <font size = 5>Right arm fixed!</font>"
 						r_arm_broken = 0
 
 		if(istype(I,/obj/item/scalpel))
