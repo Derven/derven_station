@@ -59,18 +59,13 @@
 	var/image/ROOF
 	var/image/NOROOF
 
-	New()
-		NOROOF = image(null, src)
+//	New()
+//		NOROOF = image(null, src)
 
 
 /turf/simulated/floor
 	name = "floor"
 	icon_state = "floor"
-	var/obj/roof/my_roof
-
-	New()
-		my_roof = new(src)
-		..()
 
 /turf/simulated/floor/upbitch
 	name = "floor"

@@ -33,3 +33,19 @@
 		usr.client.can_get += 10
 		usr << "\blue <b>You feel the power!</b>"
 		del_from_hand()
+
+/obj/item/bonefixer
+	icon = 'icons/obj/surgery.dmi'
+	icon_state = "bone_fixer"
+
+/obj/item/defib
+	icon = 'icons/obj/surgery.dmi'
+	icon_state = "defib"
+
+/obj/item/scalpel
+	icon = 'icons/obj/surgery.dmi'
+	icon_state = "scalpel"
+
+/obj/item/saw
+	icon = 'icons/obj/surgery.dmi'
+	icon_state = "saw"

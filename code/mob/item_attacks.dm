@@ -156,3 +156,193 @@
 				lying()
 				sleep(S.force)
 				unlying()
+
+		if(istype(I,/obj/item/bonefixer))
+			if(usr.client.zone == "r_leg")
+				for(var/obj/item/organs/r_leg/O in src)
+					if(r_leg_broken == 1)
+						src << "\blue <font size = 5>Right leg is fixed!</font>"
+						r_leg_broken = 0
+
+			if(usr.client.zone == "l_leg")
+				for(var/obj/item/organs/l_leg/O in src)
+					if(l_leg_broken == 1)
+						src << "\blue <font size = 5>Left leg is fixed!</font>"
+						l_leg_broken = 0
+
+			if(usr.client.zone == "l_arm")
+				for(var/obj/item/organs/l_arm/O in src)
+					if(l_arm_broken == 1)
+						src << "\blue <font size = 5>Left arm is fixed!</font>"
+						l_arm_broken = 0
+
+			if(usr.client.zone == "r_arm")
+				for(var/obj/item/organs/r_arm/O in src)
+					if(r_arm_broken == 1)
+						src << "\blue <font size = 5>Right arm is fixed!</font>"
+						r_arm_broken = 0
+
+		if(istype(I,/obj/item/scalpel))
+			if(usr.client.zone == "chest")
+				for(var/obj/item/organs/chest/O in src)
+					switch(O.step_of_operation)
+						if(0)
+							O.step_of_operation = 1
+							var/msg = "\red [usr] starts to pry open the incision on [src]'s  with \the [I]."
+							message_for_mobs(5, msg)
+						if(2)
+							var/msg = "\red[usr] is beginning to amputate [src]'s heart with \the [I]."
+							message_for_mobs(5, msg)
+							var/obj/item/organs/heart/H = O.inner_organ
+							usr << 'sound/death.ogg'
+							lying()
+							var/mob/ghost/G = new(src.loc)
+							G.client = client
+							signal = 1
+							H.Move(src.loc)
+
+			if(usr.client.zone == "head")
+				for(var/obj/item/organs/head/O in src)
+					switch(O.step_of_operation)
+						if(0)
+							O.step_of_operation = 1
+							var/msg = "\red [usr] starts to pry open the incision on [src]'s  with \the [I]."
+							message_for_mobs(5, msg)
+						if(2)
+							var/msg = "\red[usr] is beginning to amputate [src]'s brain with \the [I]."
+							message_for_mobs(5, msg)
+							var/obj/item/organs/brain/B = O.inner_organ
+							usr << 'sound/death.ogg'
+							lying()
+							var/mob/ghost/G = new(src.loc)
+							G.client = client
+							signal = 1
+							B.Move(src.loc)
+
+			if(usr.client.zone == "r_leg")
+				for(var/obj/item/organs/r_leg/O in src)
+					switch(O.step_of_operation)
+						if(0)
+							O.step_of_operation = 1
+							var/msg = "\red [usr] starts to pry open the incision on [src]'s  with \the [I]."
+							message_for_mobs(5, msg)
+						if(2)
+							var/msg = "\red[usr] is beginning to amputate [src]'s [O] with \the [I]."
+							message_for_mobs(5, msg)
+							if(skin_color == "white")
+								overlays -= /obj/item/organs/r_leg/white
+								new /obj/item/organs/r_leg/white(src.loc)
+							else
+								overlays -= /obj/item/organs/r_leg/black
+								new /obj/item/organs/r_leg/black(src.loc)
+							del(O)
+							r_leg_broken = 2
+							lying()
+
+			if(usr.client.zone == "l_leg")
+				for(var/obj/item/organs/l_leg/O in src)
+					switch(O.step_of_operation)
+						if(0)
+							O.step_of_operation = 1
+							var/msg = "\red [usr] starts to pry open the incision on [src]'s  with \the [I]."
+							message_for_mobs(5, msg)
+						if(2)
+							var/msg = "\red[usr] is beginning to amputate [src]'s [O] with \the [I]."
+							message_for_mobs(5, msg)
+							if(skin_color == "white")
+								overlays -= /obj/item/organs/l_leg/white
+								new /obj/item/organs/l_leg/white(src.loc)
+							else
+								overlays -= /obj/item/organs/l_leg/black
+								new /obj/item/organs/l_leg/black(src.loc)
+							del(O)
+							l_leg_broken = 2
+							lying()
+
+			if(usr.client.zone == "l_arm")
+				for(var/obj/item/organs/l_arm/O in src)
+					switch(O.step_of_operation)
+						if(0)
+							O.step_of_operation = 1
+							var/msg = "\red [usr] starts to pry open the incision on [src]'s  with \the [I]."
+							message_for_mobs(5, msg)
+						if(2)
+							var/msg = "\red[usr] is beginning to amputate [src]'s [O] with \the [I]."
+							message_for_mobs(5, msg)
+							if(skin_color == "white")
+								overlays -= /obj/item/organs/l_arm/white
+								new /obj/item/organs/l_arm/white(src.loc)
+							else
+								overlays -= /obj/item/organs/l_arm/black
+								new /obj/item/organs/l_arm/black(src.loc)
+							del(O)
+							l_arm_broken = 2
+
+
+			if(usr.client.zone == "r_arm")
+				for(var/obj/item/organs/r_arm/O in src)
+					switch(O.step_of_operation)
+						if(0)
+							O.step_of_operation = 1
+							var/msg = "\red [usr] starts to pry open the incision on [src]'s  with \the [I]."
+							message_for_mobs(5, msg)
+						if(2)
+							var/msg = "\red[usr] is beginning to amputate [src]'s [O] with \the [I]."
+							message_for_mobs(5, msg)
+							if(skin_color == "white")
+								overlays -= /obj/item/organs/r_arm/white
+								new /obj/item/organs/r_arm/white(src.loc)
+							else
+								overlays -= /obj/item/organs/r_arm/black
+								new /obj/item/organs/r_arm/black(src.loc)
+							del(O)
+							r_arm_broken = 2
+
+		if(istype(I,/obj/item/saw))
+			if(usr.client.zone == "chest")
+				for(var/obj/item/organs/chest/O in src)
+					switch(O.step_of_operation)
+						if(1)
+							O.step_of_operation = 2
+							var/msg = "\red *VZH-VZH-VZH*"
+							message_for_mobs(5, msg)
+
+			if(usr.client.zone == "head")
+				for(var/obj/item/organs/head/O in src)
+					switch(O.step_of_operation)
+						if(1)
+							O.step_of_operation = 2
+							var/msg = "\red *VZH-VZH-VZH*"
+							message_for_mobs(5, msg)
+
+			if(usr.client.zone == "r_leg")
+				for(var/obj/item/organs/r_leg/O in src)
+					switch(O.step_of_operation)
+						if(1)
+							O.step_of_operation = 2
+							var/msg = "\red *VZH-VZH-VZH*"
+							message_for_mobs(5, msg)
+
+			if(usr.client.zone == "l_leg")
+				for(var/obj/item/organs/l_leg/O in src)
+					switch(O.step_of_operation)
+						if(1)
+							O.step_of_operation = 2
+							var/msg = "\red *VZH-VZH-VZH*"
+							message_for_mobs(5, msg)
+
+			if(usr.client.zone == "l_arm")
+				for(var/obj/item/organs/l_arm/O in src)
+					switch(O.step_of_operation)
+						if(1)
+							O.step_of_operation = 2
+							var/msg = "\red *VZH-VZH-VZH*"
+							message_for_mobs(5, msg)
+
+			if(usr.client.zone == "r_arm")
+				for(var/obj/item/organs/r_arm/O in src)
+					switch(O.step_of_operation)
+						if(1)
+							O.step_of_operation = 2
+							var/msg = "\red *VZH-VZH-VZH*"
+							message_for_mobs(5, msg)

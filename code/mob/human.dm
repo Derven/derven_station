@@ -3,13 +3,16 @@
 	var/hit_points = 300
 	var/burn_points = 0
 	var/obj/item/organs/inner_organ
+	var/step_of_operation = 0
 	weight = 0
 
 /obj/item/organs/brain
 	hit_points = 100
+	icon_state = "brain"
 
 /obj/item/organs/heart
 	hit_points = 100
+	icon_state = "heart"
 
 /obj/item/organs/r_leg
 	name = "RIGHT LEG"
@@ -70,6 +73,7 @@
 	var/list/obj/item/organs/organs = list()
 
 /mob/proc/white_overlay()
+	skin_color = "white"
 	overlays.Cut()
 	organs.Cut()
 	overlays += /obj/item/organs/r_leg/white
@@ -120,6 +124,7 @@
 
 
 /mob/proc/white_fem_overlay()
+	skin_color = "white"
 	overlays.Cut()
 	organs.Cut()
 	overlays += /obj/item/organs/r_leg/white
@@ -145,6 +150,7 @@
 
 
 /mob/proc/black_overlay()
+	skin_color = "black"
 	overlays.Cut()
 	organs.Cut()
 
@@ -170,6 +176,7 @@
 	organs += HEAD
 
 /mob/proc/black_fem_overlay()
+	skin_color = "black"
 	overlays.Cut()
 	organs.Cut()
 
@@ -229,6 +236,8 @@ client
 	var/l_arm_broken = 0
 	var/r_leg_broken = 0
 	var/l_leg_broken = 0
+	var/skin_color = "white"
+
 
 /mob/human
 	name = "human"

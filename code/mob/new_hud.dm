@@ -59,7 +59,7 @@ obj
 					C.screen+=src
 
 				Click()
-					usr.client.zone = "chest"
+					usr.client.zone = "r_leg"
 					usr.client.HH.icon_state = "head"
 					usr.client.HG.icon_state = "groin"
 					usr.client.HC.icon_state = "chest"
@@ -194,7 +194,7 @@ obj
 			icon_state = "lhand_active"
 			active = 1
 			New(client/C)
-				screen_loc="7,0"
+				screen_loc="8,0"
 				C.screen+=src
 			var/client/C
 
@@ -218,7 +218,7 @@ obj
 			layer = 23
 			icon_state = "rhand"
 			New(client/C)
-				screen_loc="8,0"
+				screen_loc="7,0"
 				C.screen+=src
 			var/client/C
 

@@ -647,7 +647,7 @@ window "infowindow"
 	elem "label1"
 		type = LABEL
 		pos = 4,6
-		size = 599x41
+		size = 599x38
 		anchor1 = 0,0
 		anchor2 = 100,0
 		font-family = ""
@@ -681,8 +681,8 @@ window "infowindow"
 		font-family = "Verdana"
 		font-size = 13
 		font-style = ""
-		text-color = #3f3f3f
-		background-color = #e8dfc8
+		text-color = #e6e6e6
+		background-color = #4f4d42
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -694,7 +694,7 @@ window "infowindow"
 		on-size = ""
 		highlight-color = #00aa00
 		tab-text-color = #ffffff
-		tab-background-color = #ad824b
+		tab-background-color = #272727
 		tab-font-family = "Verdana"
 		tab-font-size = 15
 		tab-font-style = ""

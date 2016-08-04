@@ -20,7 +20,7 @@ var/global/image/roof = image('icons/obj/roof.dmi')
 		areas_list += src
 		luminosity = 0
 		layer = 0
-
+/*
 	Entered(var/mob/O)
 		if(O && istype(O, /mob))
 			if(O == usr)
@@ -34,7 +34,7 @@ var/global/image/roof = image('icons/obj/roof.dmi')
 			if(O == usr)
 				for(var/obj/roof/my_roof in exited)
 					my_roof.NOROOF.override = 0
-
+*/
 	arrival
 		icon_state = "arrival"
 		layer = 12

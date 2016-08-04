@@ -41,7 +41,7 @@ var
 		if(my_temp > MAXTEMP)
 			for(var/mob/M in range(5,src))
 				if(!istype(src, /obj/effect/fire))
-					M << "\red [src] melts"
+					M << "\red [src] is melt"
 			melts()
 			if(istype(src, /turf/simulated/wall))
 				src = new /turf/simulated/floor/plating(src)
