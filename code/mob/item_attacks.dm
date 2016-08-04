@@ -196,6 +196,7 @@
 							var/obj/item/organs/heart/H = O.inner_organ
 							usr << 'sound/death.ogg'
 							lying()
+							drop_all()
 							var/mob/ghost/G = new(src.loc)
 							G.client = client
 							signal = 1
@@ -214,6 +215,7 @@
 							var/obj/item/organs/brain/B = O.inner_organ
 							usr << 'sound/death.ogg'
 							lying()
+							drop_all()
 							var/mob/ghost/G = new(src.loc)
 							G.client = client
 							signal = 1
@@ -346,3 +348,14 @@
 							O.step_of_operation = 2
 							var/msg = "\red *VZH-VZH-VZH*"
 							message_for_mobs(5, msg)
+
+		if(istype(I,/obj/item/defib))
+			if(signal == 1)
+				for(var/mob/ghost/G in world)
+					if(G.ckey == my_key)
+						client = G.client
+						signal = 0
+						unlying()
+						var/msg = "\blue  <b>[src] resurrected</b>"
+						message_for_mobs(5, msg)
+						del(G)

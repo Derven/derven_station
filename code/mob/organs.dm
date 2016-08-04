@@ -22,6 +22,7 @@
 		if(state_of_health < 3)
 			signal = 1
 			lying()
+			drop_all()
 			var/mob/ghost/G = new(src.loc)
 			G.client = client
 			usr << 'sound/death.ogg'

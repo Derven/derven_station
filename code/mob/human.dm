@@ -246,7 +246,7 @@ client
 	layer = 6
 	weight = 70
 	see_invisible = 0
-
+	var/my_key
 	var/sound/S
 	var/lying = 0
 	var/stop = 0
@@ -373,11 +373,7 @@ client
 		if(usr.client.ouch == 0)
 			S.volume = 0
 			usr << S
-			for(var/obj/roof/my_roof in loc.loc)
-				usr << my_roof.NOROOF
-				my_roof.NOROOF.override = 1
-				var/area/A = loc.loc
-				A.exited = loc.loc
+			my_key = ckey
 			usr.client.D.iam = src
 			if(usr.client.U.overlays.len == 0)
 				usr.client.uniform_items.Cut()

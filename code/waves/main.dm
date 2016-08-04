@@ -68,7 +68,7 @@ var/global/list/wave/waves = list()
 		my_text = {"
 		<html>
 		<head><title>Radio</title></head>
-		<body>
+		<body>[STYLE]
 		Settings:
 
 		<br><a href='?src=\ref[src];rad=plus_freq'>Increase freq</a>
@@ -79,7 +79,7 @@ var/global/list/wave/waves = list()
 		<br>length - [wave_length]
 		<br>freq - [frequency]
 
-		</body>
+		</div></body>
 		</html>
 		"}
 
@@ -114,7 +114,7 @@ var/global/list/wave/waves = list()
 		my_text = {"
 		<html>
 		<head><title>Radio</title></head>
-		<body>
+		<body>[STYLE]
 		Settings:
 
 		<br><a href='?src=\ref[src];rad=plus_freq'>Increase freq</a>
@@ -125,7 +125,7 @@ var/global/list/wave/waves = list()
 		<br>length - [wave_length]
 		<br>freq - [frequency]
 
-		</body>
+		</div></body>
 		</html>
 		"}
 

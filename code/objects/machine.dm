@@ -127,6 +127,20 @@ var/list/global/lamps = list()
 	computer_access = "public_computer"
 	var/base_screen
 
+	proc/upd_disp()
+		for(var/obj/item/memory_computer/MC in src)
+			overlays.Cut()
+			var/image/I = image(icon, "overlay_[MC.icon_state]")
+			overlays += I
+
+/obj/machinery/computer/terminal/arcade
+	icon_state = "arcade"
+
+	New()
+		new /obj/item/memory_computer/arcade(src)
+		upd_disp()
+		find_machines()
+
 /obj/machinery/computer/terminal/white
 	icon_state = "terminal_white"
 
@@ -136,7 +150,9 @@ var/list/global/lamps = list()
 
 /obj/machinery/computer/terminal/New()
 	new /obj/item/memory_computer/standart(src)
+	upd_disp()
 	find_machines()
+
 
 /obj/machinery/computer/terminal
 	act()
@@ -170,6 +186,7 @@ var/list/global/lamps = list()
 			I.clear_hand(I)
 			I.Move(src)
 			usr << "\blue You inserts the disk"
+			upd_disp()
 
 /obj/item/memory_computer
 	icon = 'icons/obj/machine/computer.dmi'
@@ -193,6 +210,9 @@ var/list/global/lamps = list()
 	Katebase
 		icon_state = "Kate"
 		computer_access_me = list("katesensor")
+
+	arcade
+		icon_state = "arcade_floppy"
 
 /*
 /obj/machinery/gibber

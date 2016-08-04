@@ -103,6 +103,7 @@
 			usr << 'sound/death.ogg'
 
 			lying()
+			drop_all()
 			var/mob/ghost/G = new(src.loc)
 			G.client = client
 			signal = 1
@@ -114,6 +115,7 @@
 			usr << 'sound/death.ogg'
 
 			lying()
+			drop_all()
 			var/mob/ghost/G = new(src.loc)
 			G.client = client
 			signal = 1
@@ -125,6 +127,7 @@
 			usr << 'sound/death.ogg'
 
 			lying()
+			drop_all()
 			var/mob/ghost/G = new(src.loc)
 			G.client = client
 			signal = 1
@@ -135,6 +138,7 @@
 			usr << "\red <font size = 5>Brain is dead</font>"
 			usr << 'sound/death.ogg'
 			lying()
+			drop_all()
 			var/mob/ghost/G = new(src.loc)
 			G.client = client
 			signal = 1
@@ -144,8 +148,8 @@
 		if(H.hit_points < 25)
 			usr << "\red <font size = 5>Heart is stopped</font>"
 			usr << 'sound/death.ogg'
-
 			lying()
+			drop_all()
 			var/mob/ghost/G = new(src.loc)
 			G.client = client
 			signal = 1

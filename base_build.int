@@ -1,7 +1,7 @@
 // BEGIN_INTERNALS
 /*
-LAST_COMPILE_TIME: 1470329985
-DIR: code code\area code\hydroponics code\mob code\mob\food&drinks code\objects code\objects\machine code\physics_plus code\turfs icons icons\mob icons\obj icons\obj\machine icons\turf interface map 
+LAST_COMPILE_TIME: 1470335355
+DIR: code code\area code\hydroponics code\mob code\mob\food&drinks code\objects code\objects\machine code\other code\physics_plus code\turfs code\waves icons icons\mob icons\obj icons\obj\machine icons\turf interface map 
 PACKAGE_RSC_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_station\base_build_rsc.zip
 AUTO_FILE_DIR: ON
 PACKAGE_DMB_INFO: 
@@ -10,9 +10,9 @@ PACKAGE_DME_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_statio
 LAST_COMPILE_VERSION: 510.1345
 PACKAGE_TYPE: 0
 PACKAGE_DME_START: 
-WINDOW: icons\obj\GAS.dmi;icons\obj\clothes_lying.dmi;icons\obj\library.dmi;icons\obj\structure.dmi;icons\obj\table.dmi;code\objects\strucrture.dm;interface\interface.dmf;code\area\area.dm;code\turfs\main.dm;code\objects\machine\accelerator.dm;icons\obj\machine\computer.dmi;icons\obj\machine\chem.dmi;icons\obj\machine\medbay.dmi;icons\obj\surgery.dmi;code\objects\items.dm;code\objects\medical.dm;code\mob\item_attacks.dm;code\mob\food&drinks\reagents.dm;map\TGSTATION 2.0.8.dmm;code\mob\clothes.dm;code\mob\human.dm;code\objects\machine\medbay.dm;code\mob\life.dm;code\mob\say.dm;icons\mob\human.dmi;icons\mob\organs.dmi;icons\mob\display.dmi;code\mob\new_interact.dm;icons\mob\screen.dmi;code\mob\new_hud.dm
+WINDOW: code\area\area.dm;code\turfs\main.dm;code\objects\machine\accelerator.dm;icons\obj\machine\computer.dmi;icons\obj\machine\chem.dmi;icons\obj\machine\medbay.dmi;icons\obj\surgery.dmi;code\objects\items.dm;code\objects\medical.dm;code\mob\item_attacks.dm;code\mob\food&drinks\reagents.dm;map\TGSTATION 2.0.8.dmm;code\mob\clothes.dm;code\mob\human.dm;code\objects\machine\medbay.dm;code\mob\life.dm;code\mob\say.dm;icons\mob\human.dmi;icons\mob\organs.dmi;icons\mob\display.dmi;icons\mob\screen.dmi;code\mob\new_interact.dm;code\mob\new_hud.dm;code\mob\farm.dm;code\mob\organs.dm;icons\obj\machine\vending.dmi;code\objects\Kate.dm;code\objects\machine.dm;code\other\topic.dm;code\waves\main.dm
 PACKAGE_DME_INFO: 
-FILE: code\mob\item_attacks.dm
+FILE: map\TGSTATION 2.0.8.dmm
 PACKAGE_DMB_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_station\base_build.zip
 PACKAGE_DME_DEMO: 
 */

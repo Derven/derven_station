@@ -21,6 +21,7 @@
 		message_for_mobs(8, "\blue Kate say, \"[message]\"")
 
 
+
 /obj/machinery/computer/terminal/Kate
 	icon = 'icons/obj/machine/Kate.dmi'
 	icon_state = "kate"
