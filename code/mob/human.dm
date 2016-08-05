@@ -208,6 +208,8 @@
 	<body> \
 	Gender: \
 	<br> \
+	<a href='?src=\ref[src];name=input'>Name</a> \
+	<br> \
 	<a href='?src=\ref[src];gend=male'>Male</a> \
 	<a href='?src=\ref[src];gend=female'>Female</a> \
 	<br> \

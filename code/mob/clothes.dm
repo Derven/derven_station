@@ -61,6 +61,10 @@
 	zones = list("chest", "groin", "r_arm", "l_arm", "l_leg", "r_leg")
 	block_damage = 3
 
+/obj/item/clothing/uniform/ENG
+	name = "engsuit"
+	icon_state = "eng"
+
 /obj/item/clothing/uniform/BLACK
 	name = "blacksuit"
 	icon_state = "blacksuit"

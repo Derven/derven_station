@@ -28,6 +28,7 @@
 	density = 1
 	opacity = 1
 	pass_gas = 0
+	var/walltype = "wall"
 //	temperature = 21
 	var/ISSCRDRI = 0
 	var/ISWRN = 0

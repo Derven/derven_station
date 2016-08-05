@@ -204,8 +204,8 @@
 
 /obj/item/seeds/proc/harvest(mob/user = usr)
 	var/obj/item/seeds/produce = product
-	var/obj/machinery/hydroponics/parent = loc //for ease of access
-	var/t_amount = 0
+	//var/obj/machinery/hydroponics/parent = loc //for ease of access
+//	var/t_amount = 0
 
 
 	var/num_of_harvest = rand(0,5)

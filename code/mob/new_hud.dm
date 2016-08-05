@@ -609,6 +609,43 @@ client
 		ACT = new(src)
 		RUN = new(src)
 
+	proc/clear_hud()
+		del(HC)
+		del(HH)
+		del(HG)
+		del(HRL)
+		del(HLL)
+		del(HRA)
+		del(HLA)
+
+		del(TEMP)
+		del(HEALTH)
+		del(ALERT)
+
+		del(L)
+		del(L.C)
+
+		del(R)
+		del(R.C)
+
+		del(D)
+
+		del(C)
+		del(H)
+		del(G)
+		del(F)
+		del(M)
+		del(E)
+		del(U)
+		del(U.C)
+
+		del(S)
+		del(S1)
+		del(S2)
+		del(S3)
+
+		del(ACT)
+		del(RUN)
 
 
 	proc/draw_item_hand(var/hand, var/obj/item/I)

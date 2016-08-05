@@ -1,20 +1,43 @@
 /mob/Topic(href,href_list[])
 
-	if(href_list["prof"] == "captain" && usr.client.ouch == 1)
+	if(href_list["name"] == "input" && usr.client.ouch == 1)
+		usr.name = input("Choose a name for your character.",
+                    "Your Name",
+                    usr.name)
+
+	if(href_list["prof"] == "scientist" && usr.client.ouch == 1)
 		usr.loc = captain[rand(1,captain.len)]
 		usr.client.create_hud()
 		usr.client.ouch = 0
+
+		var/obj/item/clothing/uniform/CHATERED/C = new()
+		var/obj/item/clothing/shoes/BLACK/B_S = new()
+
+		C.wear_to_slot(src, usr.client.uniform_items, usr.client.U)
+		B_S.wear_to_slot(src, usr.client.foot_items, usr.client.F)
 
 	if(href_list["prof"] == "assistant" && usr.client.ouch == 1)
 		usr.loc =assistant[rand(1,assistant.len)]
 		usr.client.create_hud()
 		usr.client.ouch = 0
 
+		var/obj/item/clothing/uniform/BLACK/B = new()
+		var/obj/item/clothing/shoes/BLACK/B_S = new()
+
+		B.wear_to_slot(src, usr.client.uniform_items, usr.client.U)
+		B_S.wear_to_slot(src, usr.client.foot_items, usr.client.F)
+
 	if(href_list["prof"] == "engineer" && usr.client.ouch == 1)
 		usr.loc = engineer[rand(1,engineer.len)]
 		usr.client.create_hud()
 
 		usr.client.ouch = 0
+
+		var/obj/item/clothing/uniform/ENG/E = new()
+		var/obj/item/clothing/shoes/BLACK/B_S = new()
+
+		E.wear_to_slot(src, usr.client.uniform_items, usr.client.U)
+		B_S.wear_to_slot(src, usr.client.foot_items, usr.client.F)
 
 	if(href_list["prof"] == "CE" && usr.client.ouch == 1)
 		usr.loc = CE[rand(1,CE.len)]

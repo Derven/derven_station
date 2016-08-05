@@ -18,6 +18,8 @@
 			lying()
 			signal = 1
 			usr << 'sound/death.ogg'
+			var/mob/ghost/G = new(src.loc)
+			G.client = client
 			src << "<b>Goodbye...</b>"
 	Del()
 		var/mob/ghost/G = new(src.loc)

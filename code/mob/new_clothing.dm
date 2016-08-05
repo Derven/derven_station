@@ -1,3 +1,13 @@
+/obj/item/clothing/proc/wear_to_slot(var/mob/human/M, var/list/L, var/obj/O)
+	wear(usr)
+
+	var/obj/cloth = type
+	cloth = new cloth()
+	cloth.layer = 60
+
+	L += src
+	O.overlays += cloth
+
 /obj/item/clothing
 	icon = 'icons/obj/clothing.dmi'
 	var/icon_for_mob = 'icons/obj/clothing_mob.dmi'

@@ -116,9 +116,13 @@ var
 
 	New()
 		windoors_on_turf[x][y] = 1
+		relativewall_neighbours()
+		..()
 
 	Del()
 		windoors_on_turf[x][y] = 0
+		relativewall_neighbours()
+		..()
 
 /turf/simulated/wall/r_wall
 	MAXTEMP = 5000
