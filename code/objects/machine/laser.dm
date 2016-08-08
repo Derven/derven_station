@@ -4,7 +4,7 @@
 
 #define ADVANCE_LASER_POINT 0.25
 #define SUPER_MEGA_LASER_POINT 3
-
+/*
 /obj/machinery/laser
 	icon = 'icons/obj/machine/shaitan_machine.dmi'
 	icon_state = "laser"
@@ -279,3 +279,4 @@
 
 		if(hit == 1)
 			del(src)
+*/

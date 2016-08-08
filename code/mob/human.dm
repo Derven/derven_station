@@ -261,10 +261,8 @@ client
 	var/min_pulse = 60
 	var/max_pulse = 80
 	var/signal = 0
-	var/a_hole_in_the_ceiling = 0
 	var/reagents_max = 100
 	var/cur_val = 0
-	var/no_way_bro = 0
 	var/mcolor = 1
 	var/my_gend = 1
 	var/oldloc
@@ -286,15 +284,6 @@ client
 		for(var/obj/item/organs/O in usr)
 			stat("\[[O.name]\]", "soundness - [O.hit_points]; percent burns - [O.burn_points]")
 
-
-
-		statpanel("Description")
-		var/turf/T = locate(usr.x,usr.y, usr.z + 1)
-		if(istype(T,/turf/simulated/floor/whore))
-			a_hole_in_the_ceiling = 1
-		else
-			a_hole_in_the_ceiling = 0
-		stat("A hole in the ceiling ", a_hole_in_the_ceiling)
 
 	//shot()
 	//	world << "[src.name] ןמהבטע"
@@ -513,7 +502,6 @@ mob/human/proc/start_game()
 		sleep(0.1)
 		usr << "\red <h1>Hello!</h1>"
 		usr << browse(html,"window=setup")
-		no_way_bro = 1
 		start_game()
 		usr.loc = landmarks[rand(1,landmarks.len)]
 		//light_fom_my_heart_babe()

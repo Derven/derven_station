@@ -4,7 +4,6 @@ var/list/global/lamps = list()
 
 /obj/machinery
 	name = "machinery"
-	var/need_voltage = 0
 	var/need_amperage = 0
 	var/on
 

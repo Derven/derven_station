@@ -81,7 +81,6 @@
 #include "code\objects\machine\sensors.dm"
 #include "code\objects\machine\vendings.dm"
 #include "code\objects\weapon\books.dm"
-#include "code\objects\weapon\gun.dm"
 #include "code\objects\weapon\melee.dm"
 #include "code\objects\weapon\proj.dm"
 #include "code\other\math.dm"

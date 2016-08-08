@@ -17,7 +17,6 @@ var/global/image/roof = image('icons/obj/roof.dmi')
 	var/list/collector_list = list()
 
 	New()
-		areas_list += src
 		luminosity = 0
 		layer = 0
 /*

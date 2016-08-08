@@ -1,16 +1,4 @@
-/*
-	These are simple defaults for your project.
- */
-
-mob
-	step_size = 8
-
-obj
-	step_size = 8
 #define DEBUG 1
-var/global/list/areas_list = list()
-var/global/MAIN_PRIORITY = 0
-var/global/NO_PRIORITY = 0
 
 world
 	fps = 15	// 10 frames per second
@@ -49,11 +37,3 @@ world
 		new /datum/innerouter_controller() //6
 		CABLES()
 		name = "DERVENLAND 47"
-
-
-#define DMM_IGNORE_AREAS 1
-#define DMM_IGNORE_TURFS 2
-#define DMM_IGNORE_OBJS 4
-#define DMM_IGNORE_NPCS 8
-#define DMM_IGNORE_PLAYERS 16
-#define DMM_IGNORE_MOBS 24

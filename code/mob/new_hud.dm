@@ -7,11 +7,6 @@ obj
 		icon = 'icons/mob/screen.dmi'
 		icon_state = "screen"
 		var/active = 0
-		var/time_to_swap = 0
-		var/time_to_drop = 0
-		var/time_to_wear = 0
-		var/time_to_intent = 0
-		var/run_time_to_intent = 0
 
 		human
 			head

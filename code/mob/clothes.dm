@@ -8,13 +8,12 @@
 	var/list/zones = list() //chest head r_arm l_arm l_leg r_leg groin
 	var/block_damage = 0
 
-
 //// SUITS ////
 
-/mob/human/proc/get_armor()
+/mob/human/proc/get_armor(var/mob/human/O)
 	var/armor = 0
 	for(var/obj/item/clothing/CL in src)
-		if(CL.iszone(usr.client.zone))
+		if(CL.iszone(O.client.zone))
 			armor += CL.block_damage
 	return armor
 
