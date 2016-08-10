@@ -5,7 +5,6 @@
 	icon = 'icons/turf/turfs.dmi'
 	icon_state = "space"
 	pass_gas = 1
-	luminosity = 1
 
 	New()
 		if(z == 1)

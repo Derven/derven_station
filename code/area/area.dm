@@ -19,6 +19,7 @@ var/global/image/roof = image('icons/obj/roof.dmi')
 	New()
 		luminosity = 0
 		layer = 0
+		ul_Prep()
 /*
 	Entered(var/mob/O)
 		if(O && istype(O, /mob))

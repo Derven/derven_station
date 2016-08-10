@@ -20,7 +20,9 @@
 	proc/speak(var/message)
 		message_for_mobs(8, "\blue Kate say, \"[message]\"")
 
-
+/obj/LUNALIGHT
+	New()
+		src.ul_SetLuminosity(0, 2, 5)
 
 /obj/machinery/computer/terminal/Kate
 	icon = 'icons/obj/machine/Kate.dmi'

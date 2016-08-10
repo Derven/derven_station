@@ -24,7 +24,6 @@ var/list/global/lamps = list()
 	name = "light"
 	icon = 'icons/obj/light.dmi'
 	icon_state = "light"
-	luminosity = 0
 	layer = 4
 	on = 0
 	use_power = 1
@@ -34,7 +33,7 @@ var/list/global/lamps = list()
 	var/broken = 0
 
 	Del()
-		luminosity = 0
+		ul_SetLuminosity(0)
 
 /obj/machinery/light/act()
 	//world << "[marker]"
@@ -60,9 +59,9 @@ var/list/global/lamps = list()
 /obj/machinery/light/check()
 
 	if(on == 1 && broken == 0)
-		luminosity = 6
+		ul_SetLuminosity(6,6,6)
 	else
-		luminosity = 0
+		ul_SetLuminosity(0)
 
 /obj/machinery/proc/check()
 
@@ -137,6 +136,7 @@ var/list/global/lamps = list()
 
 	New()
 		new /obj/item/memory_computer/arcade(src)
+		src.ul_SetLuminosity(0, 2, 4)
 		upd_disp()
 		find_machines()
 
@@ -148,6 +148,7 @@ var/list/global/lamps = list()
 		M << message
 
 /obj/machinery/computer/terminal/New()
+	src.ul_SetLuminosity(0, 2, 4)
 	new /obj/item/memory_computer/standart(src)
 	upd_disp()
 	find_machines()
