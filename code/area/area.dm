@@ -15,6 +15,7 @@ var/global/image/roof = image('icons/obj/roof.dmi')
 	var/obj/machinery/PIZDA/power_device
 	var/obj/machinery/smes/SMES
 	var/list/collector_list = list()
+	var/datum/machine_controller/MC
 
 	station
 		New()

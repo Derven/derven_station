@@ -42,12 +42,7 @@ var/global/list/cables = list()
 	apc += src
 	var/area/MyArea = src.loc.loc
 	MyArea.power_device = src
-	process()
-
-/obj/machinery/PIZDA/process()
-	if(reset == 1)
-		reset = 0
-		powernet = 0
+	MyArea.MC = new(src)
 
 /obj/machinery/smes/process()
 	spawn while(1)
@@ -65,7 +60,7 @@ var/global/list/cables = list()
 
 /proc/CABLES()
 	spawn while(1)
-		sleep(1)
+		sleep(2)
 		for(var/obj/cable/C in cables)
 			C.process()
 

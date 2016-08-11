@@ -117,7 +117,7 @@ proc/part_of_processing(var/X, var/Y, var/A, var/B)
 	my_min_my_max(A, B)
 	for(var/i = X, i <= Y, i += 1)
 		for(var/g = A, g <= B, g += 1)
-			if(world.cpu > 60)
+			if(world.cpu > 40)
 				sleep(1)
 			if(windoors_on_turf[i][g] == 0 && space_is_here[i][g] == 0)
 				SRCO = oxygen[i][g]
@@ -323,6 +323,7 @@ proc/part_of_processing(var/X, var/Y, var/A, var/B)
 									GAS_move(L_1, L_2)
 
 /proc/GAS_move(var/turf/L_1, var/turf/L_2)
+
 	for(var/atom/movable/M in L_1)
 		sleep(1)
 		if(M)

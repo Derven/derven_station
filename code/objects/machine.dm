@@ -6,6 +6,8 @@ var/list/global/lamps = list()
 	name = "machinery"
 	var/need_amperage = 0
 	var/on
+	var/area/MyArea
+	var/obj/machinery/PIZDA/EBAL
 
 /obj/machinery/recharger
 	name = "recharger"
@@ -36,28 +38,24 @@ var/list/global/lamps = list()
 		ul_SetLuminosity(0)
 
 /obj/machinery/light/act()
-	//world << "[marker]"
+	world << "[on]"
 
 /obj/machinery/New()
 	on = 0
 	personal_id += 1
-	processing = 1
 	objects += src
 	my_id = personal_id
-	process()
+	machines += src
 
 /obj/machinery/light/New()
-	processing = 1
 	objects += src
 	lamps += src
 	on = 0
-	process()
 
 /atom
 	var/stop_process = 0
 
 /obj/machinery/light/check()
-
 	if(on == 1 && broken == 0)
 		ul_SetLuminosity(6,6,6)
 	else
@@ -65,23 +63,30 @@ var/list/global/lamps = list()
 
 /obj/machinery/proc/check()
 
-/obj/machinery/process()
-	machines += src
-	spawn while(1)
-		sleep(6)
-		if(stop_process == 1)
-			return
-		if(use_power == 1)
-			var/area/MyArea = src.loc.loc
-			var/obj/machinery/PIZDA/S = MyArea.power_device
+/datum/machine_controller
+
+	proc/process(var/atom/movable/A)
+		spawn while(1)
 			sleep(1)
-			if(S)
-				if(S.power > 0)
-					S.power -= 1
-					on = 1
-				else
-					on = 0
-				check()
+			for(var/obj/machinery/M in A.loc.loc)
+				if(!istype(M, /obj/machinery/door/airlock))
+					M.process()
+
+	New(var/atom/movable/A)
+		..()
+		process(A)
+
+/obj/machinery/process()
+
+	if(use_power == 1 && stop_process != 1)
+		MyArea = src.loc.loc
+		EBAL = MyArea.power_device
+		if(EBAL && EBAL.power > 0)
+			EBAL.power -= 1
+			on = 1
+		else
+			on = 0
+		check()
 			//if(amperage >= need_amperage && marker == 0)
 			//	on = 1
 			//	amperage = 0
