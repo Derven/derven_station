@@ -90,6 +90,7 @@
 #include "code\physics_plus\heat.dm"
 #include "code\physics_plus\main.dm"
 #include "code\physics_plus\materials.dm"
+#include "code\power\new_power.dm"
 #include "code\power\old_power.dm"
 #include "code\turfs\area.dm"
 #include "code\turfs\main.dm"

@@ -35,5 +35,5 @@ world
 		new /datum/pipe_controller/pipe_controller_master_4(pipes_master_fourth)
 		new /datum/pipe_controller/pipe_controller_master_5(pipes_master_fifth)
 		new /datum/innerouter_controller() //6
-		CABLES()
+		//CABLES()
 		name = "DERVENLAND 47"

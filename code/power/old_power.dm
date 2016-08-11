@@ -45,107 +45,83 @@ var/global/list/cables = list()
 	process()
 
 /obj/machinery/PIZDA/process()
-	spawn while(1)
-		sleep(1)
-		if(reset == 1)
-			reset = 0
-			powernet = 0
+	if(reset == 1)
+		reset = 0
+		powernet = 0
 
 /obj/machinery/smes/process()
 	spawn while(1)
 		sleep(1)
 		for(var/obj/machinery/PIZDA/epta in apc)
+			epta.process()
 			if(epta.powernet == powernet)
 				if(power > 0)
 					power -= 100
 					epta.power += 100
-
 /obj/cable/New()
 	cables += src
+	process()
 
+/*
 /proc/CABLES()
 	spawn while(1)
-		sleep(1)
+		sleep(2)
 		for(var/obj/cable/C in cables)
 			C.process()
+*/
 
 /obj/cable/process()
-	if(dir == 2 || dir == 1 ||  dir == 6 || dir == 10 || dir == 9 || dir == 5)
+	spawn while(1)
+		sleep(2)
+		if(dir == 2 || dir == 1 ||  dir == 6 || dir == 10 || dir == 9 || dir == 5)
 
-		for(var/obj/cable/A in get_step(src,NORTH))
-			if(A.powernet != 0)
-				powernet = A.powernet
+			var/list/directions = list(get_step(src,NORTH), get_step(src,SOUTH))
 
-		for(var/obj/cable/A in get_step(src,SOUTH))
-			if(A.powernet != 0)
-				powernet = A.powernet
+			for(var/direct in directions)
+				var/turf/direction = direct
+				for(var/obj/cable/A in direction)
+					if(A.powernet != 0)
+						powernet = A.powernet
 
-		for(var/obj/machinery/PIZDA/A in get_step(src,SOUTH))
-			if(powernet != 0)
-				A.powernet = powernet
+				for(var/obj/machinery/PIZDA/A in direction)
+					if(powernet != 0)
+						A.powernet = powernet
 
-		for(var/obj/machinery/PIZDA/A in get_step(src,NORTH))
-			if(powernet != 0)
-				A.powernet = powernet
+				for(var/obj/machinery/smes/S in direction)
+					if(S.powernet != 0)
+						powernet = S.powernet
 
-		for(var/obj/machinery/smes/S in get_step(src,SOUTH))
-			powernet = S.powernet
+				for(var/obj/machinery/S in direction)
+					if(istype(S, /obj/machinery/generator) || istype(S,/obj/machinery/collector))
+						S.powernet = powernet
 
-		for(var/obj/machinery/smes/S in get_step(src,NORTH))
-			powernet = S.powernet
+		if(dir == 4 || dir == 6 || dir == 10 || dir == 9 || dir == 5)
 
-		for(var/obj/machinery/generator/S in get_step(src,SOUTH))
-			S.powernet = powernet
+			var/list/directions = list(get_step(src,EAST), get_step(src,WEST))
 
-		for(var/obj/machinery/collector/S in get_step(src,SOUTH))
-			S.powernet = powernet
+			for(var/direct in directions)
+				var/turf/direction = direct
+				for(var/obj/cable/A in direction)
+					if(A.powernet != 0)
+						powernet = A.powernet
 
-		for(var/obj/machinery/collector/S in get_step(src,NORTH))
-			S.powernet = powernet
+				for(var/obj/machinery/PIZDA/A in direction)
+					if(powernet != 0)
+						A.powernet = powernet
 
-		for(var/obj/machinery/generator/S in get_step(src,NORTH))
-			S.powernet = powernet
+				for(var/obj/machinery/smes/S in direction)
+					if(S.powernet != 0)
+						powernet = S.powernet
 
-	if(dir == 4 || dir == 6 || dir == 10 || dir == 9 || dir == 5)
+				for(var/obj/machinery/S in direction)
+					if(istype(S, /obj/machinery/generator) || istype(S,/obj/machinery/collector))
+						S.powernet = powernet
 
-		for(var/obj/cable/A in get_step(src,EAST))
-			if(A.powernet != 0)
-				powernet = A.powernet
+	//code bamming
 
-		for(var/obj/cable/A in get_step(src,WEST))
-			if(A.powernet != 0)
-				powernet = A.powernet
-
-		for(var/obj/machinery/smes/S in get_step(src,EAST))
-			powernet = S.powernet
-
-		for(var/obj/machinery/smes/S in get_step(src,WEST))
-			powernet = S.powernet
-
-		for(var/obj/machinery/generator/S in get_step(src,WEST))
-			S.powernet = powernet
-
-		for(var/obj/machinery/generator/S in get_step(src,EAST))
-			S.powernet = powernet
-
-		for(var/obj/machinery/collector/S in get_step(src,EAST))
-			S.powernet = powernet
-
-		for(var/obj/machinery/collector/S in get_step(src,WEST))
-			S.powernet = powernet
-
-		for(var/obj/machinery/PIZDA/A in get_step(src,EAST))
-			if(powernet != 0)
-				A.powernet = powernet
-
-		for(var/obj/machinery/PIZDA/A in get_step(src,WEST))
-			if(powernet != 0)
-				A.powernet = powernet
-
-	if(reset == 1) // åáàñáðîñ
-		powernet = 0
-		reset = 0
-		world << "ÎÁÐÛÂ ÊÀÁÅËß Ê ÕÓßÌ ÁËßÄÜ"
+		if(reset == 1)
+			powernet = 0
+			reset = 0
 
 /obj/cable/Del()
 
@@ -163,6 +139,7 @@ var/global/list/cables = list()
 /obj/machinery/smes/New()
 	DERVENPOWER ++
 	powernet = DERVENPOWER
+	world << powernet
 	smes += src
 	var/area/MyArea = src.loc.loc
 	MyArea.SMES = src
