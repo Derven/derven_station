@@ -62,60 +62,43 @@ var/global/list/cables = list()
 	cables += src
 	process()
 
-/*
+
 /proc/CABLES()
 	spawn while(1)
-		sleep(2)
+		sleep(1)
 		for(var/obj/cable/C in cables)
 			C.process()
-*/
+
+/obj/cable/proc/PART_PROCESS(var/list/directions)
+	for(var/direct in directions)
+		var/turf/direction = direct
+		for(var/obj/cable/A in direction)
+			if(A.powernet != 0)
+				powernet = A.powernet
+
+		for(var/obj/machinery/S in direction)
+			if(istype(S, /obj/machinery/generator) || istype(S,/obj/machinery/collector))
+				S.powernet = powernet
+
+			if(istype(S, /obj/machinery/smes))
+				if(S.powernet != 0)
+					powernet = S.powernet
+
+			if(istype(S, /obj/machinery/PIZDA))
+				if(powernet != 0)
+					S.powernet = powernet
+
 
 /obj/cable/process()
-	spawn while(1)
-		sleep(2)
-		if(dir == 2 || dir == 1 ||  dir == 6 || dir == 10 || dir == 9 || dir == 5)
+	if(dir == 2 || dir == 1 ||  dir == 6 || dir == 10 || dir == 9 || dir == 5)
 
-			var/list/directions = list(get_step(src,NORTH), get_step(src,SOUTH))
+		var/list/directions = list(get_step(src,NORTH), get_step(src,SOUTH))
+		PART_PROCESS(directions)
 
-			for(var/direct in directions)
-				var/turf/direction = direct
-				for(var/obj/cable/A in direction)
-					if(A.powernet != 0)
-						powernet = A.powernet
+	if(dir == 4 || dir == 6 || dir == 10 || dir == 9 || dir == 5)
 
-				for(var/obj/machinery/PIZDA/A in direction)
-					if(powernet != 0)
-						A.powernet = powernet
-
-				for(var/obj/machinery/smes/S in direction)
-					if(S.powernet != 0)
-						powernet = S.powernet
-
-				for(var/obj/machinery/S in direction)
-					if(istype(S, /obj/machinery/generator) || istype(S,/obj/machinery/collector))
-						S.powernet = powernet
-
-		if(dir == 4 || dir == 6 || dir == 10 || dir == 9 || dir == 5)
-
-			var/list/directions = list(get_step(src,EAST), get_step(src,WEST))
-
-			for(var/direct in directions)
-				var/turf/direction = direct
-				for(var/obj/cable/A in direction)
-					if(A.powernet != 0)
-						powernet = A.powernet
-
-				for(var/obj/machinery/PIZDA/A in direction)
-					if(powernet != 0)
-						A.powernet = powernet
-
-				for(var/obj/machinery/smes/S in direction)
-					if(S.powernet != 0)
-						powernet = S.powernet
-
-				for(var/obj/machinery/S in direction)
-					if(istype(S, /obj/machinery/generator) || istype(S,/obj/machinery/collector))
-						S.powernet = powernet
+		var/list/directions = list(get_step(src,EAST), get_step(src,WEST))
+		PART_PROCESS(directions)
 
 	//code bamming
 
