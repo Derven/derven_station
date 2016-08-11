@@ -113,6 +113,7 @@ var
 /turf/simulated/wall
 	typer = 8
 	weight = 70
+	luminosity = 1
 
 	New()
 		windoors_on_turf[x][y] = 1

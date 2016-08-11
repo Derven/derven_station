@@ -81,29 +81,30 @@ atom
 			luminosity = ul_Luminosity()
 
 			for(var/turf/Affected in view(ul_Luminosity(), src))
-				var/Falloff = src.ul_FalloffAmount(Affected)
+				if(!istype(Affected, /turf/simulated/wall))
+					var/Falloff = src.ul_FalloffAmount(Affected)
 
-				var/DeltaRed = LuminosityRed - Falloff
-				var/DeltaGreen = LuminosityGreen - Falloff
-				var/DeltaBlue = LuminosityBlue - Falloff
+					var/DeltaRed = LuminosityRed - Falloff
+					var/DeltaGreen = LuminosityGreen - Falloff
+					var/DeltaBlue = LuminosityBlue - Falloff
 
-				if(ul_IsLuminous(DeltaRed, DeltaGreen, DeltaBlue))
+					if(ul_IsLuminous(DeltaRed, DeltaGreen, DeltaBlue))
 
-					Affected.LightLevelRed += max(DeltaRed, 0)
-					Affected.LightLevelGreen += max(DeltaGreen, 0)
-					Affected.LightLevelBlue += max(DeltaBlue, 0)
+						Affected.LightLevelRed += max(DeltaRed, 0)
+						Affected.LightLevelGreen += max(DeltaGreen, 0)
+						Affected.LightLevelBlue += max(DeltaBlue, 0)
 
-					Affected.MaxRed += LuminosityRed
-					Affected.MaxGreen += LuminosityGreen
-					Affected.MaxBlue += LuminosityBlue
+						Affected.MaxRed += LuminosityRed
+						Affected.MaxGreen += LuminosityGreen
+						Affected.MaxBlue += LuminosityBlue
 
-					Affected.ul_UpdateLight()
+						Affected.ul_UpdateLight()
 
-					if (ul_SuppressLightLevelChanges == 0)
-						Affected.ul_LightLevelChanged()
+						if (ul_SuppressLightLevelChanges == 0)
+							Affected.ul_LightLevelChanged()
 
-						for(var/atom/AffectedAtom in Affected)
-							AffectedAtom.ul_LightLevelChanged()
+							for(var/atom/AffectedAtom in Affected)
+								AffectedAtom.ul_LightLevelChanged()
 			return
 
 		ul_Extinguish()
@@ -114,32 +115,32 @@ atom
 			ul_Extinguished = UL_I_EXTINGUISHED
 
 			for(var/turf/Affected in view(ul_Luminosity(), src))
+				if(!istype(Affected, /turf/simulated/wall))
+					var/Falloff = ul_FalloffAmount(Affected)
 
-				var/Falloff = ul_FalloffAmount(Affected)
+					var/DeltaRed = LuminosityRed - Falloff
+					var/DeltaGreen = LuminosityGreen - Falloff
+					var/DeltaBlue = LuminosityBlue - Falloff
 
-				var/DeltaRed = LuminosityRed - Falloff
-				var/DeltaGreen = LuminosityGreen - Falloff
-				var/DeltaBlue = LuminosityBlue - Falloff
+					if(ul_IsLuminous(DeltaRed, DeltaGreen, DeltaBlue))
 
-				if(ul_IsLuminous(DeltaRed, DeltaGreen, DeltaBlue))
+						Affected.LightLevelRed -= max(DeltaRed, 0)
+						Affected.LightLevelGreen -= max(DeltaGreen, 0)
+						Affected.LightLevelBlue -= max(DeltaBlue, 0)
 
-					Affected.LightLevelRed -= max(DeltaRed, 0)
-					Affected.LightLevelGreen -= max(DeltaGreen, 0)
-					Affected.LightLevelBlue -= max(DeltaBlue, 0)
+						Affected.MaxRed -= LuminosityRed
+						Affected.MaxGreen -= LuminosityGreen
+						Affected.MaxBlue -= LuminosityBlue
 
-					Affected.MaxRed -= LuminosityRed
-					Affected.MaxGreen -= LuminosityGreen
-					Affected.MaxBlue -= LuminosityBlue
+						Affected.ul_UpdateLight()
 
-					Affected.ul_UpdateLight()
+						if (ul_SuppressLightLevelChanges == 0)
+							Affected.ul_LightLevelChanged()
 
-					if (ul_SuppressLightLevelChanges == 0)
-						Affected.ul_LightLevelChanged()
-
-						for(var/atom/AffectedAtom in Affected)
-							AffectedAtom.ul_LightLevelChanged()
-
-			luminosity = 0
+							for(var/atom/AffectedAtom in Affected)
+								AffectedAtom.ul_LightLevelChanged()
+			if(!istype(src, /turf/simulated/wall))
+				luminosity = 0
 
 			return
 
