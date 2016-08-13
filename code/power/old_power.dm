@@ -41,8 +41,8 @@ var/global/list/cables = list()
 /obj/machinery/PIZDA/New()
 	apc += src
 	var/area/MyArea = src.loc.loc
-	MyArea.power_device = src
-	MyArea.MC = new(src)
+	for(MyArea in areas)
+		MyArea.power_device = src
 
 /obj/machinery/smes/process()
 	spawn while(1)

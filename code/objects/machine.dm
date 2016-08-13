@@ -48,9 +48,10 @@ var/list/global/lamps = list()
 	machines += src
 
 /obj/machinery/light/New()
+	on = 0
 	objects += src
 	lamps += src
-	on = 0
+	machines += src
 
 /atom
 	var/stop_process = 0
@@ -65,19 +66,18 @@ var/list/global/lamps = list()
 
 /datum/machine_controller
 
-	proc/process(var/atom/movable/A)
+	proc/process()
 		spawn while(1)
-			sleep(1)
-			for(var/obj/machinery/M in A.loc.loc)
-				if(!istype(M, /obj/machinery/door/airlock))
+			sleep(2)
+			for(var/obj/machinery/M in machines)
+				if(!istype(M, /obj/machinery/door/airlock) || !istype(M, /obj/machinery/PIZDA))
 					M.process()
 
-	New(var/atom/movable/A)
-		..()
-		process(A)
+	New()
+		sleep(2)
+		process()
 
 /obj/machinery/process()
-
 	if(use_power == 1 && stop_process != 1)
 		MyArea = src.loc.loc
 		EBAL = MyArea.power_device

@@ -13,7 +13,6 @@
 
 /obj/machinery/atmospherics/air_pipe/pipe/outer/proc/out()
 	icon_state = "outer_on"
-	sleep(1)
 	if(oxy > 5)
 		oxygen[x][y] += 1
 		oxy -= 1

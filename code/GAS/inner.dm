@@ -22,11 +22,9 @@ var/global/list/inners_outers = list()
 		spawn while(1)
 			sleep(1)
 
-			for(var/obj/machinery/atmospherics/air_pipe/pipe/inner/I in inners_outers)
-				I.process()
-
-			for(var/obj/machinery/atmospherics/air_pipe/pipe/outer/O in inners_outers)
-				O.process()
+			for(var/obj/machinery/atmospherics/air_pipe/pipe/I in inners_outers)
+				if(istype(I, /obj/machinery/atmospherics/air_pipe/pipe/outer) || istype(I, /obj/machinery/atmospherics/air_pipe/pipe/inner))
+					I.process()
 
 	New()
 		control()
