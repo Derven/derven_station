@@ -50,6 +50,7 @@
 #include "code\luna\copier.dm"
 #include "code\luna\floodlight.dm"
 #include "code\luna\light.dm"
+#include "code\luna\morgue.dm"
 #include "code\mob\clothes.dm"
 #include "code\mob\damage.dm"
 #include "code\mob\farm.dm"
