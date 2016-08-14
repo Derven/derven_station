@@ -366,6 +366,8 @@ var/list/directions = list(EAST, WEST, SOUTH, NORTH, SOUTHWEST, NORTHWEST, SOUTH
 			IT.Move(src)
 
 	act_by_item(var/obj/item/I)
+		PUT(I, usr)
+/*
 		for(I in usr.contents)
 			if(usr.client.my_hand_active == "left")
 				if(istype(I, usr.client.lhand_items[1]))
@@ -380,6 +382,22 @@ var/list/directions = list(EAST, WEST, SOUTH, NORTH, SOUTHWEST, NORTHWEST, SOUTH
 					usr << "\bold You put [I] in [src]"
 					usr.client.R.overlays.Cut()
 					usr.client.rhand_items.Cut()
+*/
+/obj/proc/PUT(var/obj/item/I, var/mob/usr)
+	for(I in usr.contents)
+		if(usr.client.my_hand_active == "left")
+			if(istype(I, usr.client.lhand_items[1]))
+				I.Move(src)
+				usr << "\bold You put [I] in [src]"
+				usr.client.L.overlays.Cut()
+				usr.client.lhand_items.Cut()
+
+		if(usr.client.my_hand_active == "right")
+			if(istype(I, usr.client.rhand_items[1]))
+				I.Move(src)
+				usr << "\bold You put [I] in [src]"
+				usr.client.R.overlays.Cut()
+				usr.client.rhand_items.Cut()
 
 /obj/structure/closet/library
 	icon = 'icons/obj/library.dmi'

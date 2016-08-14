@@ -37,10 +37,7 @@
 	anchored = 1
 
 	New()
-		if(x < 125 && y < 125)
-			pipes_master_first += src
-		else
-			pipes_master_second += src
+		pipes_list += src
 
 /obj/machinery/portable_atmospherics/canister/act()
 	var/turf/T = src.loc
@@ -74,24 +71,19 @@
 	while(open == 1 && (nit > 0 || plas > 0 || oxy > 0))
 		sleep(1)
 		for(var/turf/simulated/floor/F in range(1, src))
-			for(var/atom/A in F)
-				if(A.pass_gas == 1)
-					if(open == 1)
-						if(nit > 5)
-							sleep(1)
-							nitrogen[F.x][F.y] += 5
-							nit -= 5
-						if(plas > 5)
-							sleep(1)
-							plasma[F.x][F.y] += 5
-							plas -= 5
-						if(oxy > 5)
-							sleep(1)
-							oxygen[F.x][F.y] += 5
-							oxy -= 5
+			if(windoors_on_turf[F.x][F.y] == 0)
+				if(open == 1)
+					if(nit > 5)
+						nitrogen[F.x][F.y] += 5
+						nit -= 5
+					if(plas > 5)
+						plasma[F.x][F.y] += 5
+						plas -= 5
+					if(oxy > 5)
+						oxygen[F.x][F.y] += 5
+						oxy -= 5
 
 /obj/machinery/atmospherics/air_pipe/pipe/connector/gas_move()
-
 	//
 	// Передаем газ из одной трубы в другую
 	//
@@ -123,6 +115,7 @@
 		//anglepipe_check(NORTH, 10, 6)
 		//manifold_check(NORTH, 2, 4, 1)
 		pipe_check(NORTH, 10, 6, 2, 4, 1)
+	use_canister()
 
 /obj/machinery/atmospherics/air_pipe/pipe/connector/proc/use_canister()
 	var/turf/T = src.loc

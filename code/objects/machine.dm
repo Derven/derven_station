@@ -64,25 +64,10 @@ var/list/global/lamps = list()
 
 /obj/machinery/proc/check()
 
-/datum/machine_controller
-
-	proc/process()
-		spawn while(1)
-			sleep(2)
-			for(var/obj/machinery/M in machines)
-				if(!istype(M, /obj/machinery/door/airlock) || !istype(M, /obj/machinery/PIZDA))
-					M.process()
-
-	New()
-		sleep(2)
-		process()
-
-/obj/machinery/process()
+/obj/machinery/process(var/obj/machinery/PIZDA/EBAL)
 	if(use_power == 1 && stop_process != 1)
-		MyArea = src.loc.loc
-		EBAL = MyArea.power_device
 		if(EBAL && EBAL.power > 0)
-			EBAL.power -= 1
+			EBAL.power_get(1)
 			on = 1
 		else
 			on = 0

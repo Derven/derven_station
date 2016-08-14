@@ -1,7 +1,7 @@
 #define DEBUG 1
 
 world
-	fps = 15	// 10 frames per second
+	fps = 18	// 10 frames per second
 	icon_size = 32	// 32x32 icon size by default
 	view = 6		// show up to 6 tiles outward from center (13x13 view)
 	hub = "S_Sting.FireSimulator"
@@ -29,12 +29,7 @@ world
 
 		world << "\blue <b>Initializations...</b>"
 		new /datum/Kate()
-		new /datum/pipe_controller/pipe_controller_master_1(pipes_master_first)
-		new /datum/pipe_controller/pipe_controller_master_2(pipes_master_second)
-		new /datum/pipe_controller/pipe_controller_master_3(pipes_master_third)
-		new /datum/pipe_controller/pipe_controller_master_4(pipes_master_fourth)
-		new /datum/pipe_controller/pipe_controller_master_5(pipes_master_fifth)
 		new /datum/innerouter_controller()
-		new /datum/machine_controller()
+		new /datum/pipe_controller()
 		CABLES()
 		name = "DERVENLAND 47"

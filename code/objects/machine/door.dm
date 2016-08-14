@@ -111,7 +111,8 @@ var/global/list/doors = list()
 			pass_gas = 1
 
 /obj/machinery/door/airlock/act()
-	process()
+	var/area/A = src.loc.loc
+	process(A.power_device)
 	if(on == 1)
 		if(close == 1)
 			usr << "[src] opened"

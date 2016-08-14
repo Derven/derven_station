@@ -39,6 +39,72 @@
 		E.wear_to_slot(src, usr.client.uniform_items, usr.client.U)
 		B_S.wear_to_slot(src, usr.client.foot_items, usr.client.F)
 
+	if(href_list["prof"] == "security" && usr.client.ouch == 1)
+		usr.loc =security[rand(1,security.len)]
+		usr.client.create_hud()
+		usr.client.ouch = 0
+
+		var/obj/item/clothing/uniform/BLACK/B = new()
+		var/obj/item/clothing/shoes/BLACK/B_S = new()
+
+		B.wear_to_slot(src, usr.client.uniform_items, usr.client.U)
+		B_S.wear_to_slot(src, usr.client.foot_items, usr.client.F)
+
+	if(href_list["prof"] == "captain" && usr.client.ouch == 1)
+		usr.loc =captain[rand(1,captain.len)]
+		usr.client.create_hud()
+		usr.client.ouch = 0
+
+		var/obj/item/clothing/uniform/BLACK/B = new()
+		var/obj/item/clothing/shoes/BLACK/B_S = new()
+
+		B.wear_to_slot(src, usr.client.uniform_items, usr.client.U)
+		B_S.wear_to_slot(src, usr.client.foot_items, usr.client.F)
+
+	if(href_list["prof"] == "doctor" && usr.client.ouch == 1)
+		usr.loc =doctor[rand(1,doctor.len)]
+		usr.client.create_hud()
+		usr.client.ouch = 0
+
+		var/obj/item/clothing/uniform/BLACK/B = new()
+		var/obj/item/clothing/shoes/BLACK/B_S = new()
+
+		B.wear_to_slot(src, usr.client.uniform_items, usr.client.U)
+		B_S.wear_to_slot(src, usr.client.foot_items, usr.client.F)
+
+	if(href_list["prof"] == "detective" && usr.client.ouch == 1)
+		usr.loc =detective[rand(1,detective.len)]
+		usr.client.create_hud()
+		usr.client.ouch = 0
+
+		var/obj/item/clothing/uniform/BLACK/B = new()
+		var/obj/item/clothing/shoes/BLACK/B_S = new()
+
+		B.wear_to_slot(src, usr.client.uniform_items, usr.client.U)
+		B_S.wear_to_slot(src, usr.client.foot_items, usr.client.F)
+
+	if(href_list["prof"] == "bartender" && usr.client.ouch == 1)
+		usr.loc =bartender[rand(1,bartender.len)]
+		usr.client.create_hud()
+		usr.client.ouch = 0
+
+		var/obj/item/clothing/uniform/BLACK/B = new()
+		var/obj/item/clothing/shoes/BLACK/B_S = new()
+
+		B.wear_to_slot(src, usr.client.uniform_items, usr.client.U)
+		B_S.wear_to_slot(src, usr.client.foot_items, usr.client.F)
+
+	if(href_list["prof"] == "cook" && usr.client.ouch == 1)
+		usr.loc =cook[rand(1,cook.len)]
+		usr.client.create_hud()
+		usr.client.ouch = 0
+
+		var/obj/item/clothing/uniform/BLACK/B = new()
+		var/obj/item/clothing/shoes/BLACK/B_S = new()
+
+		B.wear_to_slot(src, usr.client.uniform_items, usr.client.U)
+		B_S.wear_to_slot(src, usr.client.foot_items, usr.client.F)
+
 	if(href_list["prof"] == "CE" && usr.client.ouch == 1)
 		usr.loc = CE[rand(1,CE.len)]
 		usr.client.create_hud()

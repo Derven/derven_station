@@ -1,6 +1,7 @@
 
 /obj/effect/fire/New()
 	sleep(1)
+	ul_SetLuminosity(2, 1, 0)
 	for(var/turf/simulated/wall/W in orange(1,src))
 		W.heat(temperature[x][y], 20)
 
@@ -10,6 +11,9 @@
 				A.heat(temperature[x][y], 20)
 
 	process()
+
+/obj/effect/fire/Del()
+		ul_SetLuminosity(0)
 
 /turf
 

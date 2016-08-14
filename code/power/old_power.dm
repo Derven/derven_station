@@ -32,23 +32,34 @@ var/global/list/cables = list()
 	var/reset = 0
 
 	//
-	var/power = 1000
+	var/power = 15000
 	var/new_power = 0
+
+	proc/power_get(var/val)
+		power -= val
+
+	process()
+		spawn while(1)
+			sleep(1)
+			for(var/obj/machinery/M in src.loc.loc)
+				if(!istype(M, /obj/machinery/door/airlock) && !istype(M, /obj/machinery/PIZDA))
+					M.process(src)
+
 
 /obj/machinery/PIZDA/act()
 	world << "[powernet]; [power]"
 
 /obj/machinery/PIZDA/New()
 	apc += src
-	var/area/MyArea = src.loc.loc
-	for(MyArea in areas)
-		MyArea.power_device = src
+	var/area/MYAREA = src.loc.loc
+	for(MYAREA in areas)
+		MYAREA.power_device = src
+	process()
 
 /obj/machinery/smes/process()
 	spawn while(1)
 		sleep(1)
 		for(var/obj/machinery/PIZDA/epta in apc)
-			epta.process()
 			if(epta.powernet == powernet)
 				if(power > 0)
 					power -= 100

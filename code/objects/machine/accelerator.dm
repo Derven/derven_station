@@ -118,7 +118,7 @@
 							if(my_state < 2)
 								if(!istype(AM, /obj/machinery/field_generator) && !istype(AM, /obj/field))
 									if(src != AM)
-										message_for_mobs(5, "\red [src] do something")
+										message_for_mobs(5, "\red [src] doing something")
 										if(AM)
 											AM.stop_process = 1
 											sleep(3)

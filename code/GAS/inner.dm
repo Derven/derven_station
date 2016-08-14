@@ -20,7 +20,7 @@ var/global/list/inners_outers = list()
 
 	proc/control()
 		spawn while(1)
-			sleep(1)
+			sleep(4)
 
 			for(var/obj/machinery/atmospherics/air_pipe/pipe/I in inners_outers)
 				if(istype(I, /obj/machinery/atmospherics/air_pipe/pipe/outer) || istype(I, /obj/machinery/atmospherics/air_pipe/pipe/inner))

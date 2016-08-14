@@ -117,8 +117,6 @@ proc/part_of_processing(var/X, var/Y, var/A, var/B)
 	my_min_my_max(A, B)
 	for(var/i = X, i <= Y, i += 1)
 		for(var/g = A, g <= B, g += 1)
-			if(world.cpu > 40)
-				sleep(1)
 			if(windoors_on_turf[i][g] == 0 && space_is_here[i][g] == 0)
 				SRCO = oxygen[i][g]
 				SRCP = plasma[i][g]

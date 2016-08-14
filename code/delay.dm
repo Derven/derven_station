@@ -1,7 +1,7 @@
 
 mob/var
 	speeding = 0
-	rundelay = 1   //Set this to different settings to control how slow the mob walks.
+	rundelay = 0.5  //Set this to different settings to control how slow the mob walks.
 
 client/Move()
 	if(mob.speeding <= 0)

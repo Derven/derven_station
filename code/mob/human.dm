@@ -206,7 +206,9 @@
 	<html> \
 	<head><title>Prefernces</title></head> \
 	<body> \
-	Gender: \
+	[LOBBY_STYLE] \
+	<div class=\"main\"> \
+	Character: \
 	<br> \
 	<a href='?src=\ref[src];name=input'>Name</a> \
 	<br> \
@@ -217,13 +219,46 @@
 	<a href='?src=\ref[src];race=white'>White</a> \
 	<a href='?src=\ref[src];race=mongol'>What?</a> \
 	<br>  \
+	<br> \
 	Job: \
 	<br> \
-	<a href='?src=\ref[src];prof=scientist'>Scientist</a> \
-	<a href='?src=\ref[src];prof=engineer'>Engineer</a> \
-	<a href='?src=\ref[src];prof=assistant'>Assistant</a> \
-	 \
 	<br> \
+	<div class=\"doctor\"> \
+	Medical: \
+	<br> \
+	<a href='?src=\ref[src];prof=doctor'>Doctor</a>\
+	</div> \
+	<br> \
+	<div class=\"sec\"> \
+	Security: \
+	<br> \
+	<a href='?src=\ref[src];prof=detective'>Detective</a> \
+	<a href='?src=\ref[src];prof=security'>Shitcurity</a> \
+	<a href='?src=\ref[src];prof=captain'>Captain</a> \
+	\
+	</div> \
+	<br> \
+	<div class=\"eng\"> \
+	Engineers: \
+	<br> \
+	<a href='?src=\ref[src];prof=engineer'>Engineer</a> \
+	</div> \
+	<br> \
+	<div class=\"sci\"> \
+	Science: \
+	<br> \
+	<a href='?src=\ref[src];prof=scientist'>Scientist</a> \
+	</div> \
+	<br> \
+	<div class=\"civ\"> \
+	Civilian: \
+	<br> \
+	<a href='?src=\ref[src];prof=assistant'>Assistant</a> \
+	<a href='?src=\ref[src];prof=bartender'>Bartender</a> \
+	<a href='?src=\ref[src];prof=cook'>Chef</a> \
+	</div> \
+	<br> \
+	</div> \
 	</body></html>"
 
 client

@@ -8,7 +8,6 @@
 	icon_state = "filter"
 
 /obj/machinery/atmospherics/air_pipe/pipe/filter/gas_move()
-	sleep(1)
 	//
 	// Передаем газ из одной трубы в другую
 	//
