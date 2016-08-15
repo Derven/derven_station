@@ -92,7 +92,6 @@ client/show_popup_menus = 0
 				if(usr.client.lhand_items.len != 0)
 					for(var/obj/O in usr.contents)
 						if(istype(O, usr.client.lhand_items[1]))
-
 							act_by_item(O)
 
 		if(get_dist(src,usr) > 1)
@@ -133,29 +132,38 @@ client/show_popup_menus = 0
 
 /obj/item/act()
 
+	if(usr.s_active)
+		world << length(usr.s_active.contents)
 	if(usr.client.my_hand_active == "left")
 		if(!usr.l_arm_broken)
-			Move(usr)
 			if(usr.client.lhand_items.len == 0)
 				usr.client.lhand_items += src
+				var/J = usr.client.lhand_items[1]
+				world << "[J]"
+				usr.client.screen -= src
 				usr.client.draw_item_hand(usr.client.my_hand_active, src)
 			else
 				Move(usr)
+			Move(usr)
+
 
 	if(usr.client.my_hand_active == "right")
 		if(!usr.r_arm_broken)
-			Move(usr)
 			if(usr.client.rhand_items.len == 0)
 				usr.client.rhand_items += src
+				var/J = usr.client.rhand_items[1]
+				world << "[J]"
+				usr.client.screen -= src
 				usr.client.draw_item_hand(usr.client.my_hand_active, src)
 			else
-				return
+				Move(usr)
+			Move(usr)
 
 /mob/proc/drop()
 	if(usr.client.my_hand_active == "left")
 		for(var/obj/O in usr.contents)
 			if(usr.client.lhand_items.len)
-				if(istype(O, usr.client.lhand_items[1]))
+				if(O == usr.client.lhand_items[1])
 					usr.client.lhand_items.Cut()
 					usr.client.L.overlays -= O
 					O.Move(src.loc)
@@ -163,7 +171,7 @@ client/show_popup_menus = 0
 	if(usr.client.my_hand_active == "right")
 		for(var/obj/O in usr.contents)
 			if(usr.client.rhand_items.len)
-				if(istype(O, usr.client.rhand_items[1]))
+				if(O == usr.client.rhand_items[1])
 					usr.client.rhand_items.Cut()
 					usr.client.R.overlays -= O
 					O.Move(src.loc)

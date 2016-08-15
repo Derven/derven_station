@@ -1,8 +1,8 @@
 // BEGIN_INTERNALS
 /*
-LAST_COMPILE_TIME: 1471203573
+LAST_COMPILE_TIME: 1471253354
 PACKAGE_RSC_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_station\base_build_rsc.zip
-DIR: code code\area code\chemistry code\food code\GAS code\hydroponics code\luna code\mob code\mob\food&drinks code\obj code\obj\effects code\obj\other code\obj\structure code\objects code\objects\machine code\objects\weapon code\other code\physics_plus code\power icons icons\obj icons\obj\item map 
+DIR: code code\area code\chemistry code\food code\GAS code\hydroponics code\luna code\mob code\mob\food&drinks code\obj code\obj\effects code\obj\other code\obj\structure code\objects code\objects\machine code\objects\weapon code\other code\physics_plus code\power icons icons\obj icons\obj\item icons\other map 
 AUTO_FILE_DIR: ON
 PACKAGE_DMB_INFO: 
 MAP_ICON_TYPE: 0
@@ -10,9 +10,9 @@ PACKAGE_DME_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_statio
 LAST_COMPILE_VERSION: 510.1345
 PACKAGE_DME_START: 
 PACKAGE_TYPE: 0
-WINDOW: code\GAS\manifold.dm;code\GAS\outer.dm;code\GAS\fire.dm;code\mob\human.dm;code\delay.dm;code\GAS\filter.dm;code\power\new_power.dm;code\physics_plus\materials.dm;save_map.dm;code\mob\new_interact.dm;code\mob\item_attacks.dm;code\other\UI.dm;code\obj\other\job.dm;code\other\topic.dm;code\luna\light.dm;code\luna\floodlight.dm;icons\obj\item\paper.dmi;icons\obj\item\light.dmi;icons\obj\SING.dmi;icons\obj\roof.dmi;icons\obj\table.dmi;icons\obj\structure.dmi;map\TGSTATION 2.0.8.dmm;code\luna\copier.dm;code\obj\signs.dm;code\objects\machine.dm;code\objects\items.dm;code\objects\strucrture.dm;code\power\old_power.dm;code\objects\paper.dm
+WINDOW: code\mob\human.dm;code\delay.dm;code\GAS\filter.dm;code\power\new_power.dm;code\physics_plus\materials.dm;save_map.dm;code\mob\new_interact.dm;code\mob\item_attacks.dm;code\other\UI.dm;code\obj\other\job.dm;code\other\topic.dm;code\luna\light.dm;code\objects\weapon\storage.dm;code\mob\new_hud.dm;icons\obj\item\storage.dmi;map\TGSTATION 2.0.8.dmm
 PACKAGE_DME_INFO: 
-FILE: code\obj\other\job.dm
+FILE: code\mob\new_interact.dm
 PACKAGE_DME_DEMO: 
 PACKAGE_DMB_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_station\base_build.zip
 */

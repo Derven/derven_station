@@ -8,6 +8,10 @@ obj
 		icon_state = "screen"
 		var/active = 0
 
+		storage
+
+		close
+
 		human
 			head
 				icon_state = "head"
