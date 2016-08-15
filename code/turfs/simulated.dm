@@ -9,6 +9,7 @@
 	New()
 		if(z == 1)
 			space_is_here[x][y] = 1
+			ul_SetLuminosity(0, 0, 1)
 
 	Del()
 		if(z == 1)

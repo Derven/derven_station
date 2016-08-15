@@ -132,3 +132,15 @@
 //	new /obj/item/weapon/tank/emergency_oxygen( src )
 	..()
 	return
+
+/obj/item/weapon/storage/rtoolbox
+	icon_state = "red_toolbox"
+	name = "storage"
+
+/obj/item/weapon/storage/btoolbox
+	icon_state = "blue_toolbox"
+	name = "storage"
+
+/obj/item/weapon/storage/ytoolbox
+	icon_state = "yel_toolbox"
+	name = "storage"

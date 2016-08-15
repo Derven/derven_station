@@ -126,7 +126,7 @@ var/list/global/lamps = list()
 
 	New()
 		new /obj/item/memory_computer/arcade(src)
-		src.ul_SetLuminosity(0, 2, 4)
+		src.ul_SetLuminosity(0, 1, 3)
 		upd_disp()
 		find_machines()
 
