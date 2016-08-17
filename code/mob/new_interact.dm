@@ -135,7 +135,7 @@ client/show_popup_menus = 0
 	if(usr.s_active)
 		world << length(usr.s_active.contents)
 	if(usr.client.my_hand_active == "left")
-		if(!usr.l_arm_broken)
+		if(!(usr.stat & AMP_L_ARM) && !(usr.stat & BROKEN_L_ARM))
 			if(usr.client.lhand_items.len == 0)
 				usr.client.lhand_items += src
 				var/J = usr.client.lhand_items[1]
@@ -148,7 +148,7 @@ client/show_popup_menus = 0
 
 
 	if(usr.client.my_hand_active == "right")
-		if(!usr.r_arm_broken)
+		if(!(usr.stat & AMP_R_ARM) && !(usr.stat & BROKEN_R_ARM))
 			if(usr.client.rhand_items.len == 0)
 				usr.client.rhand_items += src
 				var/J = usr.client.rhand_items[1]

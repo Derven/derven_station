@@ -12,6 +12,38 @@ obj
 
 		close
 
+		eye
+			icon_state = "foul_blow_eyes"
+			New(client/C)
+				screen_loc="14,3"
+				C.screen+=src
+			Click()
+				usr.client.foul_blow = "eye"
+				usr.client.EY.icon_state = "foul_blow_eyes_active"
+				usr.client.ST.icon_state = "foul_blow_stomach"
+				usr.client.GR.icon_state = "foul_blow_groin"
+
+		stomach
+			icon_state = "foul_blow_stomach"
+			New(client/C)
+				screen_loc="14,3"
+				C.screen+=src
+			Click()
+				usr.client.foul_blow = "stomach"
+				usr.client.EY.icon_state = "foul_blow_eyes"
+				usr.client.ST.icon_state = "foul_blow_stomach_active"
+				usr.client.GR.icon_state = "foul_blow_groin"
+
+		groin
+			icon_state = "foul_blow_groin"
+			New(client/C)
+				screen_loc="14,3"
+				C.screen+=src
+			Click()
+				usr.client.foul_blow = "groin"
+				usr.client.EY.icon_state = "foul_blow_eyes"
+				usr.client.ST.icon_state = "foul_blow_stomach"
+				usr.client.GR.icon_state = "foul_blow_groin_active"
 		human
 			head
 				icon_state = "head"
@@ -548,11 +580,17 @@ client
 
 	var/obj/screen/act_intent/ACT
 	var/obj/screen/run_intent/RUN
+
+	var/obj/screen/eye/EY
+	var/obj/screen/stomach/ST
+	var/obj/screen/groin/GR
+
 	var/ouch = 0
 
 	var/hand = RHAND
 	var/act = "help"
 	var/r_int = "walk"
+	var/foul_blow = "no"
 
 	var/my_hand_active = "left"
 	var/list/obj/item/rhand_items = list()
@@ -607,6 +645,10 @@ client
 
 		ACT = new(src)
 		RUN = new(src)
+
+		ST = new(src)
+		EY = new(src)
+		GR = new(src)
 
 	proc/clear_hud()
 		del(HC)

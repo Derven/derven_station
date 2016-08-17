@@ -10,7 +10,7 @@
 
 //// SUITS ////
 
-/mob/human/proc/get_armor(var/mob/human/O)
+/mob/human/proc/get_armor(var/mob/O)
 	var/armor = 0
 	for(var/obj/item/clothing/CL in src)
 		if(CL.iszone(O.client.zone))

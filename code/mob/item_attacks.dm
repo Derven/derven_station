@@ -24,28 +24,38 @@
 
 /mob
 	proc
-		shake_me(var/client/C)
+		shake_me(var/client/C, var/END)
 			if(C)
 				var/count = 0
-				while(count < 5)
+				while(count < END)
 					C.eye = pick(locate(x - 1, y, z), locate(x + 1, y, z), locate(x, y - 1, z), locate(x, y + 1, z))
 					sleep(1)
 					count += 1
 				C.eye = src
 
 /mob/human/proc/punch_me_doc(var/obj/item/I, var/obj/item/organs/O)
+	if(usr.client.foul_blow == "eye")
+		eye_attack(usr)
+	if(usr.client.foul_blow == "stomach")
+		stomach_attack(usr)
+	if(usr.client.foul_blow == "groin")
+		groin_attack(usr)
+	usr.client.foul_blow = "no"
+	usr.client.EY.icon_state = "foul_blow_eyes"
+	usr.client.ST.icon_state = "foul_blow_stomach"
+	usr.client.GR.icon_state = "foul_blow_groin"
 	usr << "\red You attack [src] with [I]!"
 	src << "\red [usr] attack you with [I] "
 	message_for_mobs(5, pick('punch_1.ogg','punch_2.ogg'))
-	shake_me(client)
-	if(O.hit_points > 1 && O.burn_points < 100 && get_armor() < I.brute_damage + I.burn_damage)
-		if(I.brute_damage - get_armor() > 0)
-			O.hit_points -= I.brute_damage - get_armor()
+	shake_me(client, 5)
+	if(O.hit_points > 1 && O.burn_points < 100 && get_armor(usr) < I.brute_damage + I.burn_damage)
+		if(I.brute_damage - get_armor(usr) > 0)
+			O.hit_points -= I.brute_damage - get_armor(usr)
 			if(O.inner_organ)
-				O.inner_organ.hit_points -= round((I.brute_damage/2) - (get_armor() / 2))
+				O.inner_organ.hit_points -= round((I.brute_damage/2) - (get_armor(usr) / 2))
 				world << "[O.inner_organ.hit_points]"
-		if(I.burn_damage - get_armor() > 0)
-			O.burn_points += I.burn_damage - get_armor()
+		if(I.burn_damage - get_armor(usr) > 0)
+			O.burn_points += I.burn_damage - get_armor(usr)
 
 /mob/human/act_by_item(var/obj/item/I)
 	if(istype(I,/obj/item/medical/brute/gel))
@@ -116,8 +126,8 @@
 				for(var/obj/item/organs/r_leg/O in src)
 					punch_me_doc(I, O)
 
-					if(I.brute_damage - get_armor() > 20)
-						r_leg_broken = 1
+					if(I.brute_damage - get_armor(usr) > 20)
+						stat |= BROKEN_R_LEG
 						src << "\red <font size = 5>*Click* Right leg is broken!</font>"
 						lying()
 
@@ -125,8 +135,8 @@
 				for(var/obj/item/organs/l_leg/O in src)
 					punch_me_doc(I, O)
 
-					if(I.brute_damage - get_armor() > 20)
-						l_leg_broken = 1
+					if(I.brute_damage - get_armor(usr) > 20)
+						stat |= BROKEN_L_LEG
 						src << "\red <font size = 5>*Click* Left leg is broken!</font>"
 						lying()
 
@@ -134,19 +144,21 @@
 				for(var/obj/item/organs/l_arm/O in src)
 					punch_me_doc(I, O)
 
-					if(I.brute_damage - get_armor() > 20)
-						l_arm_broken = 1
+					if(I.brute_damage - get_armor(usr) > 20)
+						stat |= BROKEN_L_ARM
 						src << "\red <font size = 5>*Click* Left arm is broken!</font>"
 						drop_all()
+						world << "[stat]"
 
 			if(usr.client.zone == "r_arm")
 				for(var/obj/item/organs/r_arm/O in src)
 					punch_me_doc(I, O)
 
-					if(I.brute_damage - get_armor() > 20)
-						r_arm_broken = 1
+					if(I.brute_damage - get_armor(usr) > 20)
+						stat |= BROKEN_R_ARM
 						src << "\red <font size = 5>*Click* Right arm is broken!</font>"
 						drop_all()
+						world << "[stat]"
 
 		if(istype(I,/obj/item/weapon/stunbaton))
 			var/obj/item/weapon/stunbaton/S = I
@@ -162,25 +174,26 @@
 				for(var/obj/item/organs/r_leg/O in src)
 					if(r_leg_broken == 1)
 						src << "\blue <font size = 5>Right leg fixed!</font>"
-						r_leg_broken = 0
+						stat &= ~BROKEN_R_LEG
 
 			if(usr.client.zone == "l_leg")
 				for(var/obj/item/organs/l_leg/O in src)
 					if(l_leg_broken == 1)
 						src << "\blue <font size = 5>Left leg fixed!</font>"
-						l_leg_broken = 0
+						stat &= ~BROKEN_L_LEG
 
 			if(usr.client.zone == "l_arm")
 				for(var/obj/item/organs/l_arm/O in src)
 					if(l_arm_broken == 1)
 						src << "\blue <font size = 5>Left arm fixed!</font>"
-						l_arm_broken = 0
+						stat &= ~BROKEN_L_ARM
+
 
 			if(usr.client.zone == "r_arm")
 				for(var/obj/item/organs/r_arm/O in src)
 					if(r_arm_broken == 1)
 						src << "\blue <font size = 5>Right arm fixed!</font>"
-						r_arm_broken = 0
+						stat &= ~BROKEN_R_ARM
 
 		if(istype(I,/obj/item/scalpel))
 			if(usr.client.zone == "chest")
@@ -199,7 +212,7 @@
 							drop_all()
 							var/mob/ghost/G = new(src.loc)
 							G.client = client
-							signal = 1
+							stat |= DEAD
 							H.Move(src.loc)
 
 			if(usr.client.zone == "head")
@@ -218,7 +231,7 @@
 							drop_all()
 							var/mob/ghost/G = new(src.loc)
 							G.client = client
-							signal = 1
+							stat |= DEAD
 							B.Move(src.loc)
 
 			if(usr.client.zone == "r_leg")
@@ -238,7 +251,7 @@
 								overlays -= /obj/item/organs/r_leg/black
 								new /obj/item/organs/r_leg/black(src.loc)
 							del(O)
-							r_leg_broken = 2
+							stat |= AMP_R_LEG
 							lying()
 
 			if(usr.client.zone == "l_leg")
@@ -258,7 +271,7 @@
 								overlays -= /obj/item/organs/l_leg/black
 								new /obj/item/organs/l_leg/black(src.loc)
 							del(O)
-							l_leg_broken = 2
+							stat |= AMP_L_LEG
 							lying()
 
 			if(usr.client.zone == "l_arm")
@@ -278,7 +291,7 @@
 								overlays -= /obj/item/organs/l_arm/black
 								new /obj/item/organs/l_arm/black(src.loc)
 							del(O)
-							l_arm_broken = 2
+							stat |= AMP_L_ARM
 
 
 			if(usr.client.zone == "r_arm")
@@ -298,7 +311,7 @@
 								overlays -= /obj/item/organs/r_arm/black
 								new /obj/item/organs/r_arm/black(src.loc)
 							del(O)
-							r_arm_broken = 2
+							stat |= AMP_R_ARM
 
 		if(istype(I,/obj/item/saw))
 			if(usr.client.zone == "chest")

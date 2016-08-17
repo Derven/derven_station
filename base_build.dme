@@ -23,6 +23,7 @@
 
 // BEGIN_INCLUDE
 #include "base_build.dm"
+#include "defines.dm"
 #include "code\delay.dm"
 #include "code\KATE_CORE(ENGLISH).dm"
 #include "code\other_proc.dm"
@@ -51,6 +52,7 @@
 #include "code\luna\floodlight.dm"
 #include "code\luna\light.dm"
 #include "code\luna\morgue.dm"
+#include "code\mob\battle.dm"
 #include "code\mob\clothes.dm"
 #include "code\mob\damage.dm"
 #include "code\mob\farm.dm"
@@ -94,6 +96,8 @@
 #include "code\physics_plus\main.dm"
 #include "code\physics_plus\materials.dm"
 #include "code\power\old_power.dm"
+#include "code\special\decals.dm"
+#include "code\special\emotes.dm"
 #include "code\turfs\area.dm"
 #include "code\turfs\main.dm"
 #include "code\turfs\simulated.dm"

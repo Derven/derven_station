@@ -16,7 +16,7 @@
 
 		if(reagents.get_reagent_amount("blood") < 50)
 			lying()
-			signal = 1
+			stat |= DEAD
 			usr << 'sound/death.ogg'
 			var/mob/ghost/G = new(src.loc)
 			G.client = client

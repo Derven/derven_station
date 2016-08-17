@@ -5,18 +5,18 @@
 	var/my_body_temp = 36
 
 /mob/human/proc/checking_turf()
-	var/turf/T = src.loc
+	var/atom/T = src.loc
 	if(usr.client.cloth_ == 0 || usr.client.helmet_ == 0)
 
 	//OXY
+		if(istype(T, /turf))
+			if(oxygen[x][y] < 200)
+				sleep(1)
+				oxydamage += pick(1,2)
 
-		if(oxygen[x][y] < 200)
-			sleep(1)
-			oxydamage += pick(1,2)
-
-		if(oxygen[x][y] > 300)
-			if(oxydamage > 0)
-				oxydamage -= 1
+			if(oxygen[x][y] > 300)
+				if(oxydamage > 0)
+					oxydamage -= 1
 
 	//OXY
 
@@ -58,11 +58,6 @@
 
 	//TEMPERATURE
 
-	if(T.water > 10)
-		alpha = 128
-	else
-		alpha = 255
-
 /mob/human/proc/checking_my_system()
 
 	if(oxydamage > 15)
@@ -82,7 +77,7 @@
 		var/mob/ghost/G = new(src.loc)
 		G.client = client
 		lying()
-		signal = 1
+		stat |= DEAD
 
 	if(my_body_temp < -30 || my_body_temp > 100)
 		for(var/obj/item/organs/O in src)
@@ -106,7 +101,7 @@
 			drop_all()
 			var/mob/ghost/G = new(src.loc)
 			G.client = client
-			signal = 1
+			stat |= DEAD
 
 	if(pulse > 120)
 		var/chance = rand(0,120)
@@ -118,7 +113,7 @@
 			drop_all()
 			var/mob/ghost/G = new(src.loc)
 			G.client = client
-			signal = 1
+			stat |= DEAD
 
 	if(pulse > 150)
 		var/chance = rand(0,120)
@@ -130,7 +125,7 @@
 			drop_all()
 			var/mob/ghost/G = new(src.loc)
 			G.client = client
-			signal = 1
+			stat |= DEAD
 
 	for(var/obj/item/organs/head/H in src)
 		var/obj/item/organs/brain/B = H.inner_organ
@@ -141,7 +136,7 @@
 			drop_all()
 			var/mob/ghost/G = new(src.loc)
 			G.client = client
-			signal = 1
+			stat |= DEAD
 
 	for(var/obj/item/organs/chest/C in src)
 		var/obj/item/organs/heart/H = C.inner_organ
@@ -152,4 +147,4 @@
 			drop_all()
 			var/mob/ghost/G = new(src.loc)
 			G.client = client
-			signal = 1
+			stat |= DEAD

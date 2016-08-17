@@ -20,7 +20,7 @@
 				usr.client.HEALTH.icon_state = "health_3"
 
 		if(state_of_health < 3)
-			signal = 1
+			stat |= DEAD
 			lying()
 			drop_all()
 			var/mob/ghost/G = new(src.loc)
