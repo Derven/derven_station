@@ -97,6 +97,10 @@ client/show_popup_menus = 0
 		if(get_dist(src,usr) > 1)
 			if(usr.client.my_hand_active == "right")
 				if(usr.client.rhand_items.len != 0)
+					if(usr.client.throw_mode == 1)
+						usr.throw_out(src)
+						usr.client.throw_mode = 0
+						usr.client.TI.icon_state = "act_throw_off"
 					for(var/obj/item/weapon/gun/G in usr.contents)
 						if(istype(G, usr.client.rhand_items[1]))
 							G = usr.client.rhand_items[1]
@@ -105,6 +109,10 @@ client/show_popup_menus = 0
 
 			if(usr.client.my_hand_active == "left")
 				if(usr.client.lhand_items.len != 0)
+					if(usr.client.throw_mode == 1)
+						usr.throw_out(src)
+						usr.client.throw_mode = 0
+						usr.client.TI.icon_state = "act_throw_off"
 					for(var/obj/item/weapon/gun/G in usr.contents)
 						if(istype(G, usr.client.lhand_items[1]))
 							G = usr.client.lhand_items[1]
@@ -167,6 +175,7 @@ client/show_popup_menus = 0
 					usr.client.lhand_items.Cut()
 					usr.client.L.overlays -= O
 					O.Move(src.loc)
+					return O
 
 	if(usr.client.my_hand_active == "right")
 		for(var/obj/O in usr.contents)
@@ -175,7 +184,49 @@ client/show_popup_menus = 0
 					usr.client.rhand_items.Cut()
 					usr.client.R.overlays -= O
 					O.Move(src.loc)
+					return O
 
+/mob/proc/throw_out(var/atom/movable/AM)
+	for(var/obj/O in usr.contents)
+		if(usr.client.my_hand_active == "left")
+			if(usr.client.lhand_items.len)
+				if(istype(O, usr.client.lhand_items[1]))
+					usr.client.lhand_items.Cut()
+					usr.client.L.overlays -= O
+					O.Move(usr.loc)
+					var/check_DENSITY = 0
+					while((AM.x != O.x || AM.y != O.y) && check_DENSITY != 1)
+						sleep(1)
+						var/turf/T = get_step(O, get_dir(O, AM))
+						for(var/atom/movable/A in T)
+							if(A.density == 1 || istype(A, /obj/structure/window))
+								check_DENSITY = 1
+								A.hit(O, 3, 3)
+						if(T.density != 1)
+							O.Move(T)
+						else
+							T.hit(O, 3, 3)
+							check_DENSITY = 1
+
+		if(usr.client.my_hand_active == "right")
+			if(usr.client.rhand_items.len)
+				if(istype(O, usr.client.rhand_items[1]))
+					usr.client.rhand_items.Cut()
+					usr.client.R.overlays -= O
+					O.Move(usr.loc)
+					var/check_DENSITY = 0
+					while((AM.x != O.x || AM.y != O.y) && check_DENSITY != 1)
+						sleep(1)
+						var/turf/T = get_step(O, get_dir(O, AM))
+						for(var/atom/movable/A in T)
+							if(A.density == 1 || istype(A, /obj/structure/window))
+								check_DENSITY = 1
+								A.hit(O, 3, 3)
+						if(T.density != 1)
+							O.Move(T)
+						else
+							T.hit(O, 3, 3)
+							check_DENSITY = 1
 /mob/proc/drop_all()
 	for(var/obj/O in usr.contents)
 		if(usr.client.lhand_items.len)

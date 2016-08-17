@@ -1,19 +1,19 @@
 // BEGIN_INTERNALS
 /*
-LAST_COMPILE_TIME: 1471452072
-DIR: code code\area code\chemistry code\food code\GAS code\hydroponics code\luna code\mob code\mob\food&drinks code\obj code\obj\effects code\obj\other code\obj\structure code\objects code\objects\machine code\objects\weapon code\other code\physics_plus code\special code\turfs code\waves icons icons\effects icons\mob icons\obj icons\obj\item map 
+LAST_COMPILE_TIME: 1471473015
 PACKAGE_RSC_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_station\base_build_rsc.zip
+DIR: code code\area code\chemistry code\food code\GAS code\hydroponics code\luna code\mob code\mob\food&drinks code\obj code\obj\effects code\obj\other code\obj\structure code\objects code\objects\machine code\objects\weapon code\other code\physics_plus code\special icons icons\effects icons\mob map 
 AUTO_FILE_DIR: ON
 PACKAGE_DMB_INFO: 
 MAP_ICON_TYPE: 0
 PACKAGE_DME_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_station\base_build_src.zip
 LAST_COMPILE_VERSION: 510.1345
-PACKAGE_TYPE: 0
 PACKAGE_DME_START: 
-WINDOW: code\special\emotes.dm;code\special\decals.dm;icons\effects\decal.dmi;icons\effects\effects.dmi;map\new_powergrid.dmm;code\physics_plus\BOOM.dm;base_build.dm;code\mob\damage.dm;code\mob\life.dm;code\objects\machine\sensors.dm;code\mob\organs.dm;code\mob\new_interact.dm;code\mob\new_clothing.dm;code\turfs\main.dm;code\turfs\simulated.dm;code\mob\clothes.dm;icons\effects\poo.dmi;code\mob\battle.dm;code\objects\weapon\melee.dm;icons\effects\water.dmi;icons\mob\overlay.dmi;icons\mob\big_screen.dmi;icons\mob\big_overlay.dmi;code\objects\weapon\storage.dm;code\mob\new_hud.dm;icons\mob\screen.dmi;map\TGSTATION 2.0.8.dmm;code\mob\item_attacks.dm;code\objects\machine\laser.dm;code\mob\human.dm
+PACKAGE_TYPE: 0
+WINDOW: code\special\emotes.dm;code\special\decals.dm;icons\effects\decal.dmi;icons\effects\effects.dmi;map\new_powergrid.dmm;map\TGSTATION 2.0.8.dmm;icons\mob\screen.dmi;code\mob\new_hud.dm;code\mob\human.dm;icons\mob\organs.dmi;icons\mob\overlay.dmi;icons\effects\ULIcons.dmi;icons\mob\animals.dmi;icons\mob\big_screen.dmi;icons\mob\display.dmi;icons\mob\human_lying.dmi;icons\mob\human.dmi;icons\wave.dmi;code\mob\new_interact.dm;code\objects\weapon\proj.dm;code\objects\machine\laser.dm;code\mob\item_attacks.dm;code\objects\weapon\melee.dm;code\objects\machine\accelerator.dm;code\objects\weapon\gun.dm;code\GAS\fire.dm;code\GAS\GAS.dm;code\objects\strucrture.dm;code\GAS\inner.dm;code\objects\items.dm
 PACKAGE_DME_INFO: 
-FILE: code\mob\human.dm
-PACKAGE_DMB_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_station\base_build.zip
+FILE: code\mob\new_interact.dm
 PACKAGE_DME_DEMO: 
+PACKAGE_DMB_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_station\base_build.zip
 */
 // END_INTERNALS

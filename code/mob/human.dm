@@ -233,7 +233,7 @@
 	Security: \
 	<br> \
 	<a href='?src=\ref[src];prof=detective'>Detective</a> \
-	<a href='?src=\ref[src];prof=security'>Spunchedcurity</a> \
+	<a href='?src=\ref[src];prof=security'>Shitcurity</a> \
 	<a href='?src=\ref[src];prof=captain'>Captain</a> \
 	\
 	</div> \
@@ -333,6 +333,7 @@ client
 */
 	proc/lying()
 		stat |= LYING
+		usr.client.RST.icon_state = "rest1"
 
 		for(var/obj/item/organs/O in organs)
 			overlays -= O
@@ -357,6 +358,7 @@ client
 
 	proc/unlying()
 		stat &= ~LYING
+		usr.client.RST.icon_state = "rest0"
 
 		for(var/obj/item/organs/O in organs)
 			overlays -= O
@@ -577,38 +579,38 @@ mob/human/proc/start_game()
 		shake_me(client, 5)
 		if(usr.client.zone == "chest")
 			for(var/obj/item/organs/chest/O in src)
-				usr << "\red You punched [src]!"
-				src << "\red [usr] punched you!"
+				usr << "\red You hit [src]!"
+				src << "\red [usr] hit you!"
 				O.hit_points -= 1
 
 		if(usr.client.zone == "head")
 			for(var/obj/item/organs/head/O in src)
-				usr << "\red You punched [src]!"
-				src << "\red [usr] punched you!"
+				usr << "\red You hit [src]!"
+				src << "\red [usr] hit you!"
 				O.hit_points -= 1
 
 		if(usr.client.zone == "r_leg")
 			for(var/obj/item/organs/r_leg/O in src)
-				usr << "\red You punched [src]!"
-				src << "\red [usr] punched you!"
+				usr << "\red You hit [src]!"
+				src << "\red [usr] hit you!"
 				O.hit_points -= 1
 
 
 		if(usr.client.zone == "l_leg")
 			for(var/obj/item/organs/l_leg/O in src)
-				usr << "\red You punched [src]!"
-				src << "\red [usr] punched you!"
+				usr << "\red You hit [src]!"
+				src << "\red [usr] hit you!"
 				O.hit_points -= 1
 
 		if(usr.client.zone == "l_arm")
 			for(var/obj/item/organs/l_arm/O in src)
-				usr << "\red You punched [src]!"
-				src << "\red [usr] punched you!"
+				usr << "\red You hit [src]!"
+				src << "\red [usr] hit you!"
 				O.hit_points -= 1
 
 
 		if(usr.client.zone == "r_arm")
 			for(var/obj/item/organs/r_arm/O in src)
-				usr << "\red You punched [src]!"
-				src << "\red [usr] punched you!"
+				usr << "\red You hit [src]!"
+				src << "\red [usr] hit you!"
 				O.hit_points -= 1

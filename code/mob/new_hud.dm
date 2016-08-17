@@ -12,6 +12,33 @@ obj
 
 		close
 
+		throw_icon
+			icon_state = "act_throw_off"
+
+			New(client/C)
+				screen_loc="10,0"
+				C.screen+=src
+
+			Click()
+				if(usr.client.throw_mode == 1)
+					usr.client.throw_mode = 0
+					usr.client.TI.icon_state = "act_throw_off"
+				else
+					usr.client.throw_mode = 1
+					usr.client.TI.icon_state = "act_throw_on"
+
+		rest
+			icon_state = "rest0"
+			New(client/C)
+				screen_loc="14,2"
+				C.screen+=src
+
+			Click()
+				var/mob/human/H = usr
+				if(usr.stat & LYING)
+					H.unlying()
+				else
+					H.lying()
 		eye
 			icon_state = "foul_blow_eyes"
 			New(client/C)
@@ -556,6 +583,7 @@ client
 	var/my_pull_eba = 0
 	var/can_get = 35
 	var/my_weight = 0
+	var/throw_mode = 0
 
 	var/obj/screen/lhand/L
 	var/obj/screen/rhand/R
@@ -568,6 +596,7 @@ client
 	var/obj/screen/foot/F
 	var/obj/screen/mask/M
 	var/obj/screen/ear/E
+	var/obj/screen/rest/RST
 
 	var/obj/screen/temperature/TEMP
 	var/obj/screen/health/HEALTH
@@ -584,6 +613,7 @@ client
 	var/obj/screen/eye/EY
 	var/obj/screen/stomach/ST
 	var/obj/screen/groin/GR
+	var/obj/screen/throw_icon/TI
 
 	var/ouch = 0
 
@@ -649,6 +679,8 @@ client
 		ST = new(src)
 		EY = new(src)
 		GR = new(src)
+		RST = new(src)
+		TI = new(src)
 
 	proc/clear_hud()
 		del(HC)
