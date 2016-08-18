@@ -5,6 +5,9 @@
 //The reaction procs must ALWAYS set src = null, this detaches the proc from the object (the reagent)
 //so that it can continue working when the reagent is deleted while the proc is still active.
 
+/atom
+	var/datum/reagents/reagents
+
 datum
 	reagent
 		var/name = "Reagent"
@@ -14,21 +17,22 @@ datum
 		var/reagent_state = SOLID
 		var/data = null
 		var/volume = 0
+		var/nutriment_factor = 0
+		//var/list/viruses = list()
+		var/color = "#000000" // rgb: 0, 0, 0 (does not support alpha channels - yet!)
 
 		proc
-			reaction_mob(var/mob/human/M, var/volume) //By default we have a chance to transfer some
+			reaction_mob(var/mob/M, var/method=TOUCH, var/volume) //By default we have a chance to transfer some
+				if(!istype(M, /mob))	return 0
 				var/datum/reagent/self = src
 				src = null										  //of the reagent to the mob on TOUCHING it.
+					// If the chemicals are in a smoke cloud, do not try to let the chemicals "penetrate" into the mob's system (balance station 13) -- Doohl
 
-				var/chance = 1
-				//for(var/obj/item/clothing/C in M.contents)
-				//	if(C.permeability_coefficient < chance) chance = C.permeability_coefficient
-				//chance = chance * 100
+				if(method == TOUCH)
 
-				if(prob(chance))
 					if(M.reagents)
 						M.reagents.add_reagent(self.id,self.volume/2)
-					return
+				return 1
 
 			reaction_obj(var/obj/O, var/volume) //By default we transfer a small part of the reagent to the object
 				src = null						//if it can hold reagents. nope!
@@ -40,8 +44,16 @@ datum
 				src = null
 				return
 
-			on_mob_life(var/mob/M)
-				holder.remove_reagent(src.id, 0.4) //By default it slowly disappears.
+			on_mob_life(var/mob/M as mob)
+				if(!istype(M, /mob))
+					return //Noticed runtime errors from pacid trying to damage ghosts, this should fix. --NEO
+				holder.remove_reagent(src.id, REAGENTS_METABOLISM) //By default it slowly disappears.
+				return
+
+			on_move(var/mob/M)
+				return
+
+			on_update(var/atom/A)
 				return
 
 		nothing
@@ -77,9 +89,9 @@ datum
 			name = "oil"
 			id = "oil"
 
-		nutriments
-			name = "nutriments"
-			id = "nutriments"
+		nutriment
+			name = "nutriment"
+			id = "nutriment"
 
 		lightgas
 			name = "lightgas"

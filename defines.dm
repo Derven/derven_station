@@ -11,5 +11,8 @@
 #define AMP_R_LEG		1 << 10
 #define AMP_L_LEG		1 << 11
 
+#define	NOREACT		16384 		//Reagents dont' react inside this container.
+#define	REAGENTS_METABOLISM 0.05
+
 mob
 	var/stat = 0

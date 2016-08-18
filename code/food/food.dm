@@ -55,7 +55,7 @@
 	icon_state = "chips"
 	New()
 		..()
-		reagents.add_reagent("nutriment", 3)
+		reagents.add_reagent("nutriment", 16)
 
 /obj/item/weapon/reagent_containers/food/snacks/donut
 	name = "donut"

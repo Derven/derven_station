@@ -69,10 +69,8 @@
 	icon_state = "egg"
 
 	New()
-		var/datum/reagents/R = new/datum/reagents(100)
-		reagents = R
-		R.my_atom = src
-		R.add_reagent("nothing", 30)
+		..()
+		reagents.add_reagent("nutriments", 10)
 
 /obj/homunculus
 	icon = 'icons/mob/human.dmi'
