@@ -1,19 +1,19 @@
 // BEGIN_INTERNALS
 /*
-LAST_COMPILE_TIME: 1471553953
-DIR: code code\area code\chemistry code\food code\GAS code\hydroponics code\luna code\mob code\mob\food&drinks code\obj code\obj\effects code\obj\other code\obj\structure code\objects code\objects\machine code\objects\weapon code\other code\physics_plus code\special icons icons\effects map 
+LAST_COMPILE_TIME: 1471728214
 PACKAGE_RSC_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_station\base_build_rsc.zip
+DIR: code code\area code\chemistry code\food code\GAS code\hydroponics code\luna code\mob code\mob\food&drinks code\obj code\obj\effects code\obj\other code\obj\structure code\objects code\objects\machine code\objects\weapon code\other code\physics_plus code\porting code\porting\FACE code\special icons icons\effects icons\mob map 
 AUTO_FILE_DIR: ON
 PACKAGE_DMB_INFO: 
 MAP_ICON_TYPE: 0
 PACKAGE_DME_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_station\base_build_src.zip
 LAST_COMPILE_VERSION: 510.1345
-PACKAGE_TYPE: 0
 PACKAGE_DME_START: 
-WINDOW: code\special\emotes.dm;code\special\decals.dm;icons\effects\decal.dmi;icons\effects\effects.dmi;map\TGSTATION 2.0.8.dmm;icons\effects\poo.dmi;code\mob\food&drinks\reagents.dm;code\chemistry\reagents.dm;code\chemistry\holder.dm;code\mob\farm.dm;code\food\food.dm;code\chemistry\machine.dm;code\chemistry\recipes.dm;code\mob\new_interact.dm;code\mob\item_attacks.dm;code\mob\battle.dm
+PACKAGE_TYPE: 0
+WINDOW: code\special\emotes.dm;code\special\decals.dm;icons\effects\decal.dmi;icons\effects\effects.dmi;map\TGSTATION 2.0.8.dmm;code\porting\map_writer.dm;icons\mob\big_overlay.dmi;icons\mob\face.dmi;code\porting\FACE\tg.dm;base_build.dm;code\mob\human.dm;code\mob\clothes.dm;code\other\topic.dm;code\hydroponics\seed.dm;code\hydroponics\hydro.dm;code\hydroponics\main.dm;code\food\food.dm
 PACKAGE_DME_INFO: 
-FILE: code\mob\battle.dm
-PACKAGE_DMB_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_station\base_build.zip
+FILE: code\hydroponics\hydro.dm
 PACKAGE_DME_DEMO: 
+PACKAGE_DMB_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_station\base_build.zip
 */
 // END_INTERNALS

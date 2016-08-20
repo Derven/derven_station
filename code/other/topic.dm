@@ -5,6 +5,20 @@
                     "Your Name",
                     usr.name)
 
+	if(href_list["hair"] == "input" && usr.client.ouch == 1)
+		usr.remove_hair_from_overlay(usr.hair_style, usr.facial_hair_style)
+		usr.hair_style = input("Choose a hair for your character.",
+                    "Your Hair",
+                    usr.hair_style) in hair_styles_list
+		usr.draw_my_hair()
+
+	if(href_list["fhair"] == "input" && usr.client.ouch == 1)
+		usr.remove_hair_from_overlay(usr.hair_style, usr.facial_hair_style)
+		usr.facial_hair_style = input("Choose a facial hair for your character.",
+                    "Your Facial Hair",
+                    usr.facial_hair_style) in facial_hair_styles_list
+		usr.draw_my_hair()
+
 	if(href_list["prof"] == "scientist" && usr.client.ouch == 1)
 		usr.loc = captain[rand(1,captain.len)]
 		usr.client.create_hud()

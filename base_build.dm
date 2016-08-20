@@ -32,4 +32,5 @@ world
 		new /datum/innerouter_controller()
 		new /datum/pipe_controller()
 		CABLES()
+		make_datum_references_lists()
 		name = "DERVENLAND 47"

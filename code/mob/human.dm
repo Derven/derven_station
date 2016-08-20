@@ -218,6 +218,9 @@
 	<a href='?src=\ref[src];race=niga'>Black</a> \
 	<a href='?src=\ref[src];race=white'>white</a> \
 	<a href='?src=\ref[src];race=mongol'>What?</a> \
+	<br> \
+	<a href='?src=\ref[src];hair=input'>Hair</a> \
+	<a href='?src=\ref[src];fhair=input'>Facial Hair</a> \
 	<br>  \
 	<br> \
 	Job: \
@@ -275,6 +278,36 @@ client
 	var/l_leg_broken = 0
 	var/skin_color = "white"
 
+	var/
+		hair_style = "Big Afro"
+		facial_hair_style = "Hulk Hogan Mustache"
+		hair_color = "#57007F"
+
+	proc/remove_hair_from_overlay(var/hstyle, var/fstyle)
+		var/datum/sprite_accessory/S = hair_styles_list[hstyle]
+		if(S)
+			var/image/img_hair_s = image("icon" = S.icon, "icon_state" = "[S.icon_state]_s", "layer" = 26)
+			img_hair_s.color = hair_color
+			overlays -= img_hair_s
+
+		var/datum/sprite_accessory/S_2 = facial_hair_styles_list[fstyle]
+		if(S)
+			var/image/img_hair_s2 = image("icon" = S_2.icon, "icon_state" = "[S_2.icon_state]_s", "layer" = 26)
+			img_hair_s2.color = hair_color
+			overlays -= img_hair_s2
+
+	proc/draw_my_hair()
+		var/datum/sprite_accessory/S = hair_styles_list[hair_style]
+		if(S)
+			var/image/img_hair_s = image("icon" = S.icon, "icon_state" = "[S.icon_state]_s", "layer" = 26)
+			img_hair_s.color = hair_color
+			overlays += img_hair_s
+
+		var/datum/sprite_accessory/S_2 = facial_hair_styles_list[facial_hair_style]
+		if(S)
+			var/image/img_hair_s2 = image("icon" = S_2.icon, "icon_state" = "[S_2.icon_state]_s", "layer" = 26)
+			img_hair_s2.color = hair_color
+			overlays += img_hair_s2
 
 /mob/human
 	name = "human"
@@ -331,6 +364,7 @@ client
 		else
 			usr << "\red Здесь нельз&#255; вынырнуть!"
 */
+
 	proc/lying()
 		stat |= LYING
 		usr.client.RST.icon_state = "rest1"
