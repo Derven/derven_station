@@ -74,6 +74,10 @@ var/global/list/areas = list()
 
 
 		hallway1
+			icon_state = "s1"
+			layer = 12
+
+		shuttle1
 			icon_state = "hall1"
 			layer = 12
 
