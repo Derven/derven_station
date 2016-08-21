@@ -124,12 +124,12 @@
 			else
 				usr << "\red [src] is empty."
 
-	watercan
-		icon_state = "watercan"
-		New()
-			var/datum/reagents/R = new/datum/reagents(250)
-			reagents = R
-			R.my_atom = src
+		watercan
+			icon_state = "watercan"
+			New()
+				var/datum/reagents/R = new/datum/reagents(250)
+				reagents = R
+				R.my_atom = src
 
 /turf/simulated/floor/act_by_item(var/obj/item/I)
 	if(istype(I, /obj/item/weapon/reagent_containers))
