@@ -157,6 +157,11 @@ datum
 			name = "mercury"
 			id = "mercury"
 
+		ammonia
+			name = "ammonia"
+			id = "ammonia"
+			description = "A caustic substance commonly used in fertilizer or household cleaners."
+
 		chlorine
 			name = "chlorine"
 			id = "chlorine"

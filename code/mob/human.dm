@@ -348,6 +348,7 @@ client
 		stat("pulse - ", pulse)
 		stat("chem - ", cur_val)
 		stat("blood - ", reagents.get_reagent_amount("blood"))
+		stat("water - ", reagents.get_reagent_amount("water"))
 		statpanel("Organs")
 		for(var/obj/item/organs/O in usr)
 			stat("\[[O.name]\]", "soundness - [O.hit_points]; percent burns - [O.burn_points]")
@@ -423,7 +424,7 @@ client
 	//text2file("HELLO",FT)
 
 	objects += src
-	var/datum/reagents/R = new/datum/reagents(380)
+	var/datum/reagents/R = new/datum/reagents(500)
 	reagents = R
 	R.my_atom = src
 	R.add_reagent("blood", 300)

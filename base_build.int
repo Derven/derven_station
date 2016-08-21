@@ -1,19 +1,19 @@
 // BEGIN_INTERNALS
 /*
-LAST_COMPILE_TIME: 1471728214
+LAST_COMPILE_TIME: 1471793995
+DIR: code code\area code\chemistry code\food code\GAS code\hydroponics code\luna code\mob code\mob\food&drinks code\obj code\obj\effects code\obj\other code\obj\structure code\objects code\objects\machine code\objects\weapon code\other code\physics_plus code\special icons icons\effects icons\obj icons\obj\item icons\obj\machine map 
 PACKAGE_RSC_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_station\base_build_rsc.zip
-DIR: code code\area code\chemistry code\food code\GAS code\hydroponics code\luna code\mob code\mob\food&drinks code\obj code\obj\effects code\obj\other code\obj\structure code\objects code\objects\machine code\objects\weapon code\other code\physics_plus code\porting code\porting\FACE code\special icons icons\effects icons\mob map 
 AUTO_FILE_DIR: ON
 PACKAGE_DMB_INFO: 
 MAP_ICON_TYPE: 0
 PACKAGE_DME_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_station\base_build_src.zip
 LAST_COMPILE_VERSION: 510.1345
-PACKAGE_DME_START: 
 PACKAGE_TYPE: 0
-WINDOW: code\special\emotes.dm;code\special\decals.dm;icons\effects\decal.dmi;icons\effects\effects.dmi;map\TGSTATION 2.0.8.dmm;code\porting\map_writer.dm;icons\mob\big_overlay.dmi;icons\mob\face.dmi;code\porting\FACE\tg.dm;base_build.dm;code\mob\human.dm;code\mob\clothes.dm;code\other\topic.dm;code\hydroponics\seed.dm;code\hydroponics\hydro.dm;code\hydroponics\main.dm;code\food\food.dm
+PACKAGE_DME_START: 
+WINDOW: code\special\emotes.dm;code\special\decals.dm;icons\effects\decal.dmi;icons\effects\effects.dmi;map\TGSTATION 2.0.8.dmm;code\hydroponics\hydro.dm;icons\obj\grown.dmi;icons\obj\machine\hydroponics.dmi;icons\obj\machine\computer.dmi;code\hydroponics\sextractor.dm;code\objects\machine\accelerator.dm;code\hydroponics\main.dm;code\chemistry\reagents.dm;code\chemistry\holder.dm;code\objects\Kate.dm;code\mob\food&drinks\reagents.dm;icons\obj\item\medbay.dmi
 PACKAGE_DME_INFO: 
-FILE: code\hydroponics\hydro.dm
-PACKAGE_DME_DEMO: 
+FILE: map\TGSTATION 2.0.8.dmm
 PACKAGE_DMB_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_station\base_build.zip
+PACKAGE_DME_DEMO: 
 */
 // END_INTERNALS

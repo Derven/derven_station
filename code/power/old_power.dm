@@ -42,7 +42,7 @@ var/global/list/cables = list()
 		spawn while(1)
 			sleep(1)
 			for(var/obj/machinery/M in src.loc.loc)
-				if(!istype(M, /obj/machinery/door/airlock) && !istype(M, /obj/machinery/PIZDA))
+				if(!istype(M, /obj/machinery/door/airlock) && !istype(M, /obj/machinery/PIZDA) && !istype(M, /obj/machinery/hydroponics))
 					M.process(src)
 
 
