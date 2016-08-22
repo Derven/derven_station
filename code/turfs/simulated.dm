@@ -2,14 +2,16 @@
 
 /turf/space
 	name = "space"
-	icon = 'icons/turf/turfs.dmi'
-	icon_state = "space"
+	icon = 'icons/turf/space.dmi'
+	icon_state = "0"
 	pass_gas = 1
 
 	New()
 		if(z == 1)
 			space_is_here[x][y] = 1
 			ul_SetLuminosity(0, 0, 1)
+			icon_state = "[((x + y) ^ ~(x * y) + z) % 25]"
+			..()
 
 	Del()
 		if(z == 1)

@@ -277,6 +277,8 @@ client
 	var/r_leg_broken = 0
 	var/l_leg_broken = 0
 	var/skin_color = "white"
+	var/body_parts_covered = 0
+
 
 	var/
 		hair_style = "Big Afro"

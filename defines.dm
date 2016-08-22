@@ -16,3 +16,10 @@
 
 mob
 	var/stat = 0
+
+#define HEAD_DEF		1 << 1
+#define TORSO_DEF		1 << 2
+#define RIGHT_ARM		1 << 3
+#define LEFT_ARM		1 << 4
+#define RIGHT_LEG		1 << 5
+#define LEFT_LEG		1 << 6

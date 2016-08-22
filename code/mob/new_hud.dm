@@ -320,6 +320,7 @@ obj
 
 						I.wear(usr)
 						usr.client.uniform_items += I
+						usr.body_parts_covered |= TORSO_DEF
 
 						var/obj/cloth = I.type
 						cloth = new cloth()
@@ -338,6 +339,7 @@ obj
 						return
 
 			proc/undress_my_uniform_baby()
+				usr.body_parts_covered &= ~TORSO_DEF
 				var/obj/item/clothing/I = usr.client.uniform_items[1]
 				I.undress(usr)
 				usr.client.U.overlays.Cut()
@@ -388,6 +390,8 @@ obj
 					if(istype(I,/obj/item/clothing/shoes))
 
 						I.wear(usr)
+						usr.body_parts_covered |= RIGHT_LEG
+						usr.body_parts_covered |= LEFT_LEG
 
 						var/obj/cloth = I.type
 						cloth = new cloth()
@@ -411,6 +415,9 @@ obj
 				var/obj/item/clothing/I = usr.client.foot_items[1]
 				I.undress(usr)
 				usr.client.F.overlays.Cut()
+				usr.body_parts_covered &= ~RIGHT_LEG
+				usr.body_parts_covered &= ~LEFT_LEG
+
 
 			proc/add_to_rhand()
 
@@ -444,6 +451,7 @@ obj
 
 						usr.client.head_items += I
 						usr.client.H.overlays += cloth
+						usr.body_parts_covered |= HEAD_DEF
 
 						if(usr.client.my_hand_active == "right")
 							usr.client.rhand_items -= I
@@ -460,7 +468,7 @@ obj
 				var/obj/item/clothing/I = usr.client.head_items[1]
 				I.undress(usr)
 				usr.client.H.overlays.Cut()
-
+				usr.body_parts_covered &= ~HEAD_DEF
 
 			proc/add_to_rhand()
 
@@ -491,6 +499,7 @@ obj
 						var/obj/cloth = I.type
 						cloth = new cloth()
 						cloth.layer = 60
+						usr.body_parts_covered |= TORSO_DEF
 
 						usr.client.clothing_items += I
 						usr.client.C.overlays += cloth
@@ -510,6 +519,7 @@ obj
 				var/obj/item/clothing/I = usr.client.clothing_items[1]
 				I.undress(usr)
 				usr.client.C.overlays.Cut()
+				usr.body_parts_covered &= ~TORSO_DEF
 
 			proc/add_to_rhand()
 
