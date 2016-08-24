@@ -26,8 +26,16 @@
 		G.client = client
 		..()
 
-	proc/blood_new() //восстановление крови
+	proc/blood_new() //blood reproduction
 		if(reagents.get_reagent_amount("blood") < 300)
-			if(reagents.get_reagent_amount("nutrments") > 1)
-				reagents.add_reagent("blood", rand(3,6))
+			if(reagents.get_reagent_amount("nutriments") > 1)
+				reagents.add_reagent("blood", rand(1,2))
 				reagents.remove_reagent("nutriments", 1)
+				for(var/obj/item/organs/O in src)
+					if(O.hit_points < 40)
+						O.hit_points += 1
+
+	proc/toxic_damage(var/value)
+		for(var/obj/item/organs/head/O in src)
+			var/obj/item/organs/brain/B = O.inner_organ
+			B.hit_points -= value

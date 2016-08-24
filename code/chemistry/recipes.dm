@@ -25,7 +25,7 @@ datum
 			name = "homunculinus"
 			id = "homunculinus"
 			result = "homunculinus"
-			required_reagents = list("nutriment" = 1, "milk" = 1)
+			required_reagents = list("nutriments" = 1, "milk" = 1)
 			result_amount = 5
 
 			on_reaction(var/datum/reagents/holder, var/created_volume)

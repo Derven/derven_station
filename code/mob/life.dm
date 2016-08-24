@@ -10,14 +10,7 @@
 
 	//OXY
 		if(istype(T, /turf))
-			if(oxygen[x][y] < 200)
-				sleep(1)
-				oxydamage += pick(1,2)
-
-			if(oxygen[x][y] > 300)
-				if(oxydamage > 0)
-					oxydamage -= 1
-
+			breathe()
 	//OXY
 
 	//TEMPERATURE
@@ -52,9 +45,12 @@
 
 		if(my_body_temp > 36 && my_body_temp > temperature[x][y])
 			my_body_temp -= 1
-			if(my_body_temp < 0)
+
+		if(my_body_temp < 36 && temperature[x][y] > 0)
+			my_body_temp += 1
+			if(my_body_temp > 0 && my_body_temp < 70)
 				if(usr.client.TEMP)
-					usr.client.TEMP.icon_state = "temperature_0"
+					usr.client.TEMP.icon_state = "temperature_1"
 
 	//TEMPERATURE
 

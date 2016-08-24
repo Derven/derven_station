@@ -247,6 +247,20 @@ obj
 				screen_loc="14,9"
 				C.screen+=src
 
+		toxin
+			icon_state = "tox0"
+			layer = 27
+			New(client/C)
+				screen_loc="14,10"
+				C.screen+=src
+
+		nutrition
+			icon_state = "nut1"
+			layer = 27
+			New(client/C)
+				screen_loc="14,7"
+				C.screen+=src
+
 		lhand
 			layer = 23
 			icon_state = "lhand_active"
@@ -363,6 +377,47 @@ obj
 			New(client/C)
 				screen_loc="3,0"
 				C.screen+=src
+
+			act_by_item(var/obj/item/weapon/tank/I)
+				if(usr.client.mask_items.len == 0)
+					if(istype(I,/obj/item/weapon/tank))
+
+						var/obj/cloth = I.type
+						cloth = new cloth()
+						cloth.layer = 60
+
+						usr.client.mask_items += I
+						usr.client.M.overlays += cloth
+
+						if(usr.client.my_hand_active == "right")
+							usr.client.rhand_items -= I
+							usr.client.R.overlays.Cut()
+
+						if(usr.client.my_hand_active == "left")
+							usr.client.lhand_items -= I
+							usr.client.L.overlays.Cut()
+						return
+
+			proc/undress_my_uniform_baby()
+				usr.client.M.overlays.Cut()
+				if(usr.client.my_hand_active == "right")
+					add_to_rhand()
+				else
+					add_to_lhand()
+
+			proc/add_to_rhand()
+
+				usr.client.R.overlays += usr.client.mask_items[1]
+				usr.client.rhand_items += usr.client.mask_items[1]
+				usr.client.mask_items.Cut()
+
+			proc/add_to_lhand()
+				usr.client.L.overlays += usr.client.mask_items[1]
+				usr.client.lhand_items += usr.client.mask_items[1]
+				usr.client.mask_items.Cut()
+
+			act()
+				usr.client.M.undress_my_uniform_baby()
 
 		ear
 			layer = 23
@@ -625,6 +680,9 @@ client
 	var/obj/screen/groin/GR
 	var/obj/screen/throw_icon/TI
 
+	var/obj/screen/toxin/TOX
+	var/obj/screen/nutrition/NUT
+
 	var/ouch = 0
 
 	var/hand = RHAND
@@ -639,6 +697,7 @@ client
 	var/list/obj/item/clothing_items = list()
 	var/list/obj/item/head_items = list()
 	var/list/obj/item/foot_items = list()
+	var/list/obj/item/mask_items = list() //Elon Musk
 
 	var/cloth_ = 0
 	var/helmet_ = 0
@@ -691,6 +750,9 @@ client
 		GR = new(src)
 		RST = new(src)
 		TI = new(src)
+
+		NUT = new(src)
+		TOX = new(src)
 
 	proc/clear_hud()
 		del(HC)

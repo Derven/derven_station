@@ -57,7 +57,7 @@
 	New(var/loc, var/potency = 40)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 10), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 10), 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/cherries
@@ -70,7 +70,7 @@
 	New(var/loc, var/potency = 10)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 15), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 15), 1))
 			reagents.add_reagent("sugar", 1+round((potency / 15), 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
@@ -84,7 +84,7 @@
 	New(var/loc, var/potency = 30)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 20), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 20), 1))
 			reagents.add_reagent("bicaridine", 1+round((potency / 10), 1))
 			bitesize = 1+round(reagents.total_volume / 3, 1)
 
@@ -98,7 +98,7 @@
 	New(var/loc, var/potency = 1)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 20), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 20), 1))
 			bitesize = 1+round(reagents.total_volume / 3, 1)
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/potato
@@ -110,7 +110,7 @@
 	New(var/loc, var/potency = 25)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 10), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 10), 1))
 			bitesize = reagents.total_volume
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/grapes
@@ -122,7 +122,7 @@
 	New(var/loc, var/potency = 10)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 10), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 10), 1))
 			reagents.add_reagent("sugar", 1+round((potency / 5), 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
@@ -135,7 +135,7 @@
 	New(var/loc, var/potency = 25)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 10), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 10), 1))
 			reagents.add_reagent("kelotane", 3+round((potency / 5), 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
@@ -148,7 +148,7 @@
 	New(var/loc, var/potency = 25)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 10), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 10), 1))
 			bitesize = reagents.total_volume
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/berries
@@ -160,7 +160,7 @@
 	New(var/loc, var/potency = 10)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 10), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 10), 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/glowberries
@@ -174,7 +174,7 @@
 	New(var/loc, var/potency = 10)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", round((potency / 10), 1))
+			reagents.add_reagent("nutriments", round((potency / 10), 1))
 			reagents.add_reagent("uranium", 3+round(potency / 5, 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
@@ -187,7 +187,7 @@
 	New(var/loc, var/potency = 50)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 10), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 10), 1))
 			reagents.add_reagent("coco", 4+round((potency / 5), 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
@@ -212,7 +212,7 @@
 	New(var/loc, var/potency = 15)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1)
+			reagents.add_reagent("nutriments", 1)
 			reagents.add_reagent("toxin", 3+round(potency / 5, 1))
 			reagents.add_reagent("maizine", 1+round(potency / 5, 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
@@ -227,7 +227,7 @@
 	New(var/loc, var/potency = 50)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1)
+			reagents.add_reagent("nutriments", 1)
 			reagents.add_reagent("ehuadol", 2+round(potency / 5, 1))
 			reagents.add_reagent("lexorin", 1+round(potency / 5, 1))
 			reagents.add_reagent("toxin", 3+round(potency / 3, 1))
@@ -243,7 +243,7 @@
 	New(var/loc, var/potency = 10)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1)
+			reagents.add_reagent("nutriments", 1)
 			reagents.add_reagent("space_drugs", 1+round(potency / 8, 1))
 			reagents.add_reagent("kelotane", 1+round(potency / 8, 1))
 			reagents.add_reagent("bicaridine", 1+round(potency / 10, 1))
@@ -260,7 +260,7 @@
 	New(var/loc, var/potency = 10)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1)
+			reagents.add_reagent("nutriments", 1)
 			reagents.add_reagent("bicaridine", 1+round(potency / 8, 1))
 			reagents.add_reagent("synaptizine", 1+round(potency / 8, 1))
 			reagents.add_reagent("hyperzine", 1+round(potency / 10, 1))
@@ -277,7 +277,7 @@
 		..()
 		if(reagents)
 			reagents.maximum_volume = 20
-			reagents.add_reagent("nutriment", 1+round((potency / 10), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 10), 1))
 			bitesize = reagents.maximum_volume // Always eat the apple in one
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/apple/poisoned
@@ -302,7 +302,7 @@
 	New(var/loc, var/potency = 15)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 10), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 10), 1))
 			reagents.add_reagent("gold", 1+round((potency / 5), 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
@@ -315,7 +315,7 @@
 	New(var/loc, var/potency = 10)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 6), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 6), 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/pumpkin
@@ -327,7 +327,7 @@
 	New(var/loc, var/potency = 10)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 6), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 6), 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/lime
@@ -339,7 +339,7 @@
 	New(var/loc, var/potency = 20)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 20), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 20), 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/lemon
@@ -351,7 +351,7 @@
 	New(var/loc, var/potency = 20)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 20), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 20), 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/orange
@@ -363,7 +363,7 @@
 	New(var/loc, var/potency = 20)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 20), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 20), 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/whitebeet
@@ -375,7 +375,7 @@
 	New(var/loc, var/potency = 15)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", round((potency / 20), 1))
+			reagents.add_reagent("nutriments", round((potency / 20), 1))
 			reagents.add_reagent("sugar", 1+round((potency / 5), 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
@@ -403,7 +403,7 @@
 	New(var/loc, var/potency = 10)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 25), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 25), 1))
 			reagents.add_reagent("capsaicin", 3+round(potency / 5, 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
@@ -417,7 +417,7 @@
 	New(var/loc, var/potency = 10)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 25), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 25), 1))
 			reagents.add_reagent("blazeoil", max(0, potency-80))
 			reagents.add_reagent("capsaicin", 8+round(potency / 2, 1))
 			reagents.add_reagent("condensedcapsaicin", 4+round(potency / 4, 1))
@@ -433,7 +433,7 @@
 	New(var/loc, var/potency = 10)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 10), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 10), 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/soybeans
@@ -446,7 +446,7 @@
 	New(var/loc, var/potency = 10)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 20), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 20), 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/koibeans
@@ -458,7 +458,7 @@
 	New(var/loc, var/potency = 10)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 30), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 30), 1))
 			reagents.add_reagent("carpotoxin", 1+round((potency / 20), 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
@@ -471,7 +471,7 @@
 	New(var/loc, var/potency = 10)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 50), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 50), 1))
 			reagents.add_reagent("moonshine", 1+round((potency / 10), 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
@@ -484,7 +484,7 @@
 	New(var/loc, var/potency = 10)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 10), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 10), 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/killertomato
@@ -495,7 +495,7 @@
 	New(var/loc, var/potency = 10)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 10), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 10), 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/killertomato/act_self(src)
@@ -514,7 +514,7 @@
 	New(var/loc, var/potency = 10)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 20), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 20), 1))
 			reagents.add_reagent("lube", 1+round((potency / 5), 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
@@ -528,7 +528,7 @@
 	New(var/loc, var/potency = 10)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 25), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 25), 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/grass
@@ -539,7 +539,7 @@
 	New(var/loc, var/potency = 10)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 50), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 50), 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/icepepper
@@ -551,7 +551,7 @@
 	New(var/loc, var/potency = 20)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 50), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 50), 1))
 			reagents.add_reagent("frostoil", 3+round(potency / 5, 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
@@ -564,7 +564,7 @@
 	New(var/loc, var/potency = 10)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 20), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 20), 1))
 			reagents.add_reagent("imidazoline", 3+round(potency / 5, 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
@@ -577,7 +577,7 @@
 	New(var/loc, var/potency = 10)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1)
+			reagents.add_reagent("nutriments", 1)
 			reagents.add_reagent("anti_toxin", 3+round(potency / 3, 1))
 			reagents.add_reagent("stoxin", 3+round(potency / 3, 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
@@ -591,7 +591,7 @@
 	New(var/loc, var/potency = 10)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1)
+			reagents.add_reagent("nutriments", 1)
 			reagents.add_reagent("amatoxin", 3+round(potency / 3, 1))
 			reagents.add_reagent("mushroomhallucinogen", 1+round(potency / 25, 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
@@ -605,7 +605,7 @@
 	New(var/loc, var/potency = 35)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 50), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 50), 1))
 			reagents.add_reagent("amatoxin", 13+round(potency / 3, 1))
 			reagents.add_reagent("mushroomhallucinogen", 1+round(potency / 25, 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
@@ -619,7 +619,7 @@
 	New(var/loc, var/potency = 15)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 50), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 50), 1))
 			reagents.add_reagent("mushroomhallucinogen", 3+round(potency / 5, 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
@@ -632,7 +632,7 @@
 	New(var/loc, var/potency = 10)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 2+round((potency / 10), 1))
+			reagents.add_reagent("nutriments", 2+round((potency / 10), 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/walkingmushroom
@@ -643,7 +643,7 @@
 	New(var/loc, var/potency = 10)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 2+round((potency / 10), 1))
+			reagents.add_reagent("nutriments", 2+round((potency / 10), 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/walkingmushroom/act_self(src)
@@ -661,7 +661,7 @@
 	New(var/loc, var/potency = 10)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 25), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 25), 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/gatfruit
@@ -757,7 +757,7 @@
 	New(var/loc, var/potency = 10)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1)
+			reagents.add_reagent("nutriments", 1)
 			reagents.add_reagent("space_drugs", 30+round(potency / 8, 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
 
@@ -771,7 +771,7 @@
 	New(var/loc, var/potency = 10)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1)
+			reagents.add_reagent("nutriments", 1)
 			reagents.add_reagent("space_drugs", 20+round(potency / 8, 1))
 			reagents.add_reagent("mindbreaker", 20+round(potency / 8, 1))
 			bitesize = 1+round(reagents.total_volume / 2, 1)
@@ -785,5 +785,5 @@
 	New(var/loc, var/potency = 25)
 		..()
 		if(reagents)
-			reagents.add_reagent("nutriment", 1+round((potency / 10), 1))
+			reagents.add_reagent("nutriments", 1+round((potency / 10), 1))
 			bitesize = reagents.total_volume

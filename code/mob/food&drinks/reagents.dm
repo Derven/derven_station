@@ -28,22 +28,21 @@
 		message_for_mobs(5, 'sound/chomp.ogg')
 		do_after(usr, 4)
 		if(reagents.total_volume)
-			reagents.reaction(usr)
-			spawn(5)
-				reagents.trans_to(usr, reagents.total_volume)
+			var/trans = reagents.trans_to(usr, reagents.total_volume)
+			usr << "\blue You transfer [trans] units of the [reagents.get_master_reagent_name()] to [usr]."
 		del_from_hand()
 		del(src)
 
 
 	act_by_item(var/obj/item/weapon/reagent_containers/I)
-
-		if(I.reagents.total_volume)
-			var/trans = I.reagents.trans_to(src, 5)
-			usr << "\blue You transfer [trans] units of the [I.reagents.get_master_reagent_name()] to [src]."
-		else
-			if(reagents.total_volume)
-				var/trans = reagents.trans_to(I, 5)
-				usr << "\blue You transfer [trans] units of the [reagents.get_master_reagent_name()] to [I]."
+		if(istype(I, /obj/item/weapon/reagent_containers/syringe))
+			if(I.reagents.total_volume)
+				var/trans = I.reagents.trans_to(src, 5)
+				usr << "\blue You transfer [trans] units of the [I.reagents.get_master_reagent_name()] to [src]."
+			else
+				if(reagents.total_volume)
+					var/trans = reagents.trans_to(I, 5)
+					usr << "\blue You transfer [trans] units of the [reagents.get_master_reagent_name()] to [I]."
 
 
 	poison

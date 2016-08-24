@@ -11,6 +11,24 @@
 	weight = 20
 	var/open = 0
 
+	act_by_item(var/obj/item/I)
+		if(istype(I, /obj/item/weapon/tank))
+			var/obj/item/weapon/tank/TANK = I
+			if(oxy + plas + nit > 0)
+				while(TANK.oxy + TANK.plasm + TANK.nit < 200 && oxy + plas + nit > 0)
+					if(oxy > 0)
+						TANK.oxy += 1
+						oxy -=1
+					if(plas > 0)
+						TANK.plasm += 1
+						plas -=1
+					if(nit > 0)
+						TANK.nit += 1
+						nit -=1
+				usr << "\blue You filled \icon[TANK]"
+				usr << "\blue \icon[TANK] value: [TANK.oxy + TANK.plasm + TANK.nit]"
+
+
 /obj/machinery/portable_atmospherics/canister/oxy
 	oxy = 500
 	nit = 0

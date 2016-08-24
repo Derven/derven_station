@@ -90,8 +90,8 @@ datum
 			id = "oil"
 
 		nutriment
-			name = "nutriment"
-			id = "nutriment"
+			name = "nutriments"
+			id = "nutriments"
 
 		lightgas
 			name = "lightgas"

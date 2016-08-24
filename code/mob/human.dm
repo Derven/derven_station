@@ -350,7 +350,9 @@ client
 		stat("pulse - ", pulse)
 		stat("chem - ", cur_val)
 		stat("blood - ", reagents.get_reagent_amount("blood"))
+		stat("nutriments - ", reagents.get_reagent_amount("nutriments"))
 		stat("water - ", reagents.get_reagent_amount("water"))
+
 		statpanel("Organs")
 		for(var/obj/item/organs/O in usr)
 			stat("\[[O.name]\]", "soundness - [O.hit_points]; percent burns - [O.burn_points]")
@@ -462,7 +464,11 @@ client
 		if(reagents) reagents.metabolize(src)
 
 		///***REAGENTS***///
-
+		if(usr.client.NUT)
+			if(reagents.get_reagent_amount("nutriments") > 1)
+				usr.client.NUT.icon_state = "nut1"
+			else
+				usr.client.NUT.icon_state = "nut2"
 
 		organ_damage_calculate()
 		bloodloss()

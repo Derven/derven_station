@@ -183,9 +183,9 @@ obj/machinery/hydroponics/proc/applyChemicals(var/datum/reagents/S)
 		adjustPests(-rand(1,2))
 
 	// Compost, effectively
-	if(S.has_reagent("nutriment", 1))
-		adjustHealth(round(S.get_reagent_amount("nutriment")*0.5))
-		adjustNutri(round(S.get_reagent_amount("nutriment")*1))
+	if(S.has_reagent("nutriments", 1))
+		adjustHealth(round(S.get_reagent_amount("nutriments")*0.5))
+		adjustNutri(round(S.get_reagent_amount("nutriments")*1))
 
 	// The best stuff there is. For testing/debugging.
 

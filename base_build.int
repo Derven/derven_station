@@ -1,8 +1,8 @@
 // BEGIN_INTERNALS
 /*
-LAST_COMPILE_TIME: 1471893900
+LAST_COMPILE_TIME: 1472075526
 PACKAGE_RSC_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_station\base_build_rsc.zip
-DIR: code code\area code\chemistry code\food code\GAS code\hydroponics code\luna code\mob code\mob\food&drinks code\obj code\obj\effects code\obj\other code\obj\structure code\objects code\objects\machine code\objects\weapon code\other code\physics_plus code\special code\turfs code\virology code\virology\disease code\virology\machine icons icons\effects icons\obj icons\obj\machine icons\turf map 
+DIR: code code\area code\chemistry code\food code\GAS code\hydroponics code\luna code\mob code\mob\food&drinks code\obj code\obj\effects code\obj\other code\obj\structure code\objects code\objects\machine code\objects\weapon code\other code\physics_plus code\special icons icons\effects icons\mob icons\obj map 
 AUTO_FILE_DIR: ON
 PACKAGE_DMB_INFO: 
 MAP_ICON_TYPE: 0
@@ -10,9 +10,9 @@ PACKAGE_DME_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_statio
 LAST_COMPILE_VERSION: 510.1345
 PACKAGE_DME_START: 
 PACKAGE_TYPE: 0
-WINDOW: code\special\emotes.dm;code\special\decals.dm;icons\effects\decal.dmi;icons\effects\effects.dmi;code\chemistry\reagents.dm;code\mob\food&drinks\reagents.dm;code\mob\food&drinks\syringe.dm;map\TGSTATION 2.0.8.dmm;code\turfs\simulated.dm;icons\turf\turfs.dmi;icons\turf\space.dmi;code\mob\farm.dm;code\food\food.dm;code\physics_plus\heat.dm;code\physics_plus\analyser.dm;icons\obj\machine\vending.dmi;icons\obj\machine\virology.dmi;code\physics_plus\BOOM.dm;code\virology\machine\isolator.dm;code\virology\disease\disease.dm;code\virology\disease\mob_cleanup.dm;code\mob\human.dm;defines.dm;code\mob\item_attacks.dm;code\mob\new_hud.dm
+WINDOW: code\mob\food&drinks\syringe.dm;map\TGSTATION 2.0.8.dmm;code\chemistry\recipes.dm;code\mob\human.dm;code\mob\life.dm;code\mob\item_attacks.dm;code\mob\damage.dm;code\mob\say.dm;code\mob\new_interact.dm;code\mob\new_hud.dm;code\mob\new_clothing.dm;icons\weapon.dmi;icons\wave.dmi;icons\main.dmi;icons\lobby.dmi;icons\lighting.dmi;icons\effects\flora.dmi;icons\effects\lum.dmi;icons\effects\lum2.dmi;icons\effects\poo.dmi;icons\effects\SD_lum.dmi;icons\effects\ULIcons.dmi;icons\effects\water.dmi;icons\obj\robot.dmi;icons\obj\POWER.dmi;icons\obj\GAS.dmi;icons\obj\closet.dmi;code\food\food.dm;icons\mob\screen.dmi;code\mob\tanks.dm
 PACKAGE_DME_INFO: 
-FILE: code\virology\disease\disease.dm
+FILE: map\TGSTATION 2.0.8.dmm
 PACKAGE_DME_DEMO: 
 PACKAGE_DMB_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_station\base_build.zip
 */
