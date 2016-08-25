@@ -1,19 +1,19 @@
 // BEGIN_INTERNALS
 /*
-LAST_COMPILE_TIME: 1472075526
+LAST_COMPILE_TIME: 1472142425
+DIR: code code\area code\chemistry code\food code\GAS code\hydroponics code\luna code\mob code\mob\food&drinks code\obj code\obj\effects code\obj\other code\obj\structure code\objects code\objects\machine code\objects\weapon code\other code\physics_plus code\turfs icons icons\mob icons\turf map 
 PACKAGE_RSC_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_station\base_build_rsc.zip
-DIR: code code\area code\chemistry code\food code\GAS code\hydroponics code\luna code\mob code\mob\food&drinks code\obj code\obj\effects code\obj\other code\obj\structure code\objects code\objects\machine code\objects\weapon code\other code\physics_plus code\special icons icons\effects icons\mob icons\obj map 
 AUTO_FILE_DIR: ON
 PACKAGE_DMB_INFO: 
 MAP_ICON_TYPE: 0
 PACKAGE_DME_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_station\base_build_src.zip
 LAST_COMPILE_VERSION: 510.1345
-PACKAGE_DME_START: 
 PACKAGE_TYPE: 0
-WINDOW: code\mob\food&drinks\syringe.dm;map\TGSTATION 2.0.8.dmm;code\chemistry\recipes.dm;code\mob\human.dm;code\mob\life.dm;code\mob\item_attacks.dm;code\mob\damage.dm;code\mob\say.dm;code\mob\new_interact.dm;code\mob\new_hud.dm;code\mob\new_clothing.dm;icons\weapon.dmi;icons\wave.dmi;icons\main.dmi;icons\lobby.dmi;icons\lighting.dmi;icons\effects\flora.dmi;icons\effects\lum.dmi;icons\effects\lum2.dmi;icons\effects\poo.dmi;icons\effects\SD_lum.dmi;icons\effects\ULIcons.dmi;icons\effects\water.dmi;icons\obj\robot.dmi;icons\obj\POWER.dmi;icons\obj\GAS.dmi;icons\obj\closet.dmi;code\food\food.dm;icons\mob\screen.dmi;code\mob\tanks.dm
+PACKAGE_DME_START: 
+WINDOW: code\mob\food&drinks\syringe.dm;map\TGSTATION 2.0.8.dmm;code\chemistry\recipes.dm;code\mob\human.dm;icons\mob\screen.dmi;code\mob\new_hud.dm;code\mob\life.dm;code\mob\tanks.dm;icons\mob\organs.dmi;icons\mob\overlay.dmi;icons\wave.dmi;map\DERVENMAP.dmm;code\turfs\simulated.dm;code\other\topic.dm
 PACKAGE_DME_INFO: 
-FILE: map\TGSTATION 2.0.8.dmm
-PACKAGE_DME_DEMO: 
+FILE: map\DERVENMAP.dmm
 PACKAGE_DMB_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_station\base_build.zip
+PACKAGE_DME_DEMO: 
 */
 // END_INTERNALS

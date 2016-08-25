@@ -32,7 +32,8 @@
 
 /mob/human/proc/breathe()
 	var/obj/item/weapon/tank/TANK
-	usr.client.TOX.icon_state = "tox0"
+	if(usr.client.TOX)
+		usr.client.TOX.icon_state = "tox0"
 	for(TANK in contents)
 		if(TANK && TANK.connected == src)
 			if(TANK.plasm > 0)
@@ -49,7 +50,11 @@
 			else
 				oxydamage += pick(1,2)
 				src << "\red [src] is empty"
+			if(usr.client.INTERN)
+				usr.client.INTERN.icon_state = "internal1"
 			return
+	if(usr.client.INTERN)
+		usr.client.INTERN.icon_state = "internal0"
 
 	if(plasma[x][y] > 0)
 		if(usr.client.TOX)

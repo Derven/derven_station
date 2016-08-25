@@ -559,8 +559,13 @@ client
 mob/human/Move()
 	if(!(stat & DEAD) && !(stat & BUCKLED) && !(stat & LYING) && !(stat & BROKEN_R_LEG) && !(stat & BROKEN_L_LEG) && !(stat & AMP_L_LEG) && !(stat & AMP_R_LEG))
 		..()
+		if(usr.client.PULL)
+			usr.client.PULL.icon_state = "pull0"
+
 		for(var/obj/A in range(2,usr))
 			if(A.pull == 1 && A.puller == usr)
+				if(usr.client.PULL)
+					usr.client.PULL.icon_state = "pull1"
 				A.Move(oldloc)
 
 		if(usr.client.r_int == "walk")

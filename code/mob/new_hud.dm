@@ -233,6 +233,8 @@ obj
 				screen_loc="14,8"
 				C.screen+=src
 
+
+
 		health
 			icon_state = "health_1"
 			layer = 27
@@ -252,6 +254,20 @@ obj
 			layer = 27
 			New(client/C)
 				screen_loc="14,10"
+				C.screen+=src
+
+		internal
+			icon_state = "internal0"
+			layer = 27
+			New(client/C)
+				screen_loc="14,11"
+				C.screen+=src
+
+		PULL
+			icon_state = "pull0"
+			layer = 27
+			New(client/C)
+				screen_loc="12,0"
 				C.screen+=src
 
 		nutrition
@@ -680,6 +696,8 @@ client
 	var/obj/screen/groin/GR
 	var/obj/screen/throw_icon/TI
 
+	var/obj/screen/internal/INTERN
+	var/obj/screen/PULL/PULL
 	var/obj/screen/toxin/TOX
 	var/obj/screen/nutrition/NUT
 
@@ -751,6 +769,8 @@ client
 		RST = new(src)
 		TI = new(src)
 
+		INTERN = new(src)
+		PULL = new(src)
 		NUT = new(src)
 		TOX = new(src)
 
