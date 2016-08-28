@@ -55,6 +55,7 @@ var/global/list/cables = list()
 	for(MYAREA in areas)
 		MYAREA.power_device = src
 	process()
+	..()
 
 /obj/machinery/smes/process()
 	spawn while(1)
@@ -64,6 +65,7 @@ var/global/list/cables = list()
 				if(power > 0)
 					power -= 100
 					epta.power += 100
+
 /obj/cable/New()
 	cables += src
 	process()
@@ -148,5 +150,5 @@ var/global/list/cables = list()
 	for(var/obj/machinery/smes/S in smes)
 		if(S)
 			if(S.powernet == powernet)
-				S.new_power += 100
+				S.new_power += 1000000
 				S.power += S.new_power

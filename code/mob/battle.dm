@@ -6,9 +6,9 @@ mob/human
 mob/human/proc/eye_attack(var/mob/M)
 	if(!D)
 		D = new(src)
-	D.dark(src)
+	DARK.dark(src)
 	sleep(5)
-	D.nodark(src)
+	DARK.nodark(src)
 	message_for_mobs(5, "[M] hit [src] in the eyes!")
 
 mob/human/proc/stomach_attack(var/mob/M)

@@ -1,7 +1,7 @@
 // BEGIN_INTERNALS
 /*
-LAST_COMPILE_TIME: 1472142425
-DIR: code code\area code\chemistry code\food code\GAS code\hydroponics code\luna code\mob code\mob\food&drinks code\obj code\obj\effects code\obj\other code\obj\structure code\objects code\objects\machine code\objects\weapon code\other code\physics_plus code\turfs icons icons\mob icons\turf map 
+LAST_COMPILE_TIME: 1472415690
+DIR: code code\area code\chemistry code\food code\GAS code\hydroponics code\luna code\mob code\mob\food&drinks code\obj code\obj\effects code\obj\other code\obj\structure code\objects code\objects\machine code\objects\weapon code\other code\physics_plus icons icons\mob icons\obj icons\obj\item map 
 PACKAGE_RSC_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_station\base_build_rsc.zip
 AUTO_FILE_DIR: ON
 PACKAGE_DMB_INFO: 
@@ -10,9 +10,9 @@ PACKAGE_DME_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_statio
 LAST_COMPILE_VERSION: 510.1345
 PACKAGE_TYPE: 0
 PACKAGE_DME_START: 
-WINDOW: code\mob\food&drinks\syringe.dm;map\TGSTATION 2.0.8.dmm;code\chemistry\recipes.dm;code\mob\human.dm;icons\mob\screen.dmi;code\mob\new_hud.dm;code\mob\life.dm;code\mob\tanks.dm;icons\mob\organs.dmi;icons\mob\overlay.dmi;icons\wave.dmi;map\DERVENMAP.dmm;code\turfs\simulated.dm;code\other\topic.dm
+WINDOW: code\mob\food&drinks\syringe.dm;code\mob\new_hud.dm;code\mob\human.dm;map\TGSTATION 2.0.8.dmm;code\mob\clothes.dm;icons\obj\clothing.dmi;code\mob\new_clothing.dm;code\other\topic.dm;code\mob\new_interact.dm
 PACKAGE_DME_INFO: 
-FILE: map\DERVENMAP.dmm
+FILE: code\mob\new_hud.dm
 PACKAGE_DMB_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_station\base_build.zip
 PACKAGE_DME_DEMO: 
 */

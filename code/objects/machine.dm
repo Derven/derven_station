@@ -217,10 +217,10 @@ var/list/global/lamps = list()
 
 			new /obj/item/meat(src.loc)
 
-			if(usr.client.hand == 1)
-				usr.client.my_rhand_contents = 0
-				usr.client.R.overlays.Cut()
-			if(usr.client.hand == 0)
-				usr.client.my_lhand_contents = 0
-				usr.client.L.overlays.Cut()
+			if(usr.hand == 1)
+				usr.my_rhand_contents = 0
+				usr.R.overlays.Cut()
+			if(usr.hand == 0)
+				usr.my_lhand_contents = 0
+				usr.L.overlays.Cut()
 */

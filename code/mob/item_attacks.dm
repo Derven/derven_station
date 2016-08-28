@@ -34,16 +34,16 @@
 				C.eye = src
 
 /mob/human/proc/punch_me_doc(var/obj/item/I, var/obj/item/organs/O)
-	if(usr.client.foul_blow == "eye")
+	if(usr.foul_blow == "eye")
 		eye_attack(usr)
-	if(usr.client.foul_blow == "stomach")
+	if(usr.foul_blow == "stomach")
 		stomach_attack(usr)
-	if(usr.client.foul_blow == "groin")
+	if(usr.foul_blow == "groin")
 		groin_attack(usr)
-	usr.client.foul_blow = "no"
-	usr.client.EY.icon_state = "foul_blow_eyes"
-	usr.client.ST.icon_state = "foul_blow_stomach"
-	usr.client.GR.icon_state = "foul_blow_groin"
+	usr.foul_blow = "no"
+	usr.EY.icon_state = "foul_blow_eyes"
+	usr.ST.icon_state = "foul_blow_stomach"
+	usr.GR.icon_state = "foul_blow_groin"
 	usr << "\red You attack [src] with [I]!"
 	src << "\red [usr] attack you with [I] "
 	message_for_mobs(5, pick('punch_1.ogg','punch_2.ogg'))
@@ -59,70 +59,70 @@
 
 /mob/human/act_by_item(var/obj/item/I)
 	if(istype(I,/obj/item/medical/brute/gel))
-		if(usr.client.act == "help")
-			if(usr.client.zone == "chest")
+		if(usr.act == "help")
+			if(usr.zone == "chest")
 				var/obj/item/organs/chest/O = new()
 				help_me_doctor(I, O)
 
-			if(usr.client.zone == "head")
+			if(usr.zone == "head")
 				var/obj/item/organs/head/O = new()
 				help_me_doctor(I, O)
 
-			if(usr.client.zone == "r_leg")
+			if(usr.zone == "r_leg")
 				var/obj/item/organs/r_leg/O = new()
 				help_me_doctor(I, O)
 
-			if(usr.client.zone == "l_leg")
+			if(usr.zone == "l_leg")
 				var/obj/item/organs/l_leg/O = new()
 				help_me_doctor(I, O)
 
-			if(usr.client.zone == "l_arm")
+			if(usr.zone == "l_arm")
 				var/obj/item/organs/l_arm/O = new()
 				help_me_doctor(I, O)
 
-			if(usr.client.zone == "r_arm")
+			if(usr.zone == "r_arm")
 				var/obj/item/organs/r_arm/O = new()
 				help_me_doctor(I, O)
 
 //FIRE FIRE FIRE
 
 	if(istype(I,/obj/item/medical/burn/gel))
-		if(usr.client.act == "help")
-			if(usr.client.zone == "chest")
+		if(usr.act == "help")
+			if(usr.zone == "chest")
 				var/obj/item/organs/chest/O = new()
 				EXTINGUISH(I, O)
 
-			if(usr.client.zone == "head")
+			if(usr.zone == "head")
 				var/obj/item/organs/head/O = new()
 				EXTINGUISH(I, O)
 
-			if(usr.client.zone == "r_leg")
+			if(usr.zone == "r_leg")
 				var/obj/item/organs/r_leg/O = new()
 				EXTINGUISH(I, O)
 
-			if(usr.client.zone == "l_leg")
+			if(usr.zone == "l_leg")
 				var/obj/item/organs/l_leg/O = new()
 				EXTINGUISH(I, O)
 
-			if(usr.client.zone == "l_arm")
+			if(usr.zone == "l_arm")
 				var/obj/item/organs/l_arm/O = new()
 				EXTINGUISH(I, O)
 
-			if(usr.client.zone == "r_arm")
+			if(usr.zone == "r_arm")
 				var/obj/item/organs/r_arm/O = new()
 				EXTINGUISH(I, O)
 
 	if(!istype(I,/obj/item/medical))
-		if(usr.client.act == "harm")
-			if(usr.client.zone == "chest")
+		if(usr.act == "harm")
+			if(usr.zone == "chest")
 				for(var/obj/item/organs/chest/O in src)
 					punch_me_doc(I, O)
 
-			if(usr.client.zone == "head")
+			if(usr.zone == "head")
 				for(var/obj/item/organs/head/O in src)
 					punch_me_doc(I, O)
 
-			if(usr.client.zone == "r_leg")
+			if(usr.zone == "r_leg")
 				for(var/obj/item/organs/r_leg/O in src)
 					punch_me_doc(I, O)
 
@@ -131,7 +131,7 @@
 						src << "\red <font size = 5>*Click* Right leg is broken!</font>"
 						lying()
 
-			if(usr.client.zone == "l_leg")
+			if(usr.zone == "l_leg")
 				for(var/obj/item/organs/l_leg/O in src)
 					punch_me_doc(I, O)
 
@@ -140,7 +140,7 @@
 						src << "\red <font size = 5>*Click* Left leg is broken!</font>"
 						lying()
 
-			if(usr.client.zone == "l_arm")
+			if(usr.zone == "l_arm")
 				for(var/obj/item/organs/l_arm/O in src)
 					punch_me_doc(I, O)
 
@@ -150,7 +150,7 @@
 						drop_all()
 						world << "[stat]"
 
-			if(usr.client.zone == "r_arm")
+			if(usr.zone == "r_arm")
 				for(var/obj/item/organs/r_arm/O in src)
 					punch_me_doc(I, O)
 
@@ -162,41 +162,41 @@
 
 		if(istype(I,/obj/item/weapon/stunbaton))
 			var/obj/item/weapon/stunbaton/S = I
-			if(usr.client.act == "help")
+			if(usr.act == "help")
 				src << "\red <b>You feel some shock!</b>"
-				usr.client.D.act()
+				usr.D.act()
 				lying()
 				sleep(S.force)
 				unlying()
 
 		if(istype(I,/obj/item/bonefixer))
-			if(usr.client.zone == "r_leg")
+			if(usr.zone == "r_leg")
 				for(var/obj/item/organs/r_leg/O in src)
 					if(r_leg_broken == 1)
 						src << "\blue <font size = 5>Right leg fixed!</font>"
 						stat &= ~BROKEN_R_LEG
 
-			if(usr.client.zone == "l_leg")
+			if(usr.zone == "l_leg")
 				for(var/obj/item/organs/l_leg/O in src)
 					if(l_leg_broken == 1)
 						src << "\blue <font size = 5>Left leg fixed!</font>"
 						stat &= ~BROKEN_L_LEG
 
-			if(usr.client.zone == "l_arm")
+			if(usr.zone == "l_arm")
 				for(var/obj/item/organs/l_arm/O in src)
 					if(l_arm_broken == 1)
 						src << "\blue <font size = 5>Left arm fixed!</font>"
 						stat &= ~BROKEN_L_ARM
 
 
-			if(usr.client.zone == "r_arm")
+			if(usr.zone == "r_arm")
 				for(var/obj/item/organs/r_arm/O in src)
 					if(r_arm_broken == 1)
 						src << "\blue <font size = 5>Right arm fixed!</font>"
 						stat &= ~BROKEN_R_ARM
 
 		if(istype(I,/obj/item/scalpel))
-			if(usr.client.zone == "chest")
+			if(usr.zone == "chest")
 				for(var/obj/item/organs/chest/O in src)
 					switch(O.step_of_operation)
 						if(0)
@@ -210,12 +210,12 @@
 							usr << 'sound/death.ogg'
 							lying()
 							drop_all()
-							var/mob/ghost/G = new(src.loc)
-							G.client = client
+							var/mob/ghost/GHOST = new(src.loc)
+							GHOST.client = client
 							stat |= DEAD
 							H.Move(src.loc)
 
-			if(usr.client.zone == "head")
+			if(usr.zone == "head")
 				for(var/obj/item/organs/head/O in src)
 					switch(O.step_of_operation)
 						if(0)
@@ -229,12 +229,12 @@
 							usr << 'sound/death.ogg'
 							lying()
 							drop_all()
-							var/mob/ghost/G = new(src.loc)
-							G.client = client
+							var/mob/ghost/GHOST = new(src.loc)
+							GHOST.client = client
 							stat |= DEAD
 							B.Move(src.loc)
 
-			if(usr.client.zone == "r_leg")
+			if(usr.zone == "r_leg")
 				for(var/obj/item/organs/r_leg/O in src)
 					switch(O.step_of_operation)
 						if(0)
@@ -254,7 +254,7 @@
 							stat |= AMP_R_LEG
 							lying()
 
-			if(usr.client.zone == "l_leg")
+			if(usr.zone == "l_leg")
 				for(var/obj/item/organs/l_leg/O in src)
 					switch(O.step_of_operation)
 						if(0)
@@ -274,7 +274,7 @@
 							stat |= AMP_L_LEG
 							lying()
 
-			if(usr.client.zone == "l_arm")
+			if(usr.zone == "l_arm")
 				for(var/obj/item/organs/l_arm/O in src)
 					switch(O.step_of_operation)
 						if(0)
@@ -294,7 +294,7 @@
 							stat |= AMP_L_ARM
 
 
-			if(usr.client.zone == "r_arm")
+			if(usr.zone == "r_arm")
 				for(var/obj/item/organs/r_arm/O in src)
 					switch(O.step_of_operation)
 						if(0)
@@ -314,7 +314,7 @@
 							stat |= AMP_R_ARM
 
 		if(istype(I,/obj/item/saw))
-			if(usr.client.zone == "chest")
+			if(usr.zone == "chest")
 				for(var/obj/item/organs/chest/O in src)
 					switch(O.step_of_operation)
 						if(1)
@@ -322,7 +322,7 @@
 							var/msg = "\red *VZH-VZH-VZH*"
 							message_for_mobs(5, msg)
 
-			if(usr.client.zone == "head")
+			if(usr.zone == "head")
 				for(var/obj/item/organs/head/O in src)
 					switch(O.step_of_operation)
 						if(1)
@@ -330,7 +330,7 @@
 							var/msg = "\red *VZH-VZH-VZH*"
 							message_for_mobs(5, msg)
 
-			if(usr.client.zone == "r_leg")
+			if(usr.zone == "r_leg")
 				for(var/obj/item/organs/r_leg/O in src)
 					switch(O.step_of_operation)
 						if(1)
@@ -338,7 +338,7 @@
 							var/msg = "\red *VZH-VZH-VZH*"
 							message_for_mobs(5, msg)
 
-			if(usr.client.zone == "l_leg")
+			if(usr.zone == "l_leg")
 				for(var/obj/item/organs/l_leg/O in src)
 					switch(O.step_of_operation)
 						if(1)
@@ -346,7 +346,7 @@
 							var/msg = "\red *VZH-VZH-VZH*"
 							message_for_mobs(5, msg)
 
-			if(usr.client.zone == "l_arm")
+			if(usr.zone == "l_arm")
 				for(var/obj/item/organs/l_arm/O in src)
 					switch(O.step_of_operation)
 						if(1)
@@ -354,7 +354,7 @@
 							var/msg = "\red *VZH-VZH-VZH*"
 							message_for_mobs(5, msg)
 
-			if(usr.client.zone == "r_arm")
+			if(usr.zone == "r_arm")
 				for(var/obj/item/organs/r_arm/O in src)
 					switch(O.step_of_operation)
 						if(1)
@@ -364,9 +364,9 @@
 
 		if(istype(I,/obj/item/defib))
 			if(signal == 1)
-				for(var/mob/ghost/G in world)
-					if(G.ckey == my_key)
-						client = G.client
+				for(var/mob/ghost/GHOST in world)
+					if(GHOST.ckey == my_key)
+						client = G
 						signal = 0
 						unlying()
 						var/msg = "\blue  <b>[src] resurrected</b>"

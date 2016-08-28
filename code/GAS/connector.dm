@@ -35,6 +35,12 @@
 	plas = 0
 	icon_state = "canister_o"
 
+/obj/machinery/portable_atmospherics/canister/empty
+	oxy = 0
+	nit = 0
+	plas = 0
+	icon_state = "canister_o"
+
 /obj/machinery/portable_atmospherics/canister/nit
 	oxy = 0
 	nit = 500

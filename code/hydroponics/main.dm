@@ -241,19 +241,19 @@ obj/machinery/hydroponics/proc/applyChemicals(var/datum/reagents/S)
 			dead = 0
 			planted = 1
 			age = 1
-			if(usr.client.my_hand_active == "left")
-				if(istype(O, usr.client.lhand_items[1]))
+			if(usr.my_hand_active == "left")
+				if(istype(O, usr.lhand_items[1]))
 					O.Move(src)
 					usr << "\bold Вы суете [O] в [src]"
-					usr.client.L.overlays.Cut()
-					usr.client.lhand_items.Cut()
+					usr.L.overlays.Cut()
+					usr.lhand_items.Cut()
 
-			if(usr.client.my_hand_active == "right")
-				if(istype(O, usr.client.rhand_items[1]))
+			if(usr.my_hand_active == "right")
+				if(istype(O, usr.rhand_items[1]))
 					O.Move(src)
 					usr << "\bold Вы суете [O] в [src]"
-					usr.client.R.overlays.Cut()
-					usr.client.rhand_items.Cut()
+					usr.R.overlays.Cut()
+					usr.rhand_items.Cut()
 			myseed = O
 			health = myseed.endurance
 			lastcycle = world.time

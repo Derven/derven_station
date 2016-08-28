@@ -23,14 +23,14 @@
 			if(src in M.contents)
 				M.overlays -= src
 				icon = 'icons/obj/clothing.dmi'
-				if(M.client.my_hand_active == "right")
-					M.client.rhand_items += src
-					M.client.R.overlays += src
+				if(M.my_hand_active == "right")
+					M.rhand_items += src
+					M.R.overlays += src
 
 
-				if(M.client.my_hand_active == "left")
-					M.client.lhand_items += src
-					M.client.L.overlays += src
+				if(M.my_hand_active == "left")
+					M.lhand_items += src
+					M.L.overlays += src
 
 		lying_me(var/mob/human/M)
 			//icon = 'icons/obj/clothing_lying.dmi'

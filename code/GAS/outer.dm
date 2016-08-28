@@ -37,7 +37,7 @@
 		plas -= 1
 		if(windoors_on_turf[x-1][y] == 0)
 			plasma[x-1][y] += 1
-			oxy -= 1
+			plas -= 1
 
 		if(windoors_on_turf[x+1][y] == 0)
 			plasma[x+1][y] += 1

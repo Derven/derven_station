@@ -1,148 +1,147 @@
 /mob/Topic(href,href_list[])
 
-	if(href_list["name"] == "input" && usr.client.ouch == 1)
+	if(href_list["name"] == "input" && usr.ouch == 1)
 		usr.name = input("Choose a name for your character.",
                     "Your Name",
                     usr.name)
 
-	if(href_list["hair"] == "input" && usr.client.ouch == 1)
+	if(href_list["hair"] == "input" && usr.ouch == 1)
 		usr.remove_hair_from_overlay(usr.hair_style, usr.facial_hair_style)
 		usr.hair_style = input("Choose a hair for your character.",
                     "Your Hair",
                     usr.hair_style) in hair_styles_list
 		usr.draw_my_hair()
 
-	if(href_list["fhair"] == "input" && usr.client.ouch == 1)
+	if(href_list["fhair"] == "input" && usr.ouch == 1)
 		usr.remove_hair_from_overlay(usr.hair_style, usr.facial_hair_style)
 		usr.facial_hair_style = input("Choose a facial hair for your character.",
                     "Your Facial Hair",
                     usr.facial_hair_style) in facial_hair_styles_list
 		usr.draw_my_hair()
 
-	if(href_list["prof"] == "scientist" && usr.client.ouch == 1)
+	if(href_list["prof"] == "scientist" && usr.ouch == 1)
 		usr.loc = captain[rand(1,captain.len)]
-		usr.client.create_hud()
-		usr.client.ouch = 0
+		usr.create_hud()
+		usr.ouch = 0
 
 		var/obj/item/clothing/uniform/CHATERED/C = new()
 		var/obj/item/clothing/shoes/BLACK/B_S = new()
 
-		C.wear_to_slot(src, usr.client.uniform_items, usr.client.U)
-		B_S.wear_to_slot(src, usr.client.foot_items, usr.client.F)
+		C.wear_to_slot(src, usr.uniform_items, usr.U)
+		B_S.wear_to_slot(src, usr.foot_items, usr.F)
 
-	if(href_list["prof"] == "assistant" && usr.client.ouch == 1)
+	if(href_list["prof"] == "assistant" && usr.ouch == 1)
 		usr.loc =assistant[rand(1,assistant.len)]
-		usr.client.create_hud()
-		usr.client.ouch = 0
+		usr.create_hud()
+		usr.ouch = 0
 
 		var/obj/item/clothing/uniform/BLACK/B = new()
 		var/obj/item/clothing/shoes/BLACK/B_S = new()
 
-		B.wear_to_slot(src, usr.client.uniform_items, usr.client.U)
-		B_S.wear_to_slot(src, usr.client.foot_items, usr.client.F)
+		B.wear_to_slot(src, usr.uniform_items, usr.U)
+		B_S.wear_to_slot(src, usr.foot_items, usr.F)
 
-	if(href_list["prof"] == "engineer" && usr.client.ouch == 1)
+	if(href_list["prof"] == "engineer" && usr.ouch == 1)
 		usr.loc = engineer[rand(1,engineer.len)]
-		usr.client.create_hud()
-
-		usr.client.ouch = 0
+		usr.create_hud()
+		usr.ouch = 0
 
 		var/obj/item/clothing/uniform/ENG/E = new()
 		var/obj/item/clothing/shoes/BLACK/B_S = new()
 
-		E.wear_to_slot(src, usr.client.uniform_items, usr.client.U)
-		B_S.wear_to_slot(src, usr.client.foot_items, usr.client.F)
+		E.wear_to_slot(src, usr.uniform_items, usr.U)
+		B_S.wear_to_slot(src, usr.foot_items, usr.F)
 
-	if(href_list["prof"] == "security" && usr.client.ouch == 1)
+	if(href_list["prof"] == "security" && usr.ouch == 1)
 		usr.loc =security[rand(1,security.len)]
-		usr.client.create_hud()
-		usr.client.ouch = 0
+		usr.create_hud()
+		usr.ouch = 0
 
 		var/obj/item/clothing/uniform/BLACK/B = new()
 		var/obj/item/clothing/shoes/BLACK/B_S = new()
 
-		B.wear_to_slot(src, usr.client.uniform_items, usr.client.U)
-		B_S.wear_to_slot(src, usr.client.foot_items, usr.client.F)
+		B.wear_to_slot(src, usr.uniform_items, usr.U)
+		B_S.wear_to_slot(src, usr.foot_items, usr.F)
 
-	if(href_list["prof"] == "captain" && usr.client.ouch == 1)
+	if(href_list["prof"] == "captain" && usr.ouch == 1)
 		usr.loc =captain[rand(1,captain.len)]
-		usr.client.create_hud()
-		usr.client.ouch = 0
+		usr.create_hud()
+		usr.ouch = 0
 
 		var/obj/item/clothing/uniform/BLACK/B = new()
 		var/obj/item/clothing/shoes/BLACK/B_S = new()
 
-		B.wear_to_slot(src, usr.client.uniform_items, usr.client.U)
-		B_S.wear_to_slot(src, usr.client.foot_items, usr.client.F)
+		B.wear_to_slot(src, usr.uniform_items, usr.U)
+		B_S.wear_to_slot(src, usr.foot_items, usr.F)
 
-	if(href_list["prof"] == "doctor" && usr.client.ouch == 1)
+	if(href_list["prof"] == "doctor" && usr.ouch == 1)
 		usr.loc =doctor[rand(1,doctor.len)]
-		usr.client.create_hud()
-		usr.client.ouch = 0
+		usr.create_hud()
+		usr.ouch = 0
 
 		var/obj/item/clothing/uniform/BLACK/B = new()
 		var/obj/item/clothing/shoes/BLACK/B_S = new()
 
-		B.wear_to_slot(src, usr.client.uniform_items, usr.client.U)
-		B_S.wear_to_slot(src, usr.client.foot_items, usr.client.F)
+		B.wear_to_slot(src, usr.uniform_items, usr.U)
+		B_S.wear_to_slot(src, usr.foot_items, usr.F)
 
-	if(href_list["prof"] == "detective" && usr.client.ouch == 1)
+	if(href_list["prof"] == "detective" && usr.ouch == 1)
 		usr.loc =detective[rand(1,detective.len)]
-		usr.client.create_hud()
-		usr.client.ouch = 0
+		usr.create_hud()
+		usr.ouch = 0
 
 		var/obj/item/clothing/uniform/BLACK/B = new()
 		var/obj/item/clothing/shoes/BLACK/B_S = new()
 
-		B.wear_to_slot(src, usr.client.uniform_items, usr.client.U)
-		B_S.wear_to_slot(src, usr.client.foot_items, usr.client.F)
+		B.wear_to_slot(src, usr.uniform_items, usr.U)
+		B_S.wear_to_slot(src, usr.foot_items, usr.F)
 
-	if(href_list["prof"] == "bartender" && usr.client.ouch == 1)
+	if(href_list["prof"] == "bartender" && usr.ouch == 1)
 		usr.loc =bartender[rand(1,bartender.len)]
-		usr.client.create_hud()
-		usr.client.ouch = 0
+		usr.create_hud()
+		usr.ouch = 0
 
 		var/obj/item/clothing/uniform/BLACK/B = new()
 		var/obj/item/clothing/shoes/BLACK/B_S = new()
 
-		B.wear_to_slot(src, usr.client.uniform_items, usr.client.U)
-		B_S.wear_to_slot(src, usr.client.foot_items, usr.client.F)
+		B.wear_to_slot(src, usr.uniform_items, usr.U)
+		B_S.wear_to_slot(src, usr.foot_items, usr.F)
 
-	if(href_list["prof"] == "cook" && usr.client.ouch == 1)
+	if(href_list["prof"] == "cook" && usr.ouch == 1)
 		usr.loc =cook[rand(1,cook.len)]
-		usr.client.create_hud()
-		usr.client.ouch = 0
+		usr.create_hud()
+		usr.ouch = 0
 
 		var/obj/item/clothing/uniform/BLACK/B = new()
 		var/obj/item/clothing/shoes/BLACK/B_S = new()
 
-		B.wear_to_slot(src, usr.client.uniform_items, usr.client.U)
-		B_S.wear_to_slot(src, usr.client.foot_items, usr.client.F)
+		B.wear_to_slot(src, usr.uniform_items, usr.U)
+		B_S.wear_to_slot(src, usr.foot_items, usr.F)
 
-	if(href_list["prof"] == "CE" && usr.client.ouch == 1)
+	if(href_list["prof"] == "CE" && usr.ouch == 1)
 		usr.loc = CE[rand(1,CE.len)]
-		usr.client.create_hud()
+		usr.create_hud()
 
-		usr.client.ouch = 0
+		usr.ouch = 0
 
-	if(href_list["race"] == "niga" && usr.client.ouch == 1)
-		usr.client.mymcolor = "chocolate"
-		usr.client.time_to_change = 1
+	if(href_list["race"] == "niga" && usr.ouch == 1)
+		usr.mymcolor = "chocolate"
+		usr.time_to_change = 1
 		usr << "\blue please wait..."
 
-	if(href_list["race"] == "white" && usr.client.ouch == 1)
-		usr.client.mymcolor = "white"
-		usr.client.time_to_change = 1
+	if(href_list["race"] == "white" && usr.ouch == 1)
+		usr.mymcolor = "white"
+		usr.time_to_change = 1
 		usr << "\blue please wait..."
 
-	if(href_list["gend"] == "male" && usr.client.ouch == 1)
-		usr.client.mygender = 1
+	if(href_list["gend"] == "male" && usr.ouch == 1)
+		usr.mygender = 1
 		usr << "\blue please wait..."
-		usr.client.time_to_change = 1
+		usr.time_to_change = 1
 
-	if(href_list["gend"] == "female" && usr.client.ouch == 1)
-		usr.client.mygender = 0
-		usr.client.time_to_change = 1
+	if(href_list["gend"] == "female" && usr.ouch == 1)
+		usr.mygender = 0
+		usr.time_to_change = 1
 		usr << "\blue please wait..."
 
 /obj/machinery/chemdispenser/Topic(href,href_list[])

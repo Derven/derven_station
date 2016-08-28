@@ -264,7 +264,7 @@
 	</div> \
 	</body></html>"
 
-client
+/mob
 	var
 		mymcolor = "white"
 		mygender = 1
@@ -319,7 +319,7 @@ client
 	weight = 70
 	see_invisible = 0
 	var/my_key
-	var/sound/S
+	var/sound/SOU
 	var/lying = 0
 	var/stop = 0
 	var/state_of_health = "normal"
@@ -336,8 +336,8 @@ client
 	var/mcolor = 1
 	my_gend = 1
 	var/oldloc
-	var/my_weight
 	var/database/query/memory
+	ouch = 1
 
 	Stat()
 		statpanel("State")
@@ -346,7 +346,7 @@ client
 		stat("stamina(percents) - ", stamina)
 		stat("temperature(C°) - ", my_body_temp)
 		stat("oxygen(ALERT) - ", my_oxygen)
-		stat("ZONE - ", usr.client.zone)
+		stat("ZONE - ", usr.zone)
 		stat("pulse - ", pulse)
 		stat("chem - ", cur_val)
 		stat("blood - ", reagents.get_reagent_amount("blood"))
@@ -372,87 +372,68 @@ client
 
 	proc/lying()
 		stat |= LYING
-		usr.client.RST.icon_state = "rest1"
+		usr.RST.icon_state = "rest1"
 
 		for(var/obj/item/organs/O in organs)
 			overlays -= O
 			O.icon = 'icons/mob/human_lying.dmi'
 			overlays += O
 
-		if(usr.client.foot_items.len > 0)
-			var/obj/item/clothing/C = usr.client.foot_items[1]
+		if(usr.foot_items.len > 0)
+			var/obj/item/clothing/C = usr.foot_items[1]
 			C.lying_me(usr)
 
-		if(usr.client.head_items.len > 0)
-			var/obj/item/clothing/C = usr.client.head_items[1]
+		if(usr.head_items.len > 0)
+			var/obj/item/clothing/C = usr.head_items[1]
 			C.lying_me(usr)
 
-		if(usr.client.uniform_items.len > 0)
-			var/obj/item/clothing/C = usr.client.uniform_items[1]
+		if(usr.uniform_items.len > 0)
+			var/obj/item/clothing/C = usr.uniform_items[1]
 			C.lying_me(usr)
 
-		if(usr.client.clothing_items.len > 0)
-			var/obj/item/clothing/C = usr.client.clothing_items[1]
+		if(usr.clothing_items.len > 0)
+			var/obj/item/clothing/C = usr.clothing_items[1]
 			C.lying_me(usr)
 
 	proc/unlying()
 		stat &= ~LYING
-		usr.client.RST.icon_state = "rest0"
+		usr.RST.icon_state = "rest0"
 
 		for(var/obj/item/organs/O in organs)
 			overlays -= O
 			O.icon = 'icons/mob/human.dmi'
 			overlays += O
 
-		if(usr.client.foot_items.len > 0)
-			var/obj/item/clothing/C = usr.client.foot_items[1]
+		if(usr.foot_items.len > 0)
+			var/obj/item/clothing/C = usr.foot_items[1]
 			C.unlying_me(usr)
 
-		if(usr.client.head_items.len > 0)
-			var/obj/item/clothing/C = usr.client.head_items[1]
+		if(usr.head_items.len > 0)
+			var/obj/item/clothing/C = usr.head_items[1]
 			C.unlying_me(usr)
 
-		if(usr.client.uniform_items.len > 0)
-			var/obj/item/clothing/C = usr.client.uniform_items[1]
+		if(usr.uniform_items.len > 0)
+			var/obj/item/clothing/C = usr.uniform_items[1]
 			C.unlying_me(usr)
 
-		if(usr.client.clothing_items.len > 0)
-			var/obj/item/clothing/C = usr.client.clothing_items[1]
+		if(usr.clothing_items.len > 0)
+			var/obj/item/clothing/C = usr.clothing_items[1]
 			C.unlying_me(usr)
 
 /mob/human/process()
-	S = new()
-	S.file = 'sound/beep-02.ogg'
-	usr << S
+	SOU = new()
+	SOU.file = 'sound/beep-02.ogg'
+	usr << SOU
 	//var/FT = "data/chicken.epta"
 	//text2file("HELLO",FT)
-
-	objects += src
-	var/datum/reagents/R = new/datum/reagents(500)
-	reagents = R
-	R.my_atom = src
-	R.add_reagent("blood", 300)
 
 	spawn while(1)
 		//if(src == usr)
 		sleep(1)
 
-		if(usr.client.ouch == 0)
-			S.volume = 0
-			usr << S
-			my_key = ckey
-			usr.client.D.iam = src
-			if(usr.client.U.overlays.len == 0)
-				usr.client.uniform_items.Cut()
-
-			if(usr.client.C.overlays.len == 0)
-				usr.client.clothing_items.Cut()
-
-			if(usr.client.H.overlays.len == 0)
-				usr.client.head_items.Cut()
-
-			if(usr.client.F.overlays.len == 0)
-				usr.client.foot_items.Cut()
+		if(usr)
+			if(usr.ouch == 0)
+				my_key = ckey
 
 		//analyaze_me()
 
@@ -464,70 +445,71 @@ client
 		if(reagents) reagents.metabolize(src)
 
 		///***REAGENTS***///
-		if(usr.client.NUT)
-			if(reagents.get_reagent_amount("nutriments") > 1)
-				usr.client.NUT.icon_state = "nut1"
-			else
-				usr.client.NUT.icon_state = "nut2"
+		if(usr)
+			if(usr.NUT)
+				if(reagents.get_reagent_amount("nutriments") > 1)
+					usr.NUT.icon_state = "nut1"
+				else
+					usr.NUT.icon_state = "nut2"
 
-		organ_damage_calculate()
-		bloodloss()
-		blood_new()
-		for(var/obj/O in usr.contents)
-			usr.client.my_weight += O.weight
+			organ_damage_calculate()
+			bloodloss()
+			blood_new()
+			for(var/obj/O in usr.contents)
+				usr.my_weight += O.weight
 
-		if(usr.client.my_weight > usr.client.can_get)
-			stamina -= 2
+			if(usr.my_weight > usr.can_get)
+				stamina -= 2
 
-		usr.client.my_weight = 0
+			usr.my_weight = 0
 
-		if(usr.client.mygender == 1)
-			icon_state = "human"
-			//var/lleg = 0
-			//var/rleg = 0
-			//var/rarm = 0
-			//var/larm = 0
-			//var/chest = 0
-			//var/head = 0
+			if(usr.mygender == 1)
+				icon_state = "human"
+				//var/lleg = 0
+				//var/rleg = 0
+				//var/rarm = 0
+				//var/larm = 0
+				//var/chest = 0
+				//var/head = 0
 
 		sleep(1)
-		if(usr.client)
-			if(usr.client.time_to_change == 1)
-				if(usr.client.mygender == 0 && usr.client.mymcolor != "chocolate")
+		if(usr)
+			if(usr.time_to_change == 1)
+				if(usr.mygender == 0 && usr.mymcolor != "chocolate")
 					white_fem_overlay()
-					usr.client.time_to_change = 0
+					usr.time_to_change = 0
 					mcolor = 1
 					my_gend = 0
 
-				if(usr.client.mygender == 1 && usr.client.mymcolor != "chocolate")
+				if(usr.mygender == 1 && usr.mymcolor != "chocolate")
 					white_overlay()
-					usr.client.time_to_change = 0
+					usr.time_to_change = 0
 					mcolor = 1
 					my_gend = 1
 
-				if(usr.client.mygender == 1 && usr.client.mymcolor == "chocolate")
+				if(usr.mygender == 1 && usr.mymcolor == "chocolate")
 					black_overlay()
-					usr.client.time_to_change = 0
+					usr.time_to_change = 0
 					mcolor = 0
 					my_gend = 1
 
-				if(usr.client.mygender == 0 && usr.client.mymcolor == "chocolate")
+				if(usr.mygender == 0 && usr.mymcolor == "chocolate")
 					black_fem_overlay()
-					usr.client.time_to_change = 0
+					usr.time_to_change = 0
 					mcolor = 0
 					my_gend = 0
 
-		if(usr.client.mygender == 0)
-			icon_state = "human_f"
+			if(usr.mygender == 0)
+				icon_state = "human_f"
 
-		if(usr.client.mymcolor == "chocolate" && usr.client.mygender == 0)
-			icon_state = "human_black_f"
+			if(usr.mymcolor == "chocolate" && usr.mygender == 0)
+				icon_state = "human_black_f"
 
-		if(usr.client.mymcolor == "chocolate" && usr.client.mygender == 1)
-			icon_state = "human_black"
-		if(usr.client.r_int == "walk")
-			if(stamina < 100)
-				stamina += 1
+			if(usr.mymcolor == "chocolate" && usr.mygender == 1)
+				icon_state = "human_black"
+			if(usr.r_int == "walk")
+				if(stamina < 100)
+					stamina += 1
 		if(signal == 1)
 			return
 		pulse = rand(min_pulse, max_pulse)
@@ -539,47 +521,52 @@ client
 				if(T.cur_gas - F.cur_gas > 121) //при разнице в 121 газоединицу тащит за собой
 					Move(locate(F.x, F.y, F.z))
 		/*if(src == usr)
-			if(usr.client.ouch == 0)
-				if(usr.client.D.time_to_drop == 1)
-					usr.client.D.time_to_drop = 0
-					if(usr.client.hand == 1)
-						var/obj/item/I = usr.client.my_rhand_contents
+			if(usr.ouch == 0)
+				if(usr.D.time_to_drop == 1)
+					usr.D.time_to_drop = 0
+					if(usr.hand == 1)
+						var/obj/item/I = usr.my_rhand_contents
 						for(I in src)
 							I.Move(src.loc)
 
-						usr.client.my_rhand_contents = 0
-						usr.client.R.overlays.Cut()
-					if(usr.client.hand == 0)
-						var/obj/item/I = usr.client.my_lhand_contents
+						usr.my_rhand_contents = 0
+						usr.R.overlays.Cut()
+					if(usr.hand == 0)
+						var/obj/item/I = usr.my_lhand_contents
 						for(I in src)
 							I.Move(src.loc)
-						usr.client.my_lhand_contents = 0
-						usr.client.L.overlays.Cut()
+						usr.my_lhand_contents = 0
+						usr.L.overlays.Cut()
 */
 mob/human/Move()
 	if(!(stat & DEAD) && !(stat & BUCKLED) && !(stat & LYING) && !(stat & BROKEN_R_LEG) && !(stat & BROKEN_L_LEG) && !(stat & AMP_L_LEG) && !(stat & AMP_R_LEG))
 		..()
-		if(usr.client.PULL)
-			usr.client.PULL.icon_state = "pull0"
+		if(usr.PULL)
+			usr.PULL.icon_state = "pull0"
 
 		for(var/obj/A in range(2,usr))
 			if(A.pull == 1 && A.puller == usr)
-				if(usr.client.PULL)
-					usr.client.PULL.icon_state = "pull1"
+				if(usr.PULL)
+					usr.PULL.icon_state = "pull1"
 				A.Move(oldloc)
 
-		if(usr.client.r_int == "walk")
+		if(usr.r_int == "walk")
 			step_size = 32
 			//see_in_night()
 		oldloc = usr.loc
 
 mob/human/proc/start_game()
-	usr.client.ouch = 1
+	usr.ouch = 1
 	return ..()
 
 /mob/human/New()
 	html_me()
 	white_overlay()
+	objects += src
+	var/datum/reagents/R = new/datum/reagents(500)
+	reagents = R
+	R.my_atom = src
+	R.add_reagent("blood", 300)
 
 	if(src == usr)
 		sleep(0.1)
@@ -592,7 +579,7 @@ mob/human/proc/start_game()
 		process()
 
 /mob
-	var/obj/screen/DARK/D
+	var/obj/screen/DARK/DARK
 
 /obj/screen/DARK
 	icon = 'icons/mob/big_overlay.dmi'
@@ -612,53 +599,58 @@ mob/human/proc/start_game()
 	M.client.screen -= src
 
 /mob/human/act()
-	if(usr.client.act == "harm")
-		if(usr.client.foul_blow == "eye")
+	if(usr.act == "harm")
+		if(usr.foul_blow == "eye")
 			eye_attack(usr)
-		if(usr.client.foul_blow == "stomach")
+		if(usr.foul_blow == "stomach")
 			stomach_attack(usr)
-		if(usr.client.foul_blow == "groin")
+		if(usr.foul_blow == "groin")
 			groin_attack(usr)
-		usr.client.foul_blow = "no"
-		usr.client.EY.icon_state = "foul_blow_eyes"
-		usr.client.ST.icon_state = "foul_blow_stomach"
-		usr.client.GR.icon_state = "foul_blow_groin"
+		usr.foul_blow = "no"
+		usr.EY.icon_state = "foul_blow_eyes"
+		usr.ST.icon_state = "foul_blow_stomach"
+		usr.GR.icon_state = "foul_blow_groin"
 		message_for_mobs(5, pick('punch_1.ogg','punch_2.ogg'))
 		shake_me(client, 5)
-		if(usr.client.zone == "chest")
+		if(usr.zone == "chest")
 			for(var/obj/item/organs/chest/O in src)
 				usr << "\red You hit [src]!"
 				src << "\red [usr] hit you!"
 				O.hit_points -= 1
 
-		if(usr.client.zone == "head")
+		if(usr.zone == "head")
 			for(var/obj/item/organs/head/O in src)
 				usr << "\red You hit [src]!"
 				src << "\red [usr] hit you!"
 				O.hit_points -= 1
 
-		if(usr.client.zone == "r_leg")
+		if(usr.zone == "r_leg")
 			for(var/obj/item/organs/r_leg/O in src)
 				usr << "\red You hit [src]!"
 				src << "\red [usr] hit you!"
 				O.hit_points -= 1
 
 
-		if(usr.client.zone == "l_leg")
+		if(usr.zone == "l_leg")
 			for(var/obj/item/organs/l_leg/O in src)
 				usr << "\red You hit [src]!"
 				src << "\red [usr] hit you!"
 				O.hit_points -= 1
 
-		if(usr.client.zone == "l_arm")
+		if(usr.zone == "l_arm")
 			for(var/obj/item/organs/l_arm/O in src)
 				usr << "\red You hit [src]!"
 				src << "\red [usr] hit you!"
 				O.hit_points -= 1
 
 
-		if(usr.client.zone == "r_arm")
+		if(usr.zone == "r_arm")
 			for(var/obj/item/organs/r_arm/O in src)
 				usr << "\red You hit [src]!"
 				src << "\red [usr] hit you!"
 				O.hit_points -= 1
+
+/mob/human/Login()
+	if(usr.ouch == 0)
+		create_hud()
+		draw_hud_item()

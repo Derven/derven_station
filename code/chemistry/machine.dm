@@ -55,19 +55,19 @@
 /obj/machinery/chemdispenser/act_by_item(var/obj/item/I)
 	if(istype(I,/obj/item/weapon/reagent_containers/glass))
 		if(contents.len == 0)
-			if(usr.client.my_hand_active == "left")
-				if(istype(I, usr.client.lhand_items[1]))
+			if(usr.my_hand_active == "left")
+				if(istype(I, usr.lhand_items[1]))
 					I.Move(src)
 					usr << "\bold You inserts [I] in [src]"
-					usr.client.L.overlays.Cut()
-					usr.client.lhand_items.Cut()
+					usr.L.overlays.Cut()
+					usr.lhand_items.Cut()
 
-			if(usr.client.my_hand_active == "right")
-				if(istype(I, usr.client.rhand_items[1]))
+			if(usr.my_hand_active == "right")
+				if(istype(I, usr.rhand_items[1]))
 					I.Move(src)
 					usr << "\bold You inserts [I] in [src]"
-					usr.client.R.overlays.Cut()
-					usr.client.rhand_items.Cut()
+					usr.R.overlays.Cut()
+					usr.rhand_items.Cut()
 		else
 			usr << "\red it is busy"
 
@@ -80,19 +80,19 @@
 /obj/machinery/juicer/act_by_item(var/obj/item/I)
 	if(istype(I,/obj/item/weapon/reagent_containers))
 		for(I in usr.contents)
-			if(usr.client.my_hand_active == "left")
-				if(istype(I, usr.client.lhand_items[1]))
+			if(usr.my_hand_active == "left")
+				if(istype(I, usr.lhand_items[1]))
 					I.Move(src)
 					usr << "\bold You inserts [I] in [src]"
-					usr.client.L.overlays.Cut()
-					usr.client.lhand_items.Cut()
+					usr.L.overlays.Cut()
+					usr.lhand_items.Cut()
 
-			if(usr.client.my_hand_active == "right")
-				if(istype(I, usr.client.rhand_items[1]))
+			if(usr.my_hand_active == "right")
+				if(istype(I, usr.rhand_items[1]))
 					I.Move(src)
 					usr << "\bold You inserts [I] in [src]"
-					usr.client.R.overlays.Cut()
-					usr.client.rhand_items.Cut()
+					usr.R.overlays.Cut()
+					usr.rhand_items.Cut()
 
 /obj/machinery/juicer/act()
 	var/obj/item/weapon/reagent_containers/glass/stakan = new()

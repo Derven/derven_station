@@ -18,12 +18,12 @@
 			lying()
 			stat |= DEAD
 			usr << 'sound/death.ogg'
-			var/mob/ghost/G = new(src.loc)
-			G.client = client
+			var/mob/ghost/GHOST = new(src.loc)
+			GHOST.client = client
 			src << "<b>Goodbye...</b>"
 	Del()
-		var/mob/ghost/G = new(src.loc)
-		G.client = client
+		var/mob/ghost/GHOST = new(src.loc)
+		GHOST.client = client
 		..()
 
 	proc/blood_new() //blood reproduction

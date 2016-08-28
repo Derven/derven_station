@@ -63,7 +63,7 @@ var/list/directions = list(EAST, WEST, SOUTH, NORTH, SOUTHWEST, NORTHWEST, SOUTH
 	opacity = 0
 	pass_gas = 1
 	pass = 1
-	layer = 7
+	layer = 5
 
 /obj/structure/flora
 	icon = 'icons/effects/flora.dmi'
@@ -280,20 +280,20 @@ var/list/directions = list(EAST, WEST, SOUTH, NORTH, SOUTHWEST, NORTHWEST, SOUTH
 
 	act_by_item(var/obj/item/I)
 		for(I in usr.contents)
-			if(usr.client.my_hand_active == "left")
-				if(istype(I, usr.client.lhand_items[1]))
+			if(usr.my_hand_active == "left")
+				if(istype(I, usr.lhand_items[1]))
 					I.Move(src.loc)
 					usr << "\bold You put [I] on [src]"
-					usr.client.L.overlays.Cut()
-					usr.client.lhand_items.Cut()
+					usr.L.overlays.Cut()
+					usr.lhand_items.Cut()
 
-			if(usr.client.my_hand_active == "right")
-				if(istype(I, usr.client.rhand_items[1]))
+			if(usr.my_hand_active == "right")
+				if(istype(I, usr.rhand_items[1]))
 					I.Move(src.loc)
 					usr << "\bold You put [I] on [src]"
 
-					usr.client.R.overlays.Cut()
-					usr.client.rhand_items.Cut()
+					usr.R.overlays.Cut()
+					usr.rhand_items.Cut()
 
 /obj/structure/table/surgery
 	icon = 'icons/obj/surgery.dmi'
@@ -369,35 +369,35 @@ var/list/directions = list(EAST, WEST, SOUTH, NORTH, SOUTHWEST, NORTHWEST, SOUTH
 		PUT(I, usr)
 /*
 		for(I in usr.contents)
-			if(usr.client.my_hand_active == "left")
-				if(istype(I, usr.client.lhand_items[1]))
+			if(usr.my_hand_active == "left")
+				if(istype(I, usr.lhand_items[1]))
 					I.Move(src)
 					usr << "\bold You put [I] in [src]"
-					usr.client.L.overlays.Cut()
-					usr.client.lhand_items.Cut()
+					usr.L.overlays.Cut()
+					usr.lhand_items.Cut()
 
-			if(usr.client.my_hand_active == "right")
-				if(istype(I, usr.client.rhand_items[1]))
+			if(usr.my_hand_active == "right")
+				if(istype(I, usr.rhand_items[1]))
 					I.Move(src)
 					usr << "\bold You put [I] in [src]"
-					usr.client.R.overlays.Cut()
-					usr.client.rhand_items.Cut()
+					usr.R.overlays.Cut()
+					usr.rhand_items.Cut()
 */
 /obj/proc/PUT(var/obj/item/I, var/mob/usr)
 	for(I in usr.contents)
-		if(usr.client.my_hand_active == "left")
-			if(istype(I, usr.client.lhand_items[1]))
+		if(usr.my_hand_active == "left")
+			if(istype(I, usr.lhand_items[1]))
 				I.Move(src)
 				usr << "\bold You put [I] in [src]"
-				usr.client.L.overlays.Cut()
-				usr.client.lhand_items.Cut()
+				usr.L.overlays.Cut()
+				usr.lhand_items.Cut()
 
-		if(usr.client.my_hand_active == "right")
-			if(istype(I, usr.client.rhand_items[1]))
+		if(usr.my_hand_active == "right")
+			if(istype(I, usr.rhand_items[1]))
 				I.Move(src)
 				usr << "\bold You put [I] in [src]"
-				usr.client.R.overlays.Cut()
-				usr.client.rhand_items.Cut()
+				usr.R.overlays.Cut()
+				usr.rhand_items.Cut()
 
 /obj/structure/closet/library
 	icon = 'icons/obj/library.dmi'
@@ -422,21 +422,21 @@ var/list/directions = list(EAST, WEST, SOUTH, NORTH, SOUTHWEST, NORTHWEST, SOUTH
 	act_by_item(var/obj/item/I)
 		for(I in usr.contents)
 			if(istype(I, /obj/item/book))
-				if(usr.client.my_hand_active == "left")
-					if(istype(I, usr.client.lhand_items[1]))
+				if(usr.my_hand_active == "left")
+					if(istype(I, usr.lhand_items[1]))
 						I.Move(src)
 						icon_state = "book-1"
 						usr << "\bold You put [I] in [src]"
-						usr.client.L.overlays.Cut()
-						usr.client.lhand_items.Cut()
+						usr.L.overlays.Cut()
+						usr.lhand_items.Cut()
 
-				if(usr.client.my_hand_active == "right")
-					if(istype(I, usr.client.rhand_items[1]))
+				if(usr.my_hand_active == "right")
+					if(istype(I, usr.rhand_items[1]))
 						I.Move(src)
 						icon_state = "book-1"
 						usr << "\bold You put [I] in [src]"
-						usr.client.R.overlays.Cut()
-						usr.client.rhand_items.Cut()
+						usr.R.overlays.Cut()
+						usr.rhand_items.Cut()
 
 /obj/structure/closet/sec_1
 	icon_state = "sec_closed"

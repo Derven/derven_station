@@ -107,7 +107,7 @@ dmm_suite{
 					}
 				}
 			for(var/mob/M in model.contents){
-				if(M.client){
+				if(M){
 					if(!(flags & DMM_IGNORE_PLAYERS)){
 						mob_template += "[M.type][check_attributes(M)],"
 						}

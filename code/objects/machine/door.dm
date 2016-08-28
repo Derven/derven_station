@@ -92,6 +92,7 @@ var/global/list/doors = list()
 	use_power = 1
 	var/close = 1
 	pass_gas = 1
+	layer = 6
 
 /obj/machinery/firedoor/check()
 	var/say_chance = pick(0,200)

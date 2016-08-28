@@ -59,7 +59,7 @@ var/global/list/inners_outers = list()
 	if(oxygen[x][y] > 5)
 
 		oxygen[x][y] -= 1
-		plas += 1
+		oxy += 1
 		if(windoors_on_turf[x-1][y] == 0)
 			if(oxygen[x][y] > 5)
 				oxygen[x-1][y] -= 1

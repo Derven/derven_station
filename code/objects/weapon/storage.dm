@@ -96,7 +96,7 @@
 
 /obj/item/weapon/storage/proc/hide_from(mob/user as mob)
 
-	if(!user.client)
+	if(!user)
 		return
 	user.client.screen -= src.boxes
 	user.client.screen -= src.closer

@@ -30,7 +30,7 @@
 	medical_power = 10
 
 	act_self()
-		usr.client.can_get += 10
+		usr.can_get += 10
 		usr << "\blue <b>You feel the power!</b>"
 		del_from_hand()
 
