@@ -18,9 +18,12 @@
 			lying()
 			stat |= DEAD
 			usr << 'sound/death.ogg'
-			var/mob/ghost/GHOST = new(src.loc)
-			GHOST.client = client
 			src << "<b>Goodbye...</b>"
+			if(usr && client)
+				usr.clear_hud()
+			if(client)
+				var/mob/ghost/GHOST = new(src.loc)
+				GHOST.client = client
 	Del()
 		var/mob/ghost/GHOST = new(src.loc)
 		GHOST.client = client

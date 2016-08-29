@@ -210,10 +210,15 @@
 							usr << 'sound/death.ogg'
 							lying()
 							drop_all()
-							var/mob/ghost/GHOST = new(src.loc)
-							GHOST.client = client
 							stat |= DEAD
 							H.Move(src.loc)
+							if(usr && client)
+								usr.clear_hud()
+							if(client)
+								var/mob/ghost/GHOST = new(src.loc)
+								GHOST.client = client
+
+
 
 			if(usr.zone == "head")
 				for(var/obj/item/organs/head/O in src)
@@ -229,10 +234,15 @@
 							usr << 'sound/death.ogg'
 							lying()
 							drop_all()
-							var/mob/ghost/GHOST = new(src.loc)
-							GHOST.client = client
 							stat |= DEAD
 							B.Move(src.loc)
+							if(usr && client)
+								usr.clear_hud()
+							if(client)
+								var/mob/ghost/GHOST = new(src.loc)
+								GHOST.client = client
+
+
 
 			if(usr.zone == "r_leg")
 				for(var/obj/item/organs/r_leg/O in src)

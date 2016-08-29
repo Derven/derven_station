@@ -1,19 +1,19 @@
 // BEGIN_INTERNALS
 /*
-LAST_COMPILE_TIME: 1472415690
-DIR: code code\area code\chemistry code\food code\GAS code\hydroponics code\luna code\mob code\mob\food&drinks code\obj code\obj\effects code\obj\other code\obj\structure code\objects code\objects\machine code\objects\weapon code\other code\physics_plus icons icons\mob icons\obj icons\obj\item map 
+LAST_COMPILE_TIME: 1472473844
 PACKAGE_RSC_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_station\base_build_rsc.zip
+DIR: code code\area code\chemistry code\food code\GAS code\hydroponics code\luna code\mob code\mob\food&drinks code\obj code\obj\effects code\obj\other code\obj\structure code\objects code\objects\machine code\objects\weapon code\other code\physics_plus icons icons\obj map 
 AUTO_FILE_DIR: ON
 PACKAGE_DMB_INFO: 
 MAP_ICON_TYPE: 0
 PACKAGE_DME_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_station\base_build_src.zip
 LAST_COMPILE_VERSION: 510.1345
-PACKAGE_TYPE: 0
 PACKAGE_DME_START: 
-WINDOW: code\mob\food&drinks\syringe.dm;code\mob\new_hud.dm;code\mob\human.dm;map\TGSTATION 2.0.8.dmm;code\mob\clothes.dm;icons\obj\clothing.dmi;code\mob\new_clothing.dm;code\other\topic.dm;code\mob\new_interact.dm
+PACKAGE_TYPE: 0
+WINDOW: code\mob\food&drinks\syringe.dm;code\mob\new_hud.dm;code\mob\human.dm;map\TGSTATION 2.0.8.dmm;code\mob\clothes.dm;icons\obj\clothing.dmi;code\GAS\inner.dm;code\GAS\GAS.dm;code\mob\say.dm;code\mob\damage.dm;code\mob\battle.dm;code\mob\farm.dm;code\mob\life.dm;code\mob\item_attacks.dm;code\hydroponics\main.dm;code\mob\organs.dm
 PACKAGE_DME_INFO: 
-FILE: code\mob\new_hud.dm
-PACKAGE_DMB_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_station\base_build.zip
+FILE: code\mob\item_attacks.dm
 PACKAGE_DME_DEMO: 
+PACKAGE_DMB_NAME: C:\Users\HP-computer\Desktop\Dervenbay Evolution\derven_station\base_build.zip
 */
 // END_INTERNALS

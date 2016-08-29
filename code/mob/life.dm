@@ -70,10 +70,13 @@
 		usr << 'sound/death.ogg'
 		usr << "You are dead."
 
-		var/mob/ghost/GHOST = new(src.loc)
-		GHOST.client = client
+		if(usr && client)
+			usr.clear_hud()
 		lying()
 		stat |= DEAD
+		if(client)
+			var/mob/ghost/GHOST = new(src.loc)
+			GHOST.client = client
 
 	if(my_body_temp < -30 || my_body_temp > 100)
 		for(var/obj/item/organs/O in src)
@@ -95,9 +98,12 @@
 
 			lying()
 			drop_all()
-			var/mob/ghost/GHOST = new(src.loc)
-			GHOST.client = client
+			if(usr && client)
+				usr.clear_hud()
 			stat |= DEAD
+			if(client)
+				var/mob/ghost/GHOST = new(src.loc)
+				GHOST.client = client
 
 	if(pulse > 120)
 		var/chance = rand(0,120)
@@ -107,21 +113,28 @@
 
 			lying()
 			drop_all()
-			var/mob/ghost/GHOST = new(src.loc)
-			GHOST.client = client
+			if(usr && client)
+				usr.clear_hud()
 			stat |= DEAD
+			if(client)
+				var/mob/ghost/GHOST = new(src.loc)
+				GHOST.client = client
 
 	if(pulse > 150)
 		var/chance = rand(0,120)
 		if(chance < 6)
 			usr << "\red <font size = 5>Heart is stopped</font>"
 			usr << 'sound/death.ogg'
-
 			lying()
 			drop_all()
-			var/mob/ghost/GHOST = new(src.loc)
-			GHOST.client = client
+			if(usr && client)
+				usr.clear_hud()
+
+
 			stat |= DEAD
+			if(client)
+				var/mob/ghost/GHOST = new(src.loc)
+				GHOST.client = client
 
 	for(var/obj/item/organs/head/H in src)
 		var/obj/item/organs/brain/B = H.inner_organ
@@ -130,9 +143,13 @@
 			usr << 'sound/death.ogg'
 			lying()
 			drop_all()
-			var/mob/ghost/GHOST = new(src.loc)
-			GHOST.client = client
+			if(usr && client)
+				usr.clear_hud()
+
 			stat |= DEAD
+			if(client)
+				var/mob/ghost/GHOST = new(src.loc)
+				GHOST.client = client
 
 	for(var/obj/item/organs/chest/C in src)
 		var/obj/item/organs/heart/H = C.inner_organ
@@ -141,6 +158,9 @@
 			usr << 'sound/death.ogg'
 			lying()
 			drop_all()
-			var/mob/ghost/GHOST = new(src.loc)
-			GHOST.client = client
+			if(usr && client)
+				usr.clear_hud()
 			stat |= DEAD
+			if(client)
+				var/mob/ghost/GHOST = new(src.loc)
+				GHOST.client = client
