@@ -778,51 +778,52 @@ obj
 		TOX = new(usr.client)
 
 	proc/clear_hud()
-		usr.client.screen -= HC
-		usr.client.screen -= HH
-		usr.client.screen -= HG
-		usr.client.screen -= HRL
-		usr.client.screen -= HLL
-		usr.client.screen -= HRA
-		usr.client.screen -= HLA
+		if(ouch == 0)
+			usr.client.screen -= HC
+			usr.client.screen -= HH
+			usr.client.screen -= HG
+			usr.client.screen -= HRL
+			usr.client.screen -= HLL
+			usr.client.screen -= HRA
+			usr.client.screen -= HLA
 
-		usr.client.screen -= TEMP
-		usr.client.screen -= HEALTH
-		usr.client.screen -= ALERT
+			usr.client.screen -= TEMP
+			usr.client.screen -= HEALTH
+			usr.client.screen -= ALERT
 
-		usr.client.screen -= L
-		usr.client.screen -= L.C
+			usr.client.screen -= L
+			usr.client.screen -= L.C
 
-		usr.client.screen -= R
-		usr.client.screen -= R.C
-		usr.client.screen -= D
+			usr.client.screen -= R
+			usr.client.screen -= R.C
+			usr.client.screen -= D
 
-		usr.client.screen -= C
-		usr.client.screen -= H
-		usr.client.screen -= G
-		usr.client.screen -= F
-		usr.client.screen -= M
-		usr.client.screen -= E
-		usr.client.screen -= U
+			usr.client.screen -= C
+			usr.client.screen -= H
+			usr.client.screen -= G
+			usr.client.screen -= F
+			usr.client.screen -= M
+			usr.client.screen -= E
+			usr.client.screen -= U
 
-		usr.client.screen -= S
-		usr.client.screen -= S1
-		usr.client.screen -= S2
-		usr.client.screen -= S3
+			usr.client.screen -= S
+			usr.client.screen -= S1
+			usr.client.screen -= S2
+			usr.client.screen -= S3
 
-		usr.client.screen -= ACT
-		usr.client.screen -= RUN
+			usr.client.screen -= ACT
+			usr.client.screen -= RUN
 
-		usr.client.screen -= ST
-		usr.client.screen -= EY
-		usr.client.screen -= GR
-		usr.client.screen -= RST
-		usr.client.screen -= TI
+			usr.client.screen -= ST
+			usr.client.screen -= EY
+			usr.client.screen -= GR
+			usr.client.screen -= RST
+			usr.client.screen -= TI
 
-		usr.client.screen -= INTERN
-		usr.client.screen -= PULL
-		usr.client.screen -= NUT
-		usr.client.screen -= TOX
+			usr.client.screen -= INTERN
+			usr.client.screen -= PULL
+			usr.client.screen -= NUT
+			usr.client.screen -= TOX
 
 	proc/draw_item_hand(var/hand, var/obj/item/I)
 		if(my_hand_active == "left")

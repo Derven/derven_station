@@ -372,7 +372,8 @@
 
 	proc/lying()
 		stat |= LYING
-		usr.RST.icon_state = "rest1"
+		if(ouch == 0)
+			usr.RST.icon_state = "rest1"
 
 		for(var/obj/item/organs/O in organs)
 			overlays -= O
